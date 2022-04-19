@@ -8,5 +8,5 @@ Bootstrap 5 selbst wird nicht mitinstalliert, und kann von Entwicklern händisch
 
 ## Credits
 
-Alexander Walther für Fragmente, Module und Templates
-Norbert Micheel für das passende YForm Bootstrap Template
+* Alexander Walther für Fragmente, Module und Templates
+* Norbert Micheel für das passende YForm Bootstrap Template
