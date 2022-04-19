@@ -1,0 +1,13 @@
+package: plus_bs5
+version: '0.0.3'
+author: Alexander Walther
+supportpage: https://www.alexplus.de
+
+requires:
+    php:
+        version: ">7.3"
+    redaxo: ^5.12
+    packages:
+        mediapool: ">=2"
+        media_manager: ">=2"
+        yrewrite_metainfo: "^1"
