@@ -11,3 +11,15 @@ requires:
         mediapool: ">=2"
         media_manager: ">=2"
         yrewrite_metainfo: "^1"
+
+page:
+    title: Bootstrap 5
+    perm: admin
+
+pages:
+    plus_bs5/settings:
+        title: translate:Einstellungen
+        perm: admin
+
+config:
+    vendor: "cdn"

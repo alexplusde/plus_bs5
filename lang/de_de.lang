@@ -2,3 +2,11 @@ bs5-install-qanda = Hinweis: Das Addon <code>qanda</code> (Fragen & Antworten) w
 
 plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
 plus_bs5_donate = Weiterentwicklung unterstützen 
+
+
+
+plus_bs5_vendor_label = Assets-Quelle
+plus_bs5_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5 eingebunden werden?
+plus_bs5_vendor_disabled = deaktiviert, Bootstrap 5 wird selbständig inkludiert.
+plus_bs5_vendor_local = lokal, benutze Bootstrap 5 in der Version dieses Addons (noch nicht verfügbar).
+plus_bs5_vendor_cdn = CDN, lade Bootstrap 5 von <code>cdn.jsdelivr.net</code> (Auswirkungen auf DSGVO beachten!).

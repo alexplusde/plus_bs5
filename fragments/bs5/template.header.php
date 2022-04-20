@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row py-3 align-items-center">
-            <div class="col-6 col-lg-3 bg-white"><a class="logo" href="/" title=""><?= rex_media_plus::get("msg-logo.svg")->getImg();?></a>
+            <div class="col-6 col-lg-3 bg-white"><a class="d-block logo" href="/" title=""><?= rex_media_plus::get("msg-logo.svg")->getImg();?></a>
             </div>
             <div class="d-lg-block col-3 col-lg-9">
                 <nav id="navbar_main" class="mobile-offcanvas nav-main navbar navbar-expand-lg bg-white">
