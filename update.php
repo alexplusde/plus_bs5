@@ -1,4 +1,4 @@
 <?php
 
-bs5::syncModule();
-bs5::syncTemplate();
+bs5::updateModule();
+bs5::updateTemplate();
