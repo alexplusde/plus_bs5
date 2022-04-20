@@ -26,7 +26,7 @@ class bs5
     }
     public static function writeModule()
     {
-        $modules = rex_sql::factory()->setDebug(0)->getArray("SELECT * FROM rex_module WHERE `key` LIKE '%bs5_%'");
+        $modules = rex_sql::factory()->setDebug(0)->getArray("SELECT * FROM rex_module WHERE `key` LIKE 'bs5_%'");
 
         foreach ($modules as $module) {
             rex_file::put(rex_path::addon("plus_bs5", "module/".$module['key'].".json"), json_encode($module));
@@ -35,7 +35,7 @@ class bs5
 
     public static function writeTemplate()
     {
-        $templates = rex_sql::factory()->setDebug(0)->getArray("SELECT * FROM rex_template WHERE `key` LIKE '%bs5_%'");
+        $templates = rex_sql::factory()->setDebug(0)->getArray("SELECT * FROM rex_template WHERE `key` LIKE 'bs5_%'");
 
         foreach ($templates as $template) {
             rex_file::put(rex_path::addon("plus_bs5", "template/".$template['key'].".json"), json_encode($template));
@@ -52,9 +52,9 @@ class bs5
             $template_array = json_decode(rex_file::get(rex_path::addon('plus_bs5').'template/'.$template), 1);
 
             rex_sql::factory()->setDebug(0)->setTable('rex_template')
-    ->setValue('name', $module_array['name'])
-    ->setValue('key', $module_array['key'])
-    ->setValue('content', $module_array['content'])
+    ->setValue('name', $template_array['name'])
+    ->setValue('key', $template_array['key'])
+    ->setValue('content', $template_array['content'])
     ->setValue('createuser', 'plus_bs5')
     ->setValue('updateuser', 'plus_bs5')
     ->setValue('createdate', date('Y-m-d H:i:s'))
