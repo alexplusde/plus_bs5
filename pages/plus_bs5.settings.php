@@ -13,6 +13,14 @@ $select->addOption($this->i18n('plus_bs5_vendor_disabled'), 'disabled');
 $select->addOption($this->i18n('plus_bs5_vendor_local'), 'local');
 $select->addOption($this->i18n('plus_bs5_vendor_cdn'), 'cdn');
 
+$field = $form->addInputField('text', 'editor', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('plus_bs5_editor'));
+$field->setNotice('z.B. <code>class="form-control cke5-editor" data-lang="de" data-profile="default"</code>');
+
+$field = $form->addInputField('text', 'container_class', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('plus_bs5_container_class'));
+$field->setNotice('z.B. <code>shadow</code>');
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $this->i18n('plus_bs5_settings'), false);

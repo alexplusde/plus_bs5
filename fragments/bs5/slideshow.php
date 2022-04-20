@@ -5,7 +5,8 @@ $images = explode(",", $this->getVar('images'));
 ?>
 
 <section class="bs5_gallery">
-    <div class="container p-0">
+    <div
+        class="container <?= rex_config::get("plus_bs5", "container_class") ?>">
         <div id="carousel-REX_SLICE_ID" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
 

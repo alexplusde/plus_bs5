@@ -1,5 +1,5 @@
 
-<main id="content" class="content">
+<main id="content" class="content min-vh-100">
 <?php if (rex_article::getCurrent()->getValue('art_intro') == '|1|') {
     $output = new bs5_fragment();
 

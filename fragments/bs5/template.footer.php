@@ -1,4 +1,5 @@
-<footer class="pt-5 bg-white">
+<div class="p-5"></div>
+<footer class="pt-5 bg-white shadow">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
