@@ -5,6 +5,6 @@ if (\rex_addon::get('yform') && \rex_addon::get('yform')->isAvailable()) {
 }
 
 if (rex::isBackend() && rex::isDebugMode()) {
-    bs5::writeModule();
-    bs5::writeTemplate();
+    // bs5::writeModule();
+    // bs5::writeTemplate();
 }

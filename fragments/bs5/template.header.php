@@ -18,8 +18,7 @@
                         <button class="btn-close float-end"></button>
                     </div>
                     <div class=" navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav nav w-100 justify-content-end">
-                            <?= bs5_template::getNav(); ?>
+                        <?= bs5_navigation::getNav(rex_config::get('plus_bs5', 'nav_depth', 1)); ?>
                     </div>
                 </nav>
             </div>

@@ -14,12 +14,33 @@ requires:
 
 page:
     title: Bootstrap 5
-    perm: admin
+    perm: plus_bs5
 
 pages:
     plus_bs5/settings:
-        title: translate:Einstellungen
-        perm: admin
+        title: translate:plus_bs5_settings
+        perm: plus_bs5
+    plus_bs5/settings/intro:
+        title: translate:plus_bs5_settings_intro
+        perm: plus_bs5
+    plus_bs5/settings/header:
+        title: translate:plus_bs5_settings_header
+        perm: plus_bs5
+    plus_bs5/settings/module:
+        title: translate:plus_bs5_settings_module
+        perm: plus_bs5
+    plus_bs5/settings/footer:
+        title: translate:plus_bs5_settings_footer
+        perm: plus_bs5
+    plus_bs5/settings/emails:
+        title: translate:plus_bs5_settings_emails
+        perm: plus_bs5
+    plus_bs5/settings/legal:
+        title: translate:plus_bs5_settings_legal
+        perm: plus_bs5
 
 config:
     vendor: "cdn"
+    editor: "redactor-editor--text"
+    container_class: "p-3 shadow bg-white"
+    nav_depth: 1

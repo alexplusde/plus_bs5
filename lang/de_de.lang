@@ -7,6 +7,14 @@ plus_bs5_donate = Weiterentwicklung unterstützen
 
 plus_bs5_vendor_label = Assets-Quelle
 plus_bs5_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5 eingebunden werden?
-plus_bs5_vendor_disabled = deaktiviert, Bootstrap 5 wird selbständig inkludiert.
-plus_bs5_vendor_local = lokal, benutze Bootstrap 5 in der Version dieses Addons (noch nicht verfügbar).
-plus_bs5_vendor_cdn = CDN, lade Bootstrap 5 von <code>cdn.jsdelivr.net</code> (Auswirkungen auf DSGVO beachten!).
+plus_bs5_vendor_disabled = deaktiviert: Bootstrap 5 wird selbständig inkludiert.
+plus_bs5_vendor_local = lokal: Verwendet Bootstrap 5, wie es dem Addon beiliegt.
+plus_bs5_vendor_cdn = CDN: Lädt Bootstrap 5 von cdn.jsdelivr.net (Auswirkungen auf DSGVO beachten!).
+
+plus_bs5_settings = Einstellungen
+plus_bs5_settings_header = Kopfzeile
+plus_bs5_settings_footer = Fußzeile
+plus_bs5_settings_intro = Standard
+plus_bs5_settings_legal = Rechtliches
+plus_bs5_settings_module = Blöcke
+plus_bs5_settings_emails = E-Mail-Signatur
