@@ -44,3 +44,4 @@ config:
     editor: "redactor-editor--text"
     container_class: "p-3 shadow bg-white"
     nav_depth: 1
+    dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben
