@@ -24,8 +24,11 @@
 <link rel="stylesheet" href="/assets/addons/plus_bs5/font/bootstrap-icons.css" crossorigin="anonymous">
 <?php } else {
         ?>
-<link rel="stylesheet" href="/assets/styles/style.css">
-<script type="text/javascript" src="/assets/scripts/script.js" async></script>
+<link rel="stylesheet"
+    href="<?= bs5_template::getAssetUrl('styles/style.css') ?>">
+<script type="text/javascript"
+    src="<?= bs5_template::getAssetUrl('scripts/script.js') ?>"
+    async></script>
 
 <?php
     }
