@@ -38,9 +38,9 @@ $attributes = $this->getAttributeElements($attributes, ['required', 'disabled', 
 <div class="mb-3">
     <div class="<?= $class_group ?>">
         <input class="form-check-input"
-            id="<?php echo $this->getHTMLId() ?>" <?= implode(' ', $attributes) ?>>
+               id="<?php echo $this->getHTMLId() ?>" <?= implode(' ', $attributes) ?>>
         <label class="form-check-label"
-            for="<?php echo $this->getHTMLId() ?>">
+               for="<?php echo $this->getHTMLId() ?>">
             <?php echo $this->getLabel() ?>
         </label>
         <?php echo $notice; ?>

@@ -8,22 +8,22 @@
  */
 
 $notices = [];
-if ($this->getElement('notice')) {
-    $notices[] = rex_i18n::translate($this->getElement('notice'), false);
+if ('' != sprogdown($this->getElement('notice'))) {
+    $notices[] = rex_i18n::translate(sprogdown($this->getElement('notice')), false);
 }
 if (isset($this->params['warning_messages'][$this->getId()]) && !$this->params['hide_field_warning_messages']) {
-    $notices[] = '<span class="text-warning">'.rex_i18n::translate($this->params['warning_messages'][$this->getId()], false).'</span>';
+    $notices[] = '<span class="text-warning">' . rex_i18n::translate($this->params['warning_messages'][$this->getId()], false) . '</span>';
 }
 
 if (!isset($groupAttributes)) {
     $groupAttributes = [];
 }
 
-$groupClass = trim('form-group mb-3'.$this->getWarningClass());
+$groupClass = trim('form-group mb-4 ' . $this->getWarningClass());
 if (isset($groupAttributes['class']) && is_array($groupAttributes['class'])) {
     $groupAttributes['class'][] = $groupClass;
 } elseif (isset($groupAttributes['class'])) {
-    $groupAttributes['class'] .= ' '.$groupClass;
+    $groupAttributes['class'] .= ' ' . $groupClass;
 } else {
     $groupAttributes['class'] = $groupClass;
 }
@@ -41,7 +41,7 @@ if (isset($this->params['fixdata'][$this->getName()]) && !isset($elementAttribut
 if (isset($elementAttributes['class']) && is_array($elementAttributes['class'])) {
     $elementAttributes['class'][] = $elementClass;
 } elseif (isset($elementAttributes['class'])) {
-    $elementAttributes['class'] .= ' '.$elementClass;
+    $elementAttributes['class'] .= ' ' . $elementClass;
 } else {
     $elementAttributes['class'] = $elementClass;
 }
@@ -50,63 +50,70 @@ if (isset($elementAttributes['class']) && is_array($elementAttributes['class']))
 <?php $choiceOutput = function (rex_yform_choice_view $view) {
     ?>
     <option
-        value="<?= rex_escape($view->getValue()) ?>"
+            value="<?= rex_escape($view->getValue()) ?>"
         <?= in_array($view->getValue(), $this->getValue(), true) ? ' selected="selected"' : '' ?>
         <?= $view->getAttributesAsString() ?>
     >
         <?= $view->getLabel() ?>
     </option>
-<?php
+    <?php
 } ?>
 
 <?php $choiceGroupOutput = static function (rex_yform_choice_group_view $view) use ($choiceOutput) {
-        ?>
+    ?>
     <optgroup label="<?= rex_escape($view->getLabel()) ?>">
         <?php foreach ($view->getChoices() as $choiceView): ?>
             <?php $choiceOutput($choiceView) ?>
         <?php endforeach ?>
     </optgroup>
-<?php
-    } ?>
+    <?php
+} ?>
 
 <?php
-    if (!isset($groupAttributes['id'])) {
-        $groupAttributes['id'] = $this->getHTMLId();
-    }
- ?>
+if (!isset($groupAttributes['id'])) {
+    $groupAttributes['id'] = $this->getHTMLId();
+}
+
+if (!str_contains(implode(' ', $elementAttributes), 'ampel')) {
+?>
 <div<?= rex_string::buildAttributes($groupAttributes) ?>>
     <?php if ($this->getLabel()): ?>
         <label class="form-label" for="<?= $this->getFieldId() ?>">
             <?= rex_escape($this->getLabelStyle($this->getLabel())) ?>
         </label>
     <?php endif ?>
-
-
-    <?php if (rex::isBackend()): ?>
-    <div class="rex-select-style">
-    <?php endif ?>
-    <select<?= rex_string::buildAttributes($elementAttributes) ?>>
-        <?php if ($choiceList->getPlaceholder() && !$choiceList->isMultiple()): ?>
-            <option value=""><?= rex_escape($choiceList->getPlaceholder()) ?></option>
-        <?php endif ?>
-
-        <?php foreach ($choiceListView->getPreferredChoices() as $view): ?>
-            <?php $view instanceof rex_yform_choice_group_view ? $choiceGroupOutput($view) : $choiceOutput($view) ?>
-        <?php endforeach ?>
-
-        <?php if ($choiceListView->getPreferredChoices()): ?>
-            <option disabled="disabled">-------------------</option>
-        <?php endif ?>
-
-        <?php foreach ($choiceListView->getChoices() as $view): ?>
-            <?php $view instanceof rex_yform_choice_group_view ? $choiceGroupOutput($view) : $choiceOutput($view) ?>
-        <?php endforeach ?>
-    </select>
-    <?php if (rex::isBackend()): ?>
-    </div>
-    <?php endif ?>
-
     <?php if ($notices): ?>
         <p class="help-block form-text small"><?= implode('<br />', $notices) ?></p>
     <?php endif ?>
+    <?php } ?>
+
+    <?php if (rex::isBackend()): ?>
+    <div class="rex-select-style">
+        <?php endif ?>
+        <select<?= rex_string::buildAttributes($elementAttributes) ?>>
+            <?php if ($choiceList->getPlaceholder() && !$choiceList->isMultiple()): ?>
+                <option value=""><?= rex_escape($choiceList->getPlaceholder()) ?></option>
+            <?php endif ?>
+
+            <?php foreach ($choiceListView->getPreferredChoices() as $view): ?>
+                <?php $view instanceof rex_yform_choice_group_view ? $choiceGroupOutput($view) : $choiceOutput($view) ?>
+            <?php endforeach ?>
+
+            <?php if ($choiceListView->getPreferredChoices()): ?>
+                <option disabled="disabled">-------------------</option>
+            <?php endif ?>
+
+            <?php foreach ($choiceListView->getChoices() as $view): ?>
+                <?php $view instanceof rex_yform_choice_group_view ? $choiceGroupOutput($view) : $choiceOutput($view) ?>
+            <?php endforeach ?>
+        </select>
+        <?php if (rex::isBackend()): ?>
+    </div>
+<?php endif ?>
+
+    <?php if (!str_contains(implode(' ', $elementAttributes), 'ampel')) { ?>
+
+    <?php } else { ?>
+</div>
+<?php } ?>
 </div>

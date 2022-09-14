@@ -12,8 +12,8 @@ if (!isset($value)) {
 }
 
 $notice = [];
-if ('' != $this->getElement('notice')) {
-    $notice[] = rex_i18n::translate($this->getElement('notice'), false);
+if ('' != sprogdown($this->getElement('notice'))) {
+    $notice[] = rex_i18n::translate(sprogdown($this->getElement('notice')), false);
 }
 if (isset($this->params['warning_messages'][$this->getId()]) && !$this->params['hide_field_warning_messages']) {
     $notice[] = '<span class="text-warning">' . rex_i18n::translate($this->params['warning_messages'][$this->getId()], false) . '</span>';
@@ -25,7 +25,7 @@ if (count($notice) > 0) {
 }
 
 $class_group = [];
-$class_group['form-group'] = 'form-group mb-3';
+$class_group['form-group'] = 'form-group mb-4';
 if (!empty($this->getWarningClass())) {
     $class_group[$this->getWarningClass()] = $this->getWarningClass();
 }
@@ -45,21 +45,28 @@ $input_group_end = '';
 
 $prepend_view = '';
 if (!empty($prepend)) {
-    $prepend_view = '<span class="input-group-text">'.$prepend.'</span>';
+    $prepend_view = '<span class="input-group-text">' . $prepend . '</span>';
     $input_group_start = '<div class="input-group">';
     $input_group_end = '</div>';
 }
 
 $append_view = '';
 if (!empty($append)) {
-    $append_view = '<span class="input-group-text">'.$append.'</span>';
+    $append_view = '<span class="input-group-text">' . $append . '</span>';
     $input_group_start = '<div class="input-group">';
     $input_group_end = '</div>';
 }
 
 $attributes = $this->getAttributeElements($attributes, ['placeholder', 'autocomplete', 'pattern', 'required', 'disabled', 'readonly']);
 
-echo '<div class="'.implode(' ', $class_group).'" id="'.$this->getHTMLId().'">
-        <label class="'.implode(' ', $class_label).'" for="'.$this->getFieldId().'">'.$this->getLabel().'</label>
-        ' . $input_group_start . $prepend_view . '<input '.implode(' ', $attributes).' />' . $append_view . $input_group_end . $notice .'
+if (str_contains(implode(' ', $attributes), 'ampel')) {
+    echo '<div class="' . implode(' ', $class_group) . '" id="' . $this->getHTMLId() . '">
+        <label class="' . implode(' ', $class_label) . '" for="' . $this->getFieldId() . '">' . $this->getLabel() . '</label>' . $notice . '
+        <div class="input-group">' . $input_group_start . $prepend_view . '<input ' . implode(' ', $attributes) . ' />' . $append_view . $input_group_end . '
+        ';
+} else {
+    echo '<div class="' . implode(' ', $class_group) . '" id="' . $this->getHTMLId() . '">
+        <label class="' . implode(' ', $class_label) . '" for="' . $this->getFieldId() . '">' . $this->getLabel() . '</label>' . $notice . '
+        ' . $input_group_start . $prepend_view . '<input ' . implode(' ', $attributes) . ' />' . $append_view . $input_group_end . '
         </div>';
+}
