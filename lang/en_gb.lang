@@ -1,0 +1,66 @@
+plus_bs5 = Bootstrap 5 Theme by alex+
+
+# Modul-Meldungen
+
+bs5_missing_addon = This slice needs the add-on <code>{0}</code>. To use this slice, please install this slice first.
+
+# Modul-Titel
+
+bs5_module_cta = Call-to-Action Button
+bs5_module_qanda = Question & Answers
+bs5_module_headline_article = Headline (Page)
+bs5_module_hero_article = Intro (Page)
+bs5_module_headline = Headline (Custom)
+bs5_module_hero = Intro (Custom)
+bs5_module_downloads = Downloads
+bs5_module_category = Category Selection
+bs5_module_video = Video
+bs5_module_staff = Employees
+bs5_module_text = Text
+bs5_module_contact = Contact & Directions
+bs5_module_image = Image
+bs5_module_gallery = Image Gallery
+bs5_module_google_places_reviews = Reviews by Google Maps
+
+# Template-Titel
+
+bs5_template_default = BS5 Default
+
+# Config-Formulare 
+
+# # Reiter 
+
+bs5_config_settings = Settings
+plus_bs5_settings = Settings
+plus_bs5_settings_intro = Default
+plus_bs5_settings_header = Header
+plus_bs5_settings_module = Slices
+plus_bs5_settings_footer = Footer
+plus_bs5_settings_emails = Mail Signature
+plus_bs5_settings_legal = Legal
+
+# # Feldnamen und Erläuterungen
+
+bs5_config_editor = Editor
+bs5_config_container_class = CSS Classes (Container)
+bs5_config_header = Text
+bs5_config_nav_depth = Navigation depth
+bs5_config_nav_depth_1 = Show 1st level, hide 2nd level (only main menu)
+bs5_config_nav_depth_2 = show 1st an 2nd level anzeigen (drop-down menu)
+bs5_config_email_footer = Mail Signature
+bs5_config_contact = Contact Information
+bs5_config_legal_notice = Legal Information
+bs5_config_map = Map (iframe)
+bs5_config_footer_text = Text
+bs5_config_footer_navigation = Navigation
+
+bs5_config_vendor_label = Assets source
+bs5_config_vendor_notice = How should CSS, JS and additional Bootstrap 5 assets be included?
+bs5_config_vendor_disabled = disabled: Bootstrap 5 will be included independently.
+bs5_config_vendor_local = local: Includes Bootstrap 5 as enclosed to the add-on.
+bs5_config_vendor_cdn = CDN: Loads Bootstrap 5 from cdn.jsdelivr.net (Be aware of GDPR issues!).
+
+# # Sponsoring
+
+plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+plus_bs5_donate = Support further development 

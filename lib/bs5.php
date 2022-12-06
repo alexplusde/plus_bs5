@@ -2,6 +2,18 @@
 
 class bs5
 {
+    public static function packageExists(...$packages) :bool
+    {
+        $continue = true;
+        $packages = explode(", ", array_pop($packages));
+        foreach ($packages as $package) {
+            if ($package !== "" && rex_addon::get($package) !== null && rex_addon::get($package)->isAvailable() !== true) {
+                $continue = false;
+                echo rex_view::error(rex_i18n::rawMsg('bs5_missing_addon', $package));
+            }
+        }
+        return $continue;
+    }
     public static function updateModule()
     {
         $modules = scandir(rex_path::addon('plus_bs5').'module');

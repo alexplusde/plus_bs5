@@ -18,6 +18,13 @@ class bs5_navigation extends rex_navigation
         $navi = bs5_navigation::factory();
 
         $mount_id = rex_yrewrite::getDomainByArticleId(rex_article::getCurrentId(), rex_clang::getCurrentId())->getMountId();
+        
+        $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+            if ($category->getValue('cat_nav') == "|desktop_hidden|") {
+                $li['class'][] = 'd-lg-none';
+            }
+            return true;
+        });
 
         if ($level > 1) {
             $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {

@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_signature
  */
 
-if (!isset($value)) {
+if(!isset($value)) {
     $value = $this->getValue();
 }
 
@@ -23,7 +23,7 @@ if (count($notice) > 0) {
     $notice = '';
 }
 
-$class_group = trim('form-group mb-4 ' . $this->getWarningClass());
+$class_group = trim('form-group my-1 ' . $this->getWarningClass());
 $class_label[] = 'form-label';
 
 $field_before = '';
@@ -34,7 +34,7 @@ $attributes = [
     'class' => 'form-control signature',
     'name' => $this->getFieldName(),
     'type' => 'hidden',
-    'id' => 'canvas-target-' . $this->getName(),
+    'id' => 'canvas-target-'. $this->getName(),
     'value' => $value,
 ];
 
@@ -44,25 +44,19 @@ $attributes = $this->getAttributeElements($attributes, ['placeholder', 'autocomp
 <div class="<?= $class_group; ?>" id="<?= $this->getHTMLId(); ?>">
     <label class="<?= implode(' ', $class_label); ?>"><?= $this->getLabel(); ?></label>
     <div style="position: relative; display: flex; flex-direction: row; align-items: center; align-content: flex-start;">
-        <div class="canvas-wrapper form-control"
-             style="position: relative; width: 300px; height: 80px; background-color: #FFF;">
-            <canvas id="canvas-<?= $this->getName(); ?>"
-                    style="width: 100%; height: 100%; background-color: transparent; position: relative; z-index: 1;"></canvas>
-            <?php if (isset($value) && $value != ""): ?>
-                <img style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; user-select: none; border: none; opacity: 0.1;"
-                     src="<?= $value; ?>">
+        <div class="canvas-wrapper form-control" style="position: relative; width: 300px; height: 80px; background-color: #FFF;">
+            <canvas id="canvas-<?= $this->getName(); ?>" style="width: 100%; height: 100%; background-color: transparent; position: relative; z-index: 1;"></canvas>
+            <?php if(isset($value) && $value != ""): ?>
+            <img style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; user-select: none; border: none; opacity: 0.1;" src="<?= $value; ?>">
             <?php endif; ?>
         </div>
         <input <?= implode(' ', $attributes); ?>>
-        &nbsp;
-        <button type="button" class="btn btn-primary" id="clear-<?= $this->getName(); ?>"
-                onclick="eraseSignature_<?= $this->getName(); ?>()" title="Zeichenfläche leeren"><i
-                    class="bi-eraser"></i></button>
+        &nbsp; <button type="button" class="btn btn-primary" id="clear-<?= $this->getName(); ?>" onclick="eraseSignature_<?= $this->getName(); ?>()" title="Zeichenfläche leeren"><i class="bi-eraser"></i></button>
     </div>
 </div>
 
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function(){
         initSignature_<?= $this->getName(); ?>();
     });
 
@@ -158,6 +152,3 @@ $attributes = $this->getAttributeElements($attributes, ['placeholder', 'autocomp
         }
     }
 </script>
-
-
-
