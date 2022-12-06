@@ -1,4 +1,4 @@
-# Bootstrap 5 Module und Templates für REDAXO 5.13+
+# Bootstrap 5 Module und Templates für REDAXO 5
 
 Projektübergreifende Bootstrap 5 Module und Templates für REDAXO
 
