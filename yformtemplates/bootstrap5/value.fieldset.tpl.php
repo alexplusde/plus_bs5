@@ -7,7 +7,7 @@
 
 $option = $option ?? '';
 
-switch ($option) {
+switch($option) {
     case 'open':
         $attributes = [
             'class' => $this->getHTMLClass(),
@@ -15,9 +15,9 @@ switch ($option) {
         ];
 
         $attributes = $this->getAttributeElements($attributes, []);
-        echo '<fieldset ' . implode(' ', $attributes) . '>';
+        echo '<fieldset '.implode(' ', $attributes).'>';
         if ($this->getLabel()) {
-            echo '<legend id="' . $this->getFieldId() . '">' . $this->getLabel() . '</legend>';
+            echo '<legend id="'.$this->getFieldId().'">'.$this->getLabel().'</legend>';
         }
         break;
     case 'close':

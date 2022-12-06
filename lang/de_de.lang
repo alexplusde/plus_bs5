@@ -1,20 +1,66 @@
-bs5-install-qanda = Hinweis: Das Addon <code>qanda</code> (Fragen & Antworten) wird benötigt, ist jedoch nicht installiert.
+plus_bs5 = Bootstrap 5 Theme by alex+
+
+# Modul-Meldungen
+
+bs5_missing_addon = Dieser Block benötigt das Add-on <code>{0}</code>. Um diesen Block verwenden zu können, installiere zunächst das Add-on.
+
+# Modul-Titel
+
+bs5_module_cta = Call-to-Action Button
+bs5_module_qanda = Fragen & Antworten
+bs5_module_headline_article = Überschrift (Seite)
+bs5_module_hero_article = Intro (Artikel)
+bs5_module_headline = Überschrift (Freitext)
+bs5_module_hero = Intro (Freitext)
+bs5_module_downloads = Downloads
+bs5_module_category = Kategorie-Auswahl
+bs5_module_video = Video
+bs5_module_staff = Mitarbeiter_innen
+bs5_module_text = Text
+bs5_module_contact = Kontakt & Anfahrt
+bs5_module_image = Bild
+bs5_module_gallery = Bildergalerie
+bs5_module_google_places_reviews = Bewertungen von Google Maps
+
+# Template-Titel
+
+bs5_template_default = BS5 Standard
+
+# Config-Formulare 
+
+# # Reiter 
+
+bs5_config_settings = Einstellungen
+plus_bs5_settings = Einstellungen
+plus_bs5_settings_intro = Standard
+plus_bs5_settings_header = Kopfzeile
+plus_bs5_settings_module = Blöcke
+plus_bs5_settings_footer = Fußzeile
+plus_bs5_settings_emails = E-Mail-Signatur
+plus_bs5_settings_legal = Rechtliches
+
+# # Feldnamen und Erläuterungen
+
+bs5_config_editor = Editor
+bs5_config_container_class = CSS-Klassen (Container)
+bs5_config_header = Kopfzeile
+bs5_config_nav_depth = Navigationstiefe
+bs5_config_nav_depth_1 = 1. Ebene anzeigen, 2. Ebene verbergen (nur Hauptmenü)
+bs5_config_nav_depth_2 = 1. und 2. Ebene anzeigen (Dropdown-Menü)
+bs5_config_contact = Kontaktdaten
+bs5_config_legal_notice = Impressum
+bs5_config_map = Karte (iframe)
+bs5_config_footer_text = Text
+bs5_config_footer_navigation = Navigation
+bs5_config_email_footer = E-Mail-Signatur
+
+bs5_config_vendor_label = Assets-Quelle
+bs5_config_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5 eingebunden werden?
+bs5_config_vendor_disabled = deaktiviert: Bootstrap 5 wird eigenständig inkludiert.
+bs5_config_vendor_local = lokal: Verwendet Bootstrap 5, wie es dem Addon beiliegt.
+bs5_config_vendor_cdn = CDN: Lädt Bootstrap 5 von cdn.jsdelivr.net (Auswirkungen auf DSGVO beachten!).
+
+# # Sponsoring
 
 plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
 plus_bs5_donate = Weiterentwicklung unterstützen 
-
-
-
-plus_bs5_vendor_label = Assets-Quelle
-plus_bs5_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5 eingebunden werden?
-plus_bs5_vendor_disabled = deaktiviert: Bootstrap 5 wird selbständig inkludiert.
-plus_bs5_vendor_local = lokal: Verwendet Bootstrap 5, wie es dem Addon beiliegt.
-plus_bs5_vendor_cdn = CDN: Lädt Bootstrap 5 von cdn.jsdelivr.net (Auswirkungen auf DSGVO beachten!).
-
-plus_bs5_settings = Einstellungen
-plus_bs5_settings_header = Kopfzeile
-plus_bs5_settings_footer = Fußzeile
-plus_bs5_settings_intro = Standard
-plus_bs5_settings_legal = Rechtliches
-plus_bs5_settings_module = Blöcke
-plus_bs5_settings_emails = E-Mail-Signatur
