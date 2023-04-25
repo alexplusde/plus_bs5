@@ -1,5 +1,7 @@
 # Bootstrap 5 Module und Templates für REDAXO 5
 
+> NOCH NICHT FÜR DEN PRODUKTIVEINSATZ GEDACHT!
+
 Projektübergreifende Bootstrap 5 Module und Templates für REDAXO
 
 In diesem Addon befinden sich Vorlagen für Bootstrap 5-Module und Templates in Form von Fragmenten und Hilfsklassen.
