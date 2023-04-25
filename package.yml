@@ -1,19 +1,20 @@
 package: plus_bs5
-version: '0.0.6'
+version: '0.1'
 author: Alexander Walther
 supportpage: https://www.alexplus.de
 
 requires:
     php:
         version: ">7.3"
-    redaxo: ^5.12
+    redaxo: ^5.14
     packages:
-        mediapool: ">=2"
-        media_manager: ">=2"
+        mediapool: "^2"
+        media_manager: "^2"
         yrewrite_metainfo: "^1"
+        wenns_sein_muss: "^4"
 
 page:
-    title: Bootstrap 5
+    title: translate:plus_bs5
     perm: plus_bs5
 
 pages:
