@@ -24,7 +24,9 @@ bs5_module_google_places_reviews = Bewertungen von Google Maps
 
 # Template-Titel
 
-bs5_template_default = BS5 Standard
+bs5_template_default = Standard
+bs5_template_checkout = Checkout (ohne Navigation)
+bs5_template_maintenance = Wartungsmodus
 
 # Config-Formulare 
 
