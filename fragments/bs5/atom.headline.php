@@ -1,10 +1,10 @@
-<?php if ($this->getVar('level') ?? "h1") {
+<?php if ($this->getVar('level') ?? "h2") {
     echo '<'. $this->getVar('level') . '>';
 } ?>
 
 <?= $this->getVar('headline'); ?>
 
-<?php if ($this->getVar('level') ?? "h1") {
-    echo '<'. $this->getVar('level') . '>';
+<?php if ($this->getVar('level') ?? "h2") {
+    echo '</'. $this->getVar('level') . '>';
 }
 ?>
