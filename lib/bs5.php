@@ -42,6 +42,8 @@ class bs5
 
         foreach ($modules as $module) {
             rex_file::put(rex_path::addon("plus_bs5", "module/".$module['key'].".json"), json_encode($module));
+            rex_file::put(rex_path::addon("plus_bs5", "module/".$module['key'].".input.php"), $module['input']);
+            rex_file::put(rex_path::addon("plus_bs5", "module/".$module['key'].".output.php"), $module['output']);
         }
     }
 
@@ -51,6 +53,7 @@ class bs5
 
         foreach ($templates as $template) {
             rex_file::put(rex_path::addon("plus_bs5", "template/".$template['key'].".json"), json_encode($template));
+            rex_file::put(rex_path::addon("plus_bs5", "template/".$template['key'].".php"), $template['content']);
         }
     }
     public static function updateTemplate()
@@ -77,5 +80,14 @@ class bs5
     public static function getLoremIpsumText()
     {
         return "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>";
+    }
+
+    public static function getConfig($key)
+    {
+        rex_config::get('plus_bs5', $key);
+    }
+    public static function setConfig($key, $value)
+    {
+        rex_config::set('plus_bs5', $key, $value);
     }
 }
