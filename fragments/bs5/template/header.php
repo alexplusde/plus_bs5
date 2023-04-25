@@ -3,7 +3,7 @@
 	<div class="header-top bg-primary text-white link-light py-2">
 		<div class="container">
 			<div class="row">
-				<?= rex_global_settings::getValue('msg_header_text');  ?>
+				<?= bs5::getConfig('header_text');  ?>
 			</div>
 		</div>
 	</div>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="col-3 d-block d-lg-none text-end">
 				<button data-trigger="navbar_main" class="d-lg-none btn btn-outline-primary" type="button"><i
-						class="bi bi-list"></i>{{bs5.menu.button}}
+						class="bi bi-list"></i> Menü
 				</button>
 			</div>
 		</div>

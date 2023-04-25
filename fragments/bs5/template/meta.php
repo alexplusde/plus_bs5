@@ -32,25 +32,20 @@
 
 <?php
 }
-?>
-<?php
-$speed_up = new speed_up();
-$speed_up->show();
 
-$cssvars = new bs5_fragment();
-echo $cssvars->parse('yrewrite_metainfo/cssvars.php');
-
-?>
-<?php
-if (rex_addon::get('consent_manager') && rex_addon::get('consent_manager')->isAvailable()) { ?>
-<?php
-    $consented = '';
-    if (isset($_COOKIE['consent_manager'])) {
-        $cookieData = json_decode($_COOKIE['consent_manager'], true);
-        $consented = str_replace('google-analytics', 'statistic', implode(' ', $cookieData['consents']));
-    }
-    echo '<script>var consent_manager_consented = \''.$consented.'\';</script>';
+if (\rex_addon::get('speed_up') && \rex_addon::get('speed_up')->isAvailable()) {
+    $speed_up = new speed_up();
+    $speed_up->show();
 }
-?>
-<?= "" # consent_manager_frontend::getFragment(false, 'consent_manager_box_cssjs.php');?>
-<script src="/assets/addons/2click/js/2click.js"></script>
+
+if (\rex_addon::get('yrewrite_metainfo') && \rex_addon::get('yrewrite_metainfo')->isAvailable()) {
+    // $cssvars = new bs5_fragment();
+    // echo $cssvars->parse('yrewrite_metainfo/cssvars.php');
+}
+
+if (rex_addon::get('wenns_sein_muss') && rex_addon::get('wenns_sein_muss')->isAvailable()) {
+    
+    echo wsm_fragment::getCss();
+    echo wsm_fragment::getScripts();
+    echo wsm_fragment::getJs();
+} ?>
