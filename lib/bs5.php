@@ -16,7 +16,7 @@ class bs5
     }
     public static function updateModule()
     {
-        $modules = scandir(rex_path::addon('plus_bs5').'module');
+        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon('plus_bs5').'module'));
 
         foreach ($modules as $module) {
             if ('.' == $module || '..' == $module) {
@@ -58,7 +58,7 @@ class bs5
     }
     public static function updateTemplate()
     {
-        $templates = scandir(rex_path::addon('plus_bs5').'template');
+        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon('plus_bs5').'template'));
 
         foreach ($templates as $template) {
             if ('.' == $template || '..' == $template) {
