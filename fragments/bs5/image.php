@@ -9,10 +9,10 @@ $image = $this->getVar('image');
 		class="container <?= rex_config::get("plus_bs5", "container_class") ?>">
 		<?php
 
-     if ($media = rex_media::get($image)) {
+     if ($media = rex_media_plus::get($image)) {
          ?>
-		<?= media_manager_type_group::getPicture('default', $image); ?>
-		<p class="bs5-image-title"><?= $image ?></p>
+		<?= media_manager_type_group::getPicture('default', $media); ?>
+		<p class="bs5-image-title"><?= $media->getTitle() ?></p>
 		<p class="bs5-image-description">
 			<?= $media->getValue('med_description'); ?>
 		</p>
