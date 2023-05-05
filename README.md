@@ -35,7 +35,7 @@ Ein Template, das wie `Standard [1]` funktioniert, jedoch kein Navigationsmenü 
 
 ## Module
 
-### Grundsätzliches zum Aufabeu der Module Values
+### Grundsätzliches zum Aufbau der Module Values
 
 Die *Eingabe* wird i.d.R. über MForm gebaut. Die *Ausgabe findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. Bsp.:
 
