@@ -1,9 +1,36 @@
 <?php
+#######################################################################
 # Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
-# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO
-?>
-<label>Text</label>
-<input class="form-control" type="text" name="REX_INPUT_VALUE[1]" value="REX_VALUE[1]" />
+# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
+# Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
+#######################################################################
 
-<label>URL</label>
-<input class="form-control" type="text" name="REX_INPUT_VALUE[2]" value="REX_VALUE[2]" />
+if (!bs5::packageExists('redactor, media_manager_responsive')) {
+  return;
+};
+
+$mform = MForm::factory();
+
+$mform->addFieldsetArea('');
+
+$mform->addTextField(1, ['label' => 'translate:headline']);
+
+$mform->addSelectField(2, ['h1' => 'Überschrift 1', 
+'h2' => 'translate:Überschrift 2', 
+'h3' => 'Überschrift 3', 
+'h4' => 'Überschrift 4'], ['label' => 'translate:headline_level']);
+
+$mform->addTextAreaField(3, ['label' => 'Teaser','class' => rex_config::get('plus_bs5', 'editor')]);
+
+$mform->addMediaField(1, array('label'=>'Poster'));
+$mform->addMediaField(2, array('label'=>'Hintergrundbild (Desktop)'));
+$mform->addMediaField(3, array('label'=>'Hintergrundbild (mobile)'));
+$mform->addMediaField(4, array('label'=>'Video'));
+
+$mform->addFieldsetArea('Darstellung');
+
+$mform->addSelectField(9, ['full-width' => 'Volle Breite', 
+'container' => 'Standard', 
+'text-video' => 'Text rechts, Video links', 
+'video-text' => 'Video links, Text rechts'], ['label' => 'Layout']);
+echo $mform->show();

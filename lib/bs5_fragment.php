@@ -22,4 +22,11 @@ class bs5_fragment extends rex_fragment
         }
         return $filename;
     }
+
+    public static function ctaFormatter($text)
+    {
+        $pattern = ['/<a([^>]*)><strong>([^<>]*)<\/strong><\/a>/','/<a([^>]*)><em>([^<>]*)<\/em><\/a>/','/<a([^>]*)>([^<>]*)<\/a>/'];
+        $replace = ['<a class="btn btn-primary" $1>$2</a>', '<a class="btn btn-secondary" $1>$2</a>', '<a class="btn btn-white" $1>$2</a>'];
+        return preg_replace($pattern, $replace, $text);
+    }
 }

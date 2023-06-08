@@ -77,10 +77,25 @@ class bs5
     ->insertOrUpdate();
         }
     }
-    public static function getConfig($key)
+    public static function getConfig(string $key)
     {
-        rex_config::get('plus_bs5', $key);
+        return rex_config::get('plus_bs5', $key);
     }
+    public static function getConfigText(string $key) :string
+    {
+        $text = bs5::getConfig($key);
+        if (rex_addon::get('sprog')->isAvailable() && !rex::isSafeMode()) {
+            if ($key != sprogdown($key)) {
+                $text = sprogdown($key);
+            }
+        }
+        if ($text === null) {
+            return "missing text for key <code>". $key . "</code>";
+        }
+
+        return $text;
+    }
+
     public static function setConfig($key, $value)
     {
         rex_config::set('plus_bs5', $key, $value);

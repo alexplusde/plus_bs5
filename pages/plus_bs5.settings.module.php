@@ -4,9 +4,22 @@ $addon = rex_addon::get('plus_bs5');
 
 $form = rex_config_form::factory($addon->name);
 
+$field = $form->addInputField('text', 'text_more', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('bs5_config_text_more'));
+
+$field = $form->addInputField('text', 'text_a18y_content', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('bs5_config_text_a18y_content'));
+
+$field = $form->addInputField('text', 'text_slideshow_prev', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('bs5_config_text_slideshow_prev'));
+
+$field = $form->addInputField('text', 'text_slideshow_next', null, ['class' => 'form-control']);
+$field->setLabel(rex_i18n::msg('bs5_config_text_slideshow_next'));
+
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
-$fragment->setVar('title', $this->i18n('bs5_settings'), false);
+$fragment->setVar('title', $this->i18n('bs5_config_settings'), false);
 $fragment->setVar('body', $form->get(), false);
 
 ?>
