@@ -37,11 +37,19 @@ Ein Template, das wie `Standard [1]` funktioniert, jedoch kein Navigationsmenü 
 
 ### Grundsätzliches zum Aufbau der Module Values
 
-Die *Eingabe* wird i.d.R. über MForm gebaut. Die *Ausgabe findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. Bsp.:
+Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. Bsp.:
 
 #### Ausgabe
 
 ```php
+
+<?php
+#######################################################################
+# Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
+# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
+# Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
+#######################################################################
+
 if (!bs5::packageExists('ride', 'url', 'yform')) {
     return;
 };
@@ -53,7 +61,7 @@ $output->setVar("modul_name", "REX_MODULE_KEY");
 
 $output->setVar("image", "REX_MEDIA[1]");
 
-echo $output->parse('bs5/image.php');
+echo $output->parse('REX_MODULE_KEY');
 
 unset($output);
 ```
@@ -68,20 +76,26 @@ $field->setLabel('translate:test');
 
 bei der Eingabe wird zunächst auf verfügbare verwendete Pakete geprüft, um ein Whoops im Backend zu verhindern, sollten diese Pakete nicht mehr installiert sein.
 
-```php
-# Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
-# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO
-
-if (!bs5::packageExists('media_manager', 'media_manager_profile')) {
-    return;
-}
 ```
+<?php
+#######################################################################
+# Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
+# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
+# Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
+#######################################################################
+
+if (!bs5::packageExists('mform, qanda')) {
+    return;
+};
+```
+
+Durch die  Methode `packageExists() wird eine passende Fehlermeldung ausgegeben.
 
 #### REX_VALUES
 
 | VALUE            | Beschreibung                             | Ausgabe                     | Fragment / Ausgabe                                                      |
 |------------------|------------------------------------------|-----------------------------|-------------------------------------------------------------------------|
-| REX_VALUE[1]     | Überschriften                            | Text                        | `$output->setVar("title", "REX_VALUE[1]", false);`                      |
+| REX_VALUE[1]     | Überschriften                            | Text                        | `$output->setVar("headline", "REX_VALUE[1]", false);`                      |
 | REX_VALUE[2]     | Überschriften-Ebene (h1, h2, h3)         | Tag / Attribut              | `$output->setVar("level", "REX_VALUE[2]", false);`                      |
 | REX_VALUE[3]     | Teaser (Kurztext)                        | Text                        | `$output->setVar("teaser", "REX_VALUE[3]", false);`                     |
 | REX_VALUE[4]     | Langtext                                 | HTML                        | `$output->setVar("text", "REX_VALUE[4 output="html"]", false);`         |
@@ -93,16 +107,51 @@ if (!bs5::packageExists('media_manager', 'media_manager_profile')) {
 | REX_VALUE[10]    | Ausgabe-Optionen (Fragmente)             | Dateipfad                   | `$output->setVar("fragment", "REX_VALUE[10]", false);`                  |
 |                  |                                          |                             |                                                                         |
 | REX_MEDIA[1]     | Bild / Datei                             | Dateiname                   | `$output->setVar("image", "REX_MEDIA[1]", false);`                      |
-| REX_MEDIA[2]     | Hintergrund                              | Dateiname                   | `$output->setVar("bg_image", "REX_MEDIA[1]", false);`                   |
-| REX_MEDIA[3]     | Hintergrund (mobil)                      | Dateiname                   | `$output->setVar("bg_image_mobile", "REX_MEDIA[1]", false);`            |
+| REX_MEDIA[2]     | Hintergrund                              | Dateiname                   | `$output->setVar("bg_image", "REX_MEDIA[2]", false);`                   |
+| REX_MEDIA[3]     | Hintergrund (mobil)                      | Dateiname                   | `$output->setVar("bg_image_mobile", "REX_MEDIA[3]", false);`            |
 |                  |                                          |                             |                                                                         |
 | REX_MEDIALIST[1] | Bilder / Dateien (z.B. Downloads)        | Dateinamen, kommasepariert  | `$output->setVar("images", "REX_MEDIALIST[1]", false);`                 |
+|                  |                                          |                             |                                                                         |
+| REX_LINK[1]      | Kategorie                                | Dateiname                   | `$output->setVar("category", "REX_LINK[1]", false);`                    |
+| REX_LINK[2]      | Ein Artikel                              | Dateiname                   | `$output->setVar("article", "REX_LINK[2]", false);`                     |
+|                  |                                          |                             |                                                                         |
+| REX_LINKLIST[1]  | Kategorien                               | Dateiname                   | `$output->setVar("categories", "REX_LINKLIST[1]", false);               |
+| REX_LINKLIST[2]  | Artikel                                  | Dateiname                   | `$output->setVar("articles", "REX_LINKLIST[2]", false);`                |
+
+### Modul `Fragen & Antworten` (`bs5/qanda/list`)
+
+> Eine Liste von Fragen und Antworten aus dem Addon `qanda`. Benötigt `mform`, `qanda`.
 
 ## Fragmente
 
 Die Ordner-Struktur der Fragmente ist immer `/bs5/` + passende Fragmente, passend zum Namespace der Modul-Keys.
 
 z.B. `/bs5/text` als Modul-Key sucht nach `/bs5/text.php` als Ausgabe-Fragment.
+
+### Subfragmente
+
+Einige Module bieten zusätzlich eine Layout-Optionswahl aus, z.B. Kategorien-Übersicht, Artikelübersicht, Bildergalerie, Bilder und Video. dabei werden Unterordner mit den jeweiligen Layouts erstellt und als Subfragment aufgerufen.
+
+## Hilfsklassen und Methoden
+
+### `bs5::packageExists()`
+
+Überprüft, ob bestimmte REDAXO-Addons installiert und aktiviert sind, bevor sie aufgerufen werden. Gibt eine Fehlermeldung aus, wenn dies nicht der Fall ist. Hauptsächlich eingsetzt in Modul-Eingabe und Modul-Ausgabe.
+
+### `bs5::updateModule()`, `bs5::updateTemplate()`
+
+Werden beim Installieren und Updaten des Addons aufgerufen, um die neuste Version der Moduleingaben und Ausgaben zu installieren.
+
+
+### `bs5::writeModule()`, `bs5::writeTemplate()`
+
+Nur für den Addon-Entwickler: Schreibt die neusten Module und Templates ins Dateisystem des Addons. Benötigt aktivierten Debug-Modus und aktivierten Schreib-Modus im Addon.
+
+
+### `bs5::getConfig($key)` und `bs5::setConfig($key, $value)`
+
+Shortcut zum Aufrufen von `rex_config::get('plus_bs5', $key)` und `rex_config::set('plus_bs5', $key, $value)`
+
 
 ## Credits
 
