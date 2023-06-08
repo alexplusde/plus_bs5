@@ -1,31 +1,26 @@
-<section class="modul modul-text bs5-categories">
-	<div
-		class="container <?= rex_config::get("plus_bs5", "container_class") ?>">
-		<div class="container text-center">
-			<div class="row row-cols-1 row-cols-md-3 g-4">
+<section class="modul modul-text bs5-articles">
+	<div class="container <?= rex_config::get("plus_bs5", "container_class") ?>">
+		<div class="row row-cols-1 row-cols-md-3 g-4 m-0">
 
-				<?php $articles  = rex_category::getCurrent()->getArticles();
+			<?php
+$category = rex_category::get($this->getVar('category'));
+if(!$category) {
+$category = rex_category::getCurrent();
+}
+$articles = $parent->getArticles();
 
-		foreach($articles as $article) {
-		    ?>
-				<div class="col">
-					<div class="card h-100">
-						<div class="card-body">
-							<h3 class="card-title">
-								<?= $article->getName() ?>
-							</h3>
-							<p class="card-text">
-								<?= $article->getValue('yrewrite_description') ?>
-							</p>
-							<a href="<?= $article->getUrl(); ?>"
-								class="btn btn-primary">More...</a>
-						</div>
-					</div>
-				</div>
-				<?php
-		}
-		?>
-			</div>
+foreach($articles as $article) {
+if($article->getValue('status') != 1) {
+continue;
+}
+
+$this->setVar('parent', $parent);
+$this->setVar('structure', $article);
+
+echo $this->subfragment("bs5/structure/".$layout.".php");
+
+}
+?>
 		</div>
 	</div>
 </section>

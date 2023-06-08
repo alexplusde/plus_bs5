@@ -25,9 +25,12 @@
 <?php } else {
     ?>
 <link rel="stylesheet"
-	href="<?= bs5_template::getAssetUrl('styles/style.css') ?>">
+	href="<?= bs5_template::getAssetUrl('styles/styles.min.css') ?>">
 <script type="text/javascript"
-	src="<?= bs5_template::getAssetUrl('scripts/script.js') ?>"
+	src="<?= bs5_template::getAssetUrl('scripts/bootstrap.bundle.min.js') ?>"
+	async></script>
+<script type="text/javascript"
+	src="<?= bs5_template::getAssetUrl('scripts/project.js') ?>"
 	async></script>
 
 <?php

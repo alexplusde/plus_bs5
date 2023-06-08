@@ -10,9 +10,8 @@
 	?>
 </head>
 
-<body>
-	<a class="visually-hidden-focusable" href="#content">Zum Inhalt
-		springen</a>
+<body class="<?= bs5::getConfig('background') ?>">
+	<a class="visually-hidden-focusable" href="#content"><?= bs5::getConfigText('text_a18y_content') ?></a>
 
 	<div class="screen-darken"></div>
 	<?php

@@ -53,9 +53,12 @@ class bs5_navigation extends rex_navigation
             $a['class'][] = 'btn';
             $a['class'][] = 'nav-link';
 
+            if($a_content == "Jobs") {
+                $a_content.=  ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::query()->find()).'<span class="visually-hidden"> Jobangebote</span><span>';
+            }
+
             return true;
         });
-    
 
         if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
             $navi->addCallback('rex_ycom_auth::articleIsPermitted');

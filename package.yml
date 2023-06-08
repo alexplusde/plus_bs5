@@ -1,5 +1,5 @@
 package: plus_bs5
-version: '0.1.2'
+version: '0.1.3'
 author: Alexander Walther
 supportpage: https://www.alexplus.de
 
@@ -8,6 +8,7 @@ requires:
         version: ">7.3"
     redaxo: ^5.14
     packages:
+        mform: "^7.3"
         mediapool: "^2"
         media_manager: "^2"
         yrewrite_metainfo: "^1"
@@ -23,6 +24,9 @@ pages:
         perm: plus_bs5
     plus_bs5/settings/intro:
         title: translate:plus_bs5_settings_intro
+        perm: plus_bs5
+    plus_bs5/settings/template:
+        title: translate:plus_bs5_settings_template
         perm: plus_bs5
     plus_bs5/settings/header:
         title: translate:plus_bs5_settings_header
@@ -45,4 +49,8 @@ config:
     editor: "redactor-editor--text"
     container_class: "p-3 shadow bg-white"
     nav_depth: 1
+    text_more: "Mehr..."
+    text_a18y_content: "Zum Inhalt springen..."
+    text_slideshow_prev: Zurück
+    text_slideshow_next: Weiter
     dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben

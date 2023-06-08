@@ -6,20 +6,29 @@ bs5_missing_addon = Dieser Block benötigt das Add-on <code>{0}</code>. Um diese
 
 # Modul-Titel
 
-bs5_module_cta = Call-to-Action Button
-bs5_module_qanda = Fragen & Antworten
 bs5_module_headline_article = Überschrift (Seite)
 bs5_module_hero_article = Intro (Artikel)
 bs5_module_headline = Überschrift (Freitext)
-bs5_module_hero = Intro (Freitext)
-bs5_module_downloads = Downloads
-bs5_module_category = Kategorie-Auswahl
-bs5_module_video = Video
-bs5_module_staff = Mitarbeiter_innen
+bs5_module_hero = 🛫 Intro (Freitext)
+
 bs5_module_text = Text
-bs5_module_contact = Kontakt & Anfahrt
+bs5_module_cta = Call-to-Action Button
 bs5_module_image = Bild
 bs5_module_gallery = Bildergalerie
+bs5_module_audio = Audio
+bs5_module_video = Video
+bs5_module_downloads = Downloads
+
+bs5_module_contact = Kontakt & Anfahrt
+
+bs5_module_category = Kategorie-Übersicht
+bs5_module_article = Artikel-Übersicht
+
+bs5_module_divider = Trenner
+
+bs5_module_qanda = Fragen & Antworten
+bs5_module_staff = Mitarbeiter_innen
+
 bs5_module_google_places_reviews = Bewertungen von Google Maps
 
 # Template-Titel
@@ -35,6 +44,7 @@ bs5_template_maintenance = Wartungsmodus
 bs5_config_settings = Einstellungen
 plus_bs5_settings = Einstellungen
 plus_bs5_settings_intro = Standard
+plus_bs5_settings_template = Template
 plus_bs5_settings_header = Kopfzeile
 plus_bs5_settings_module = Blöcke
 plus_bs5_settings_footer = Fußzeile
@@ -61,6 +71,23 @@ bs5_config_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5
 bs5_config_vendor_disabled = deaktiviert: Bootstrap 5 wird eigenständig inkludiert.
 bs5_config_vendor_local = lokal: Verwendet Bootstrap 5, wie es dem Addon beiliegt.
 bs5_config_vendor_cdn = CDN: Lädt Bootstrap 5 von cdn.jsdelivr.net (Auswirkungen auf DSGVO beachten!).
+
+# # Template
+
+bs5_config_background_label = Hintergrundfarbe
+bs5_config_background_notice = Standard-Hintergrundfarbe für den gesamten Inhalt der Seite
+
+bs5_config_background_white = Weiß
+bs5_config_background_primary = Hauptfarbe
+bs5_config_background_light' = Hellgrau
+bs5_config_background_dark = Dunkelgrau
+bs5_config_background_transparent = ohne
+
+bs5_config_border_label = Rand
+bs5_config_border_notice = z.B. <code>border-none</code> oder <code>rounded</code>
+
+bs5_config_text_slideshow_prev = Vorheriges Bild
+bs5_config_text_slideshow_next = Nächstes Bild
 
 # # Sponsoring
 
