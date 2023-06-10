@@ -25,6 +25,8 @@ z.B. `/bs5/text` als Modul-Key sucht nach `/bs5/text.php` als Ausgabe-Fragment.
 Ein Tempalte, das die wichtigsten Elemente einbindet, die für den Betrieb notwendig sind:
 `template/head.php`, `template/header.php`, `template/main.php` und `template/footer.php`
 
+![standard](https://github.com/alexplusde/plus_bs5/assets/3855487/4f3cbafa-2dd5-4e70-a440-d01863ea62a1)
+
 ### `Wartung [2]`
 
 Ein Template, das verwendet wird, wenn der Maintenance-Modus aktiv ist.
