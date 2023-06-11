@@ -7,11 +7,12 @@
 			</div>
 		</div>
 	</div>
-
+<?php
+?>
 	<div class="container">
 		<div class="row py-3 align-items-center">
 			<div class="col-6 col-lg-3"><a class="d-block logo max-height: 60px;" href="/"
-					title=""><?= rex_media_plus::get("logo.svg")->getImg();?></a>
+					title=""><?= rex_media_plus::get(domain::getCurrent()->getLogo())->getImg();?></a>
 			</div>
 			<div class="d-lg-block col-3 col-lg-9">
 				<nav id="navbar_main" class="mobile-offcanvas nav-main navbar navbar-expand-lg">
