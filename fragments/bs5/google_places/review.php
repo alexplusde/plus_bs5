@@ -1,6 +1,6 @@
 <?php
 
-$reviews = rex_sql::factory()->getArray("SELECT * FROM rex_feeds_item WHERE content_raw = 5 ORDER BY rand() LIMIT 3"); ?>
+$reviews = rex_sql::factory()->getArray('SELECT * FROM rex_feeds_item WHERE content_raw = 5 ORDER BY rand() LIMIT 3') ?>
 
 <div class="container py-5">
 	<div class="title my-3">
@@ -26,7 +26,7 @@ $reviews = rex_sql::factory()->getArray("SELECT * FROM rex_feeds_item WHERE cont
 						href="<?= $review['url']?>"
 						target="_blank">Google Maps</a>, verfasst am
 					<?php $date = new DateTime($review['date']);
-					echo $date->format('d.m.Y'); ?></small>
+                    echo $date->format('d.m.Y') ?></small>
 			</div>
 		</div>
 

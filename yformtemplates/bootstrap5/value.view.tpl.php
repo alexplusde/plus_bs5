@@ -5,12 +5,12 @@
  * @psalm-scope-this rex_yform_value_abstract
  */
 
-$value = $value ?? $this->getValue() ?? '';
-$options = $options ?? [];
-$download_link = $download_link ?? '';
+$value ??= $this->getValue() ?? '';
+$options ??= [];
+$download_link ??= '';
 
 if ('' != $download_link) {
-    $filename = $filename ?? 'Download';
+    $filename ??= 'Download';
     $value = '<a href="'.$download_link.'">'.rex_escape($filename).'</a>';
 } elseif (is_array($value)) {
     if (0 == count($value)) {
@@ -40,7 +40,7 @@ if (!empty($this->getWarningClass())) {
     $class_group[$this->getWarningClass()] = $this->getWarningClass();
 }
 
-$notice = $notice ?? '';
+$notice ??= '';
 if ('' != $notice) {
     $notice = '<p class="help-block form-text small">' . rex_i18n::translate($notice, false) . '</p>';
 }

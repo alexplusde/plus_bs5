@@ -5,12 +5,12 @@
  * @psalm-scope-this rex_yform_value_google_geocode
  */
 
-$address = $address ?? '';
-$googleapikey = $googleapikey ?? '';
-$value = $value ?? $this->getValue() ?? '';
-$mapZoom = $mapZoom ?? 5;
-$mapWidth = $mapWidth ?? 800;
-$mapHeight = $mapHeight ?? 600;
+$address ??= '';
+$googleapikey ??= '';
+$value ??= $this->getValue() ?? '';
+$mapZoom ??= 5;
+$mapWidth ??= 800;
+$mapHeight ??= 600;
 
 $FieldsAddress = [];
 $LabelsAddress = explode(',', $address);
@@ -32,27 +32,27 @@ if ('' != $googleapikey) {
 
     var rex_geo_coder = function() {
 
-        jQuery("#<?php echo $this->getFieldId() ?>").on("change", function(){
+        jQuery("#<?= $this->getFieldId() ?>").on("change", function(){
 
         });
 
-        jQuery("#<?php echo $this->getHTMLId('google') ?> .yform-google-btnbar .get-position").on("click", function(){
+        jQuery("#<?= $this->getHTMLId('google') ?> .yform-google-btnbar .get-position").on("click", function(){
             rex_geo_getPosition();
         });
 
-        jQuery("#<?php echo $this->getHTMLId('google') ?> .yform-google-btnbar .clear-position").on("click", function(){
+        jQuery("#<?= $this->getHTMLId('google') ?> .yform-google-btnbar .clear-position").on("click", function(){
             rex_geo_clearPosition();
         });
 
-        var myLatlng = new google.maps.LatLng(<?php echo $value; ?>);
+        var myLatlng = new google.maps.LatLng(<?= $value ?>);
 
         var myOptions = {
-            zoom: <?php echo $mapZoom ?>,
+            zoom: <?= $mapZoom ?>,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        var map = new google.maps.Map(document.getElementById("map_canvas<?php echo $this->getId() ?>"), myOptions);
+        var map = new google.maps.Map(document.getElementById("map_canvas<?= $this->getId() ?>"), myOptions);
 
         var marker = new google.maps.Marker({
             position: myLatlng,
@@ -65,7 +65,7 @@ if ('' != $googleapikey) {
         });
 
         rex_geo_updatePosition = function(latLng) {
-            jQuery("#<?php echo $this->getFieldId() ?>").val( latLng.lat()+","+latLng.lng() );
+            jQuery("#<?= $this->getFieldId() ?>").val( latLng.lat()+","+latLng.lng() );
             map.setCenter(latLng);
         }
 
@@ -116,7 +116,7 @@ if ('' != $googleapikey) {
 
         rex_geo_clearPosition = function() {
 
-            jQuery("#<?php echo $this->getFieldId() ?>").val("0,0");
+            jQuery("#<?= $this->getFieldId() ?>").val("0,0");
             var clearLatlng = new google.maps.LatLng(0, 0);
             marker.setMap(null);
             marker = new google.maps.Marker({
@@ -134,7 +134,7 @@ if ('' != $googleapikey) {
     }
 
     jQuery(function($){
-        rex_geo_coder<?php echo $this->getId() ?> = new rex_geo_coder();
+        rex_geo_coder<?= $this->getId() ?> = new rex_geo_coder();
 
     });
 
@@ -151,13 +151,13 @@ if ((string) (int) $mapHeight == (string) $mapHeight) {
 
 ?>
 
-<div class="<?php echo $this->getHTMLClass() ?>" id="<?php echo $this->getHTMLId('google') ?>">
-    <label class="text <?php echo $this->getWarningClass() ?>"><?php echo $this->getElement('label') ?></label>
+<div class="<?= $this->getHTMLClass() ?>" id="<?= $this->getHTMLId('google') ?>">
+    <label class="text <?= $this->getWarningClass() ?>"><?= $this->getElement('label') ?></label>
     <p class="yform-google-btnbar">
-        <a class="get-position" href="javascript:void(0);"><?php echo rex_i18n::msg('yform_geo_get_position'); ?></a> |
-        <a class="clear-position" href="javascript:void(0);"><?php echo rex_i18n::msg('yform_geo_clear_position'); ?></a>
+        <a class="get-position" href="javascript:void(0);"><?= rex_i18n::msg('yform_geo_get_position') ?></a> |
+        <a class="clear-position" href="javascript:void(0);"><?= rex_i18n::msg('yform_geo_clear_position') ?></a>
     </p>
-    <div class="form_google_geocode_map" id="map_canvas<?php echo $this->getId() ?>" style="
+    <div class="form_google_geocode_map" id="map_canvas<?= $this->getId() ?>" style="
     <?php
     echo 'width: '.$mapWidth.';';
     echo 'height: '.$mapHeight;

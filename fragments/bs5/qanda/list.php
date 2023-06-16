@@ -1,18 +1,17 @@
 <?php
 
+$category_ids = $this->getVar('category_ids');
+$question_ids = $this->getVar('question_ids');
 
-$category_ids = $this->getVar("category_ids");
-$question_ids = $this->getVar("question_ids");
-
-if(is_array($question_ids)) {
-    $title = "Einzelne Fragen";
+if (is_array($question_ids)) {
+    $title = 'Einzelne Fragen';
     $questions = qanda::findByIds($question_ids);
-} elseif(is_array($category_ids)) {
-    $title = "Einzelne Kategorien";
+} elseif (is_array($category_ids)) {
+    $title = 'Einzelne Kategorien';
     $questions = qanda::findByCategoryIds($category_ids);
 } else {
-    $title = "Standard";
-    $questions = qanda::query()->where('status', 0, ">")->find();
+    $title = 'Standard';
+    $questions = qanda::query()->where('status', 0, '>')->find();
 }
 
 ?>
