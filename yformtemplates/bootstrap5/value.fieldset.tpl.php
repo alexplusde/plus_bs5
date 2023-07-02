@@ -5,9 +5,9 @@
  * @psalm-scope-this rex_yform_value_abstract
  */
 
-$option ??= '';
+$option = $option ?? '';
 
-switch ($option) {
+switch($option) {
     case 'open':
         $attributes = [
             'class' => $this->getHTMLClass(),

@@ -17,7 +17,7 @@ $labelWrapperEnd = '</div>';
 $inputWrapper = '<div class="' . $this->formItemColClass . '">';
 $inputWrapperEnd = '</div>';
 
-if (true == $this->inline) {
+if ($this->inline == true) {
     $labelWrapper = '';
     $labelWrapperEnd = '';
     $inputWrapper = '';

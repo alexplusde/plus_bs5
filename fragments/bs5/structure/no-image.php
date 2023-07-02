@@ -1,6 +1,6 @@
-<?php
+<?php 
 
-$structure = $this->getVar('structure');
+$structure = $this->getVar('structure'); 
 ?>
 <div class="col">
     <div class="card h-100">
@@ -11,8 +11,8 @@ $structure = $this->getVar('structure');
             <p class="card-text">
                 <?= $structure->getValue('yrewrite_description') ?>
             </p>
-            <a href="<?= $structure->getUrl() ?>"
-                class="btn btn-primary"><?= bs5::getConfigText('text_more') ?></a>
+            <a href="<?= $structure->getUrl(); ?>"
+                class="btn btn-primary"><?= bs5::getConfigText('text_more'); ?></a>
         </div>
     </div>
 </div>

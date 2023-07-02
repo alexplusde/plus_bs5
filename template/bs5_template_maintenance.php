@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="template-REX_TEMPLATE_KEY"
-    lang="<?= rex_clang::getCurrent()->getCode() ?>">
+    lang="<?php echo rex_clang::getCurrent()->getCode(); ?>">
 
 <head>
     <?php
     $fragment = new bs5_fragment();
-    $fragment->setVar('content', 'REX_ARTICLE[]', false);
+    $fragment->setVar('content', "REX_ARTICLE[]", false);
     echo $fragment->parse('bs5/template/head-maintenance.php');
     ?>
 </head>
@@ -15,7 +15,9 @@
         springen</a>
 
     <div class="screen-darken"></div>
-    <?= $fragment->parse('bs5/template/maintenance.php');
+    <?php
+
+    echo $fragment->parse('bs5/template/maintenance.php');
     ?>
 
 </body>

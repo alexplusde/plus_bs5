@@ -31,7 +31,7 @@ if (isset($groupAttributes['class']) && is_array($groupAttributes['class'])) {
 if (!isset($elementAttributes)) {
     $elementAttributes = [];
 }
-$elementClass = trim('form-check form-check-inline '.$this->getWarningClass());
+$elementClass = trim( 'form-check form-check-inline '.$this->getWarningClass());
 if (isset($elementAttributes['class']) && is_array($elementAttributes['class'])) {
     $elementAttributes['class'][] = $elementClass;
 } elseif (isset($elementAttributes['class'])) {
@@ -41,12 +41,12 @@ if (isset($elementAttributes['class']) && is_array($elementAttributes['class']))
 }
 ?>
 
-<?php $choiceOutput = function (rex_yform_choice_view $view) use ($elementAttributes) {
+<?php $choiceOutput = function (rex_yform_choice_view $view) use ($elementAttributes, $choiceList) {
     ?>
     <div<?= rex_string::buildAttributes($elementAttributes) ?>>
         <input class="btn-check"
                 value="<?= rex_escape($view->getValue()) ?>"
-            <?= in_array($view->getValue(), $this->getValue(), true) ? ' checked="checked"' : '' ?>
+            <?= (in_array($view->getValue(), $this->getValue(), true) ? ' checked="checked"' : '') ?>
             <?= $view->getAttributesAsString() ?>
         />
         <label class="btn btn-primary"  for="<?= $view->getAttributes()['id'] ?>">

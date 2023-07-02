@@ -5,10 +5,10 @@
  * @psalm-scope-this rex_yform_value_upload
  */
 
-$unique ??= '';
-$filename ??= '';
-$download_link ??= '';
-$error_messages ??= [];
+$unique = $unique ?? '';
+$filename = $filename ?? '';
+$download_link = $download_link ?? '';
+$error_messages = $error_messages ?? [];
 
 $notice = [];
 if ('' != $this->getElement('notice')) {
@@ -29,14 +29,14 @@ $class_group = trim('form-group my-1 ' . $class . $this->getWarningClass());
 $class_control = trim('form-control');
 
 ?>
-<div class="<?= $class_group ?>" id="<?= $this->getHTMLId() ?>">
-    <label class="form-label" for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
+<div class="<?php echo $class_group ?>" id="<?php echo $this->getHTMLId() ?>">
+    <label class="form-label" for="<?php echo $this->getFieldId() ?>"><?php echo $this->getLabel() ?></label>
     <div class="input-group">
-        <input class="<?= $class_control ?>" id="<?= $this->getFieldId() ?>" type="file" accept="<?= $this->getElement('types') ?>" name="<?= $unique ?>" />
+        <input class="<?php echo $class_control ?>" id="<?php echo $this->getFieldId() ?>" type="file" accept="<?php echo $this->getElement('types') ?>" name="<?php echo $unique ?>" />
         <span class="input-group-btn"><button class="btn btn-default" type="button" onclick="const file = document.getElementById('<?= $this->getFieldId() ?>'); file.value = '';">&times;</button></span>
     </div>
-    <?= $notice ?>
-    <input type="hidden" name="<?= $this->getFieldName('unique') ?>" value="<?= rex_escape($unique, 'html') ?>" />
+    <?php echo $notice ?>
+    <input type="hidden" name="<?php echo $this->getFieldName('unique'); ?>" value="<?php echo rex_escape($unique, 'html'); ?>" />
 </div>
 
 <?php

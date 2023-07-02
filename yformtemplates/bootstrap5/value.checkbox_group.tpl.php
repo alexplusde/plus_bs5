@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_checkbox
  */
 
-$options ??= [];
+$options = $options ?? [];
 
 $notices = [];
 if ('' != $this->getElement('notice')) {
@@ -24,9 +24,9 @@ if (count($notices) > 0) {
 
 <?php if ('' != trim($this->getLabel())): ?>
 <div class="form-check-group form-group my-1">
-    <label class="form-label"><?= $this->getLabel() ?></label>
+    <label class="form-label"><?php echo $this->getLabel() ?></label>
 
-<?php endif ?>
+<?php endif; ?>
 
 <?php foreach ($options as $k => $v): ?>
     <?php
@@ -38,12 +38,12 @@ if (count($notices) > 0) {
             <label class="form-check-label" for="disabledFieldsetCheck">
                 <?= $this->getLabelStyle($v) ?>
             </label>
-            <?= $notice ?>
+            <?php echo $notice; ?>
         </div>
 
 <?php endforeach ?>
-<?= $notice ?>
+<?php echo $notice; ?>
 
 <?php if ('' != trim($this->getLabel())): ?>
 </div>
-<?php endif ?>
+<?php endif; ?>

@@ -6,8 +6,8 @@
  */
 
 ?>
-<div id="<?= $this->objparams['form_wrap_id'] ?>"
-    class="<?= $this->objparams['form_wrap_class'] ?>">
+<div id="<?php echo $this->objparams['form_wrap_id'] ?>"
+    class="<?php echo $this->objparams['form_wrap_class'] ?>">
 
     <?php
     if ('' != $this->objparams['form_action']) {
@@ -46,13 +46,12 @@
     <?php foreach ($this->objparams['form_hiddenfields'] as $k => $v): ?>
     <?php if (is_array($v)): foreach ($v as $l => $w): ?>
     <input type="hidden"
-        name="<?= $k, '[', $l, ']' ?>"
-        value="<?= htmlspecialchars($w) ?>" />
-    <?php endforeach;
-    else: ?>
-    <input type="hidden" name="<?= $k ?>"
-        value="<?= htmlspecialchars($v) ?>" />
-    <?php endif ?>
+        name="<?php echo $k, '[', $l, ']' ?>"
+        value="<?php echo htmlspecialchars($w) ?>" />
+    <?php endforeach; else: ?>
+    <input type="hidden" name="<?php echo $k ?>"
+        value="<?php echo htmlspecialchars($v) ?>" />
+    <?php endif; ?>
     <?php endforeach ?>
 
     <?php

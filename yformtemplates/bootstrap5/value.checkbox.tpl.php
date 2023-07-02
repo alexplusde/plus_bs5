@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_checkbox
  */
 
-$value ??= $this->getValue() ?? '';
+$value = $value ?? $this->getValue() ?? '';
 
 $notices = [];
 if ('' != $this->getElement('notice')) {
@@ -38,11 +38,11 @@ $attributes = $this->getAttributeElements($attributes, ['required', 'disabled', 
 <div class="my-1">
     <div class="<?= $class_group ?>">
         <input class="form-check-input"
-            id="<?= $this->getHTMLId() ?>" <?= implode(' ', $attributes) ?>>
+            id="<?php echo $this->getHTMLId() ?>" <?= implode(' ', $attributes) ?>>
         <label class="form-check-label"
-            for="<?= $this->getHTMLId() ?>">
-            <?= $this->getLabel() ?>
+            for="<?php echo $this->getHTMLId() ?>">
+            <?php echo $this->getLabel() ?>
         </label>
-        <?= $notice ?>
+        <?php echo $notice; ?>
     </div>
 </div>

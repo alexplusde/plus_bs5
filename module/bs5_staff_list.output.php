@@ -1,14 +1,14 @@
 <?php
 if (!bs5::packageExists('staff', 'yform', 'url')) {
     return;
-}
+};
 
 use Url\Url;
 
 $manager = Url::resolveCurrent();
 
 if ($manager) {
-    $person = team::get($manager->getDatasetId()) ?>
+    $person = team::get($manager->getDatasetId()); ?>
 
 <div class="container bg-white p-3">
 	<div class="row row-cols-1 row-cols-md-2 g-4">
@@ -16,7 +16,7 @@ if ($manager) {
 			<h2><?= $person->getValue('fullname') ?>
 			</h2>
 			<p class="text">
-				<?= $person->getValue('content') ?>
+				<?= $person->getValue('content'); ?>
 			</p>
 		</div>
 	</div>

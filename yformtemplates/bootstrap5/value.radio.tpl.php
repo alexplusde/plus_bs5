@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_abstract
  */
 
-$options ??= [];
+$options = $options ?? [];
 
 $notices = [];
 if ('' != $this->getElement('notice')) {

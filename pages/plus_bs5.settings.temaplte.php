@@ -4,6 +4,7 @@ $addon = rex_addon::get('plus_bs5');
 
 $form = rex_config_form::factory($addon->name);
 
+
 $field = $form->addSelectField('vendor');
 $field->setLabel($this->i18n('bs5_config_vendor_label'));
 $field->setNotice($this->i18n('bs5_config_vendor_notice'));
@@ -13,11 +14,13 @@ $select->addOption($this->i18n('bs5_config_vendor_disabled'), 'disabled');
 $select->addOption($this->i18n('bs5_config_endor_local'), 'local');
 $select->addOption($this->i18n('bs5_config_vendor_cdn'), 'cdn');
 
+
 $field = $form->addInputField('text', 'text_more', null, ['class' => 'form-control']);
 $field->setLabel(rex_i18n::msg('bs5_config_text_more'));
 
 $field = $form->addInputField('text', 'text_a18y_content', null, ['class' => 'form-control']);
 $field->setLabel(rex_i18n::msg('bs5_config_text_a18y_content'));
+
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);

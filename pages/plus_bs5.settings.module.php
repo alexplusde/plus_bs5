@@ -16,6 +16,7 @@ $field->setLabel(rex_i18n::msg('bs5_config_text_slideshow_prev'));
 $field = $form->addInputField('text', 'text_slideshow_next', null, ['class' => 'form-control']);
 $field->setLabel(rex_i18n::msg('bs5_config_text_slideshow_next'));
 
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $this->i18n('bs5_config_settings'), false);
