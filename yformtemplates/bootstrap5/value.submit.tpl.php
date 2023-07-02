@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_submit
  */
 
-$labels = $labels ?? [];
+$labels ??= [];
 
 $css_classes = [];
 if ('' != $this->getElement('css_classes')) {

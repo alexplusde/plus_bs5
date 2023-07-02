@@ -6,12 +6,11 @@ class bs5_mobile_navigation
     {
         $mount_id = rex_yrewrite::getDomainByArticleId(rex_article::getCurrentId(), rex_clang::getCurrentId())->getMountId();
 
-        if($mount_id && rex_category::get($mount_id)) {
+        if ($mount_id && rex_category::get($mount_id)) {
             $root = rex_category::get($mount_id)->getChildren();
         } else {
             $root = rex_category::getRootCategories();
         }
-
 
         $output = [];
 
@@ -20,11 +19,10 @@ class bs5_mobile_navigation
 
         $output[] = '<div ' . rex_string::buildAttributes($div) . '>';
 
-        
-        foreach($root as $category) {
+        foreach ($root as $category) {
 
             $a = [];
-            if(!$category->isOnline()) {
+            if (!$category->isOnline()) {
                 continue;
             }
 
@@ -32,17 +30,17 @@ class bs5_mobile_navigation
                 continue;
             }
 
-            if ($category->getValue('cat_nav') == "|mobile_hidden|") {
+            if ('|mobile_hidden|' == $category->getValue('cat_nav')) {
                 $a['class'] = 'd-lg-none';
             }
 
             $title = $category->getName();
-            if($category->getName() == "Jobs") {
-                $title .=  ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::findOnline(0)).'<span class="visually-hidden"> Jobangebote</span><span>';
+            if ('Jobs' == $category->getName()) {
+                $title .= ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::findOnline(0)).'<span class="visually-hidden"> Jobangebote</span><span>';
             }
 
-            if(rex_category::getCurrent()->getId() == $category->getId()) {
-                $a['class'][] = "active";
+            if (rex_category::getCurrent()->getId() == $category->getId()) {
+                $a['class'][] = 'active';
             }
 
             $a['href'] = $category->getUrl();
@@ -53,6 +51,6 @@ class bs5_mobile_navigation
 
         $output[] = '</div>';
 
-        return implode("", $output);
+        return implode('', $output);
     }
-};
+}

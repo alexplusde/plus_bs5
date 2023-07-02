@@ -1,6 +1,6 @@
 <?php
 
-$images = explode(",", $this->getVar('images'));
+$images = explode(',', $this->getVar('images'));
 
 ?>
 
@@ -12,7 +12,7 @@ $images = explode(",", $this->getVar('images'));
 			<?php
 
 $index = 0;
-$active = "active";
+$active = 'active';
 
 foreach ($images as $image) {
     if ($media = rex_media_plus::get($image)) {
@@ -23,7 +23,7 @@ foreach ($images as $image) {
 				class="<?= $active ?>" aria-current="true"
 				aria-label="<?= $image ?>"></button>
 			<?php
-        $active = "";
+        $active = '';
     } else { // if $media
         continue;
     } // if $media
@@ -38,22 +38,22 @@ foreach ($images as $image) {
 			<?php
 
 $index = 0;
-$active = "active";
+$active = 'active';
 foreach ($images as $image) {
     if ($media = rex_media_plus::get($image)->setClass('img-fluid w-100')) {
         ?>
 			<div
-				class="carousel-item <?= $active; ?> ratio ratio-21x9">
-				<?= media_manager_type_group::getPicture('default', $media); ?>
+				class="carousel-item <?= $active ?> ratio ratio-21x9">
+				<?= media_manager_type_group::getPicture('default', $media) ?>
 				<div class="carousel-caption d-none d-md-block">
-					<h5><?= $media->getValue('med_title'); ?>
+					<h5><?= $media->getValue('med_title') ?>
 					</h5>
-					<p><?= $media->getValue('med_description'); ?>
+					<p><?= $media->getValue('med_description') ?>
 					</p>
 				</div>
 			</div>
 			<?php
-        $active = "";
+        $active = '';
     } else { // if $media
         continue;
     } // if $media
@@ -69,13 +69,13 @@ foreach ($images as $image) {
 			data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span
-				class="visually-hidden"><?= bs5::getConfig("text_slideshow_prev"); ?></span>
+				class="visually-hidden"><?= bs5::getConfig('text_slideshow_prev') ?></span>
 		</button>
 		<button class="carousel-control-next" type="button"
 			data-bs-target="#carousel-<?= $this->getVar('slice_id') ?>"
 			data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span
-				class="visually-hidden"><?= bs5::getConfig("text_slideshow_next"); ?></span>
+				class="visually-hidden"><?= bs5::getConfig('text_slideshow_next') ?></span>
 		</button>
 </section>

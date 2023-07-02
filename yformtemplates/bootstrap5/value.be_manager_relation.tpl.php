@@ -5,9 +5,9 @@
  * @psalm-scope-this rex_yform_value_be_manager_relation
  */
 
-$options = $options ?? [];
-$link = $link ?? '';
-$valueName = $valueName ?? '';
+$options ??= [];
+$link ??= '';
+$valueName ??= '';
 
 $class_group = trim('form-group ' . $this->getHTMLClass() . ' ' . $this->getWarningClass());
 
@@ -28,10 +28,10 @@ if (count($notice) > 0) {
 
 ?>
 <?php if ($this->relation['relation_type'] < 2 || 3 == $this->relation['relation_type']): ?>
-    <div data-be-relation-wrapper="<?php echo $this->getFieldName(); ?>" class="<?php echo $class_group ?>"
-         id="<?php echo $this->getHTMLId() ?>">
+    <div data-be-relation-wrapper="<?= $this->getFieldName() ?>" class="<?= $class_group ?>"
+         id="<?= $this->getHTMLId() ?>">
         <label class="form-label"
-               for="<?php echo $this->getFieldId() ?>"><?php echo $this->getLabelStyle($this->relation['label']) ?></label>
+               for="<?= $this->getFieldId() ?>"><?= $this->getLabelStyle($this->relation['label']) ?></label>
         <?php
 
         $attributes = [];
@@ -58,13 +58,13 @@ if (count($notice) > 0) {
         $select->setSelected($this->getValue());
         echo $select->get();
         ?>
-        <?php echo $notice ?>
+        <?= $notice ?>
     </div>
 <?php else: ?>
-    <div data-be-relation-wrapper="<?php echo $this->getFieldName(); ?>" class="<?php echo $class_group ?>"
-         id="<?php echo $this->getHTMLId() ?>">
+    <div data-be-relation-wrapper="<?= $this->getFieldName() ?>" class="<?= $class_group ?>"
+         id="<?= $this->getHTMLId() ?>">
         <label class="control-label"
-               for="<?php echo $this->getFieldId() ?>"><?php echo $this->getLabelStyle($this->relation['label']) ?></label>
+               for="<?= $this->getFieldId() ?>"><?= $this->getLabelStyle($this->relation['label']) ?></label>
         <?php
         $e = [];
         if (4 == $this->relation['relation_type']) {
@@ -118,6 +118,6 @@ if (count($notice) > 0) {
             echo $fragment->parse('core/form/widget_list.php');
         }
         ?>
-        <?php echo $notice ?>
+        <?= $notice ?>
     </div>
 <?php endif;

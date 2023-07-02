@@ -4,11 +4,11 @@ class bs5_navigation extends rex_navigation
 {
     protected function getListTag(array $items, array $ul, int $depth): string
     {
-        if ($depth == 1) {
-            $ul['class'][] = "navbar-nav nav w-100 justify-content-end";
+        if (1 == $depth) {
+            $ul['class'][] = 'navbar-nav nav w-100 justify-content-end';
         }
-        if ($depth == 2) {
-            $ul['class'][] = "dropdown-menu";
+        if (2 == $depth) {
+            $ul['class'][] = 'dropdown-menu';
         }
 
         return parent::getListTag($items, $ul, $depth);
@@ -16,24 +16,24 @@ class bs5_navigation extends rex_navigation
 
     public static function getNav($level = 2)
     {
-        $navi = bs5_navigation::factory();
+        $navi = self::factory();
 
         $mount_id = rex_yrewrite::getDomainByArticleId(rex_article::getCurrentId(), rex_clang::getCurrentId())->getMountId();
-        
-        $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {
-            if ($category->getValue('cat_nav') == "|desktop_hidden|") {
+
+        $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+            if ('|desktop_hidden|' == $category->getValue('cat_nav')) {
                 $li['class'][] = 'd-lg-none';
             }
             return true;
         });
 
         if ($level > 1) {
-            $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {
-                if ($category->getValue('cat_nav') == "|desktop_hidden|") {
+            $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+                if ('|desktop_hidden|' == $category->getValue('cat_nav')) {
                     return false;
                 }
 
-                if ($depth == 1 && $category->getChildren()) {
+                if (1 == $depth && $category->getChildren()) {
                     $li['class'][] = 'dropdown';
                     $a['class'][] = 'dropdown-toggle';
                     $a['data-bs-toggle'][] = 'dropdown';
@@ -42,20 +42,20 @@ class bs5_navigation extends rex_navigation
                     $a['aria-expanded'][] = 'false';
                 }
 
-                if ($depth == 2) {
+                if (2 == $depth) {
                     $a['class'][] = 'dropdown-item';
                 }
-                
+
                 return true;
             });
         }
-        $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+        $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
             $li['class'][] = 'nav-item';
             $a['class'][] = 'btn';
             $a['class'][] = 'nav-link';
 
-            if($a_content == "Jobs") {
-                $a_content.=  ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::findOnline(0)).'<span class="visually-hidden"> Jobangebote</span><span>';
+            if ('Jobs' == $a_content) {
+                $a_content .= ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::findOnline(0)).'<span class="visually-hidden"> Jobangebote</span><span>';
             }
 
             return true;
@@ -69,4 +69,4 @@ class bs5_navigation extends rex_navigation
 
         return $output;
     }
-};
+}
