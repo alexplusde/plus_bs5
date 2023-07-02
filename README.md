@@ -132,7 +132,7 @@ z.B. `/bs5/text` als Modul-Key sucht nach `/bs5/text.php` als Ausgabe-Fragment.
 
 ### Subfragmente
 
-Einige Module bieten zusätzlich eine Layout-Optionswahl aus, z.B. Kategorien-Übersicht, Artikelübersicht, Bildergalerie, Bilder und Video. dabei werden Unterordner mit den jeweiligen Layouts erstellt und als Subfragment aufgerufen.
+Einige Module und Templates bieten zusätzlich eine Layout-Optionswahl aus, z.B. Kategorien-Übersicht, Artikelübersicht, Bildergalerie, Bilder und Video. dabei werden Unterordner mit den jeweiligen Layouts erstellt und als Subfragment aufgerufen.
 
 ## Hilfsklassen und Methoden
 
@@ -144,16 +144,23 @@ Einige Module bieten zusätzlich eine Layout-Optionswahl aus, z.B. Kategorien-Ü
 
 Werden beim Installieren und Updaten des Addons aufgerufen, um die neuste Version der Moduleingaben und Ausgaben zu installieren.
 
+Diese Methode kann auch für darauf aufbauende Addons verwendet werden. Beispiele dazu finden sich in der install.php und update.php des Addons `stellenangebote`.
 
 ### `bs5::writeModule()`, `bs5::writeTemplate()`
 
-Nur für den Addon-Entwickler: Schreibt die neusten Module und Templates ins Dateisystem des Addons. Benötigt aktivierten Debug-Modus und aktivierten Schreib-Modus im Addon.
+Für Addon-Entwickler: Schreibt die neusten Module und Templates ins Dateisystem des Addons. Benötigt aktivierten Debug-Modus und aktivierten Schreib-Modus im Addon.
 
+Diese Methode kann auch für darauf aufbauende Addons verwendet werden. Beispiele dazu finden sich in der install.php und update.php des Addons `stellenangebote`.
+
+### `bs5::forceBackup()`
+
+Für Addon-Entwickler: Schreibt von Modulen und Templates Backups Addons. Benötigt aktivierten Debug-Modus und aktivierten Schreib-Modus im Addon.
+
+Diese Methode kann auch für darauf aufbauende Addons verwendet werden. Beispiele dazu finden sich in der install.php und update.php des Addons `stellenangebote`.
 
 ### `bs5::getConfig($key)` und `bs5::setConfig($key, $value)`
 
 Shortcut zum Aufrufen von `rex_config::get('plus_bs5', $key)` und `rex_config::set('plus_bs5', $key, $value)`
-
 
 ## Credits
 
