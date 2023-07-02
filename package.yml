@@ -1,12 +1,12 @@
 package: plus_bs5
-version: '0.1.4'
+version: '0.1.5'
 author: Alexander Walther
 supportpage: https://www.alexplus.de
 
 requires:
     php:
-        version: ">7.3"
-    redaxo: ^5.14
+        version: "^8.0"
+    redaxo: ^5.15
     packages:
         mform: "^7.3"
         mediapool: "^2"
@@ -53,4 +53,7 @@ config:
     text_a18y_content: "Zum Inhalt springen..."
     text_slideshow_prev: Zurück
     text_slideshow_next: Weiter
+    text_header_mobile_nav: Menü
+    text_header_mobile_nav_title: Menü
+    text_header_mobile_nav_close: Schließen
     dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben
