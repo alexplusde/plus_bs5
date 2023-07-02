@@ -8,7 +8,7 @@ $image = $this->getVar('image');
 
      if ($media = rex_media_plus::get($image)) {
          ?>
-	<?= media_manager_type_group::getPicture('default', $media, "w-100 img-fluid"); ?>
+	<?= media_manager_type_group::getPicture('default', $media, 'w-100 img-fluid') ?>
 
 	<?php
      } // if $media

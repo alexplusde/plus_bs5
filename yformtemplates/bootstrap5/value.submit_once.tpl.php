@@ -5,7 +5,7 @@
  * @psalm-scope-this rex_yform_value_submit_once
  */
 
-$label = $label ?? "";
+$label ??= '';
 
 $classes = [];
 $classes[] = 'btn';

@@ -4,8 +4,8 @@ class bs5_subnavigation extends rex_navigation
 {
     protected function getListTag(array $items, array $ul, int $depth): string
     {
-        if ($depth == 1) {
-            $ul['class'][] = "nav nav-pills flex-column mb-auto";
+        if (1 == $depth) {
+            $ul['class'][] = 'nav nav-pills flex-column mb-auto';
         }
         return parent::getListTag($items, $ul, $depth);
     }
@@ -20,13 +20,12 @@ class bs5_subnavigation extends rex_navigation
             $parent_id = rex_article::getCurrent()->getCategory()->getId();
         }
 
-        $navi->addCallback(function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+        $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
             $li['class'][] = 'nav-item';
             $a['class'][] = 'nav-link';
 
             return true;
         });
-    
 
         if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
             $navi->addCallback('rex_ycom_auth::articleIsPermitted');
@@ -36,4 +35,4 @@ class bs5_subnavigation extends rex_navigation
 
         return $output;
     }
-};
+}

@@ -2,7 +2,7 @@
 
 $image = $this->getVar('image');
 $title = $this->getVar('title');
-$level = $this->getVar('level') ?? "h1";
+$level = $this->getVar('level') ?? 'h1';
 $text = $this->getVar('text');
 
 ?>
@@ -11,17 +11,17 @@ $text = $this->getVar('text');
 
 		<div class="col">
 		<?php
-		if ($media = rex_media_plus::get($image)) {
-			echo media_manager_type_group::getPicture('default', $media);
-		}
-		?>
+        if ($media = rex_media_plus::get($image)) {
+            echo media_manager_type_group::getPicture('default', $media);
+        }
+        ?>
 		</div>
 
 		<div class="col">
-			<?php if($title) { ?>
-			<<?= $level; ?>><?= $title; ?></<?= $level; ?>>
+			<?php if ($title) { ?>
+			<<?= $level ?>><?= $title ?></<?= $level ?>>
 			<?php } ?>
-			<?= $text; ?>
+			<?= $text ?>
 		</div>
 
 	</div>

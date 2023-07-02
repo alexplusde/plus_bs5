@@ -9,23 +9,23 @@
 			</div>
 			<div class="modal-body">
 
-				<?= bs5_mobile_navigation::getNav(rex_config::get('plus_bs5', 'nav_depth', 1));?>
+				<?= bs5_mobile_navigation::getNav(rex_config::get('plus_bs5', 'nav_depth', 1))?>
 
 			</div>
 			<div class="modal-footer">
 
 				<?php
 
-                $footer_nav = explode(",", rex_config::get('plus_bs5', 'footer_navigation'));
-				foreach ($footer_nav as $id) {
-				    $article = rex_article::get($id);
-				    if ($article) {?>
-				<a href="<?= $article->getUrl(); ?>"
-					class="text-muted"><?= $article->getName(); ?>
+                $footer_nav = explode(',', rex_config::get('plus_bs5', 'footer_navigation'));
+                foreach ($footer_nav as $id) {
+                    $article = rex_article::get($id);
+                    if ($article) {?>
+				<a href="<?= $article->getUrl() ?>"
+					class="text-muted"><?= $article->getName() ?>
 				</a>
 
 				<?php }
-				    } ?>
+                    } ?>
 			</div>
 		</div>
 	</div>
