@@ -34,7 +34,7 @@ class bs5_fragment extends rex_fragment
     public static function badgeFormatter($text)
     {
         $pattern = ['/<u>([^<>]*)<\/u>/'];
-        $replace = ['<span class="badge rounded-pill bg-primary">$1<span>'];
+        $replace = ['<span class="badge rounded-pill bg-primary">$1</span>'];
         return preg_replace($pattern, $replace, $text);
     }
 }
