@@ -4,10 +4,10 @@ $addon = rex_addon::get('plus_bs5');
 
 $form = rex_config_form::factory($addon->name);
 
-$field = $form->addTextareaField('contact', null, ['class' => 'form-control '. rex_config::get('plus_bs5', 'editor')]);
+$field = $form->addTextareaField('contact', null, ['class' => 'form-control ' . rex_config::get('plus_bs5', 'editor')]);
 $field->setLabel(rex_i18n::msg('bs5_config_contact'));
 
-$field = $form->addTextareaField('imprint', null, ['class' => 'form-control '. rex_config::get('plus_bs5', 'editor')]);
+$field = $form->addTextareaField('imprint', null, ['class' => 'form-control ' . rex_config::get('plus_bs5', 'editor')]);
 $field->setLabel(rex_i18n::msg('bs5_config_legal_notice'));
 
 $field = $form->addTextareaField('map', null, ['class' => 'form-control codemirror code-mirror']);
@@ -27,7 +27,7 @@ $fragment->setVar('body', $form->get(), false);
 	<div class="col-lg-4">
 		<?php
 
-$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=plus_bs5"><img src="'.rex_url::addonAssets('plus_bs5', 'jetzt-spenden.svg').'" style="width: 100% max-width: 400px;"></a>';
+$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=plus_bs5"><img src="' . rex_url::addonAssets('plus_bs5', 'jetzt-spenden.svg') . '" style="width: 100% max-width: 400px;"></a>';
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'info', false);

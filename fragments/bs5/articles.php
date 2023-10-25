@@ -17,7 +17,7 @@ continue;
 $this->setVar('parent', $parent);
 $this->setVar('structure', $article);
 
-echo $this->subfragment('bs5/structure/'.$layout.'.php');
+echo $this->subfragment('bs5/structure/' . $layout . '.php');
 
 }
 ?>
