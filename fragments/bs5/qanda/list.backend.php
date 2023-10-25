@@ -26,10 +26,10 @@ foreach ($questions as $question) {
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<a class="panel-title" data-toggle="collapse" data-parent="#accordion"
-				href="#collapse<?= $slice_id.'_'.$i ?>">
+				href="#collapse<?= $slice_id . '_' . $i ?>">
 				<?= $question->getQuestion() ?></a>
 		</div>
-		<div id="collapse<?= $slice_id.'_'.$i++ ?>"
+		<div id="collapse<?= $slice_id . '_' . $i++ ?>"
 			class="panel-collapse collapse out">
 			<div class="panel-body">
 				<?= $question->getAnswer() ?>

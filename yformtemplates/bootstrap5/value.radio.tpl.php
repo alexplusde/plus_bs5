@@ -25,8 +25,8 @@ $class = $this->getElement('required') ? 'form-is-required ' : '';
 $class_group = trim('radio-group form-group ' . $class . $this->getWarningClass());
 
 if ('' != trim($this->getLabel())) {
-    echo '<div class="'.$class_group.'">
-    <label class="control-label'.$class_label.'">'.$this->getLabel().'</label>';
+    echo '<div class="' . $class_group . '">
+    <label class="control-label' . $class_label . '">' . $this->getLabel() . '</label>';
 }
 
 foreach ($options as $key => $value) {
@@ -50,8 +50,8 @@ foreach ($options as $key => $value) {
     $attributes = $this->getAttributeElements($attributes);
 
     echo '  <label class="form-check-label">
-            <input '.implode(' ', $attributes).' />
-            '.$this->getLabelStyle($value).'
+            <input ' . implode(' ', $attributes) . ' />
+            ' . $this->getLabelStyle($value) . '
         </label>
     </div>';
 }

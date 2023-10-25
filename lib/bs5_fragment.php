@@ -19,7 +19,7 @@ class bs5_fragment extends rex_fragment
     {
 
         if (substr($filename, -strlen($suffix)) !== $suffix) {
-            return $filename.$suffix;
+            return $filename . $suffix;
         }
         return $filename;
     }
@@ -30,7 +30,7 @@ class bs5_fragment extends rex_fragment
         $replace = ['<a class="btn btn-primary" $1>$2</a>', '<a class="btn btn-secondary" $1>$2</a>', '<a class="btn btn-white" $1>$2</a>'];
         return preg_replace($pattern, $replace, $text);
     }
-    
+
     public static function badgeFormatter($text)
     {
         $pattern = ['/<u>([^<>]*)<\/u>/'];

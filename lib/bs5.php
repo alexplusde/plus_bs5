@@ -17,10 +17,10 @@ class bs5
 
     public static function updateModule($addon = 'plus_bs5')
     {
-        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon).'module'));
+        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'module'));
 
         foreach ($modules as $module) {
-            $module_array = json_decode(rex_file::get(rex_path::addon($addon).'module/'.$module), 1);
+            $module_array = json_decode(rex_file::get(rex_path::addon($addon) . 'module/' . $module), 1);
 
             rex_sql::factory()->setDebug(0)->setTable('rex_module')
     ->setValue('name', $module_array['name'])
@@ -40,18 +40,18 @@ class bs5
         $modules = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_module WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($modules as $module) {
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.json'), json_encode($module));
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.input.php'), $module['input']);
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.output.php'), $module['output']);
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.json'), json_encode($module));
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.input.php'), $module['input']);
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.output.php'), $module['output']);
         }
     }
 
     public static function updateTemplate($addon = 'plus_bs5')
     {
-        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon).'template'));
+        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'template'));
 
         foreach ($templates as $template) {
-            $template_array = json_decode(rex_file::get(rex_path::addon($addon).'template/'.$template), 1);
+            $template_array = json_decode(rex_file::get(rex_path::addon($addon) . 'template/' . $template), 1);
 
             rex_sql::factory()->setDebug(0)->setTable('rex_template')
     ->setValue('name', $template_array['name'])
@@ -70,8 +70,8 @@ class bs5
         $templates = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_template WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($templates as $template) {
-            rex_file::put(rex_path::addon($addon, 'template/'.rex_string::normalize($template['key']).'.json'), json_encode($template));
-            rex_file::put(rex_path::addon($addon, 'template/'.rex_string::normalize($template['key']).'.php'), $template['content']);
+            rex_file::put(rex_path::addon($addon, 'template/' . rex_string::normalize($template['key']) . '.json'), json_encode($template));
+            rex_file::put(rex_path::addon($addon, 'template/' . rex_string::normalize($template['key']) . '.php'), $template['content']);
         }
     }
 
@@ -89,7 +89,7 @@ class bs5
             }
         }
         if (null === $text) {
-            return 'missing text for key <code>'. $key . '</code>';
+            return 'missing text for key <code>' . $key . '</code>';
         }
 
         return $text;
@@ -101,7 +101,7 @@ class bs5
 
         if (!$filename) {
             $now = new DateTimeImmutable();
-            $filename = $now->format('Y') .'-'. $now->format('m') .'-'. $now->format('d') .'_'. $now->format('H') .'-'. $now->format('i') .'-'. $now->format('s');
+            $filename = $now->format('Y') . '-' . $now->format('m') . '-' . $now->format('d') . '_' . $now->format('H') . '-' . $now->format('i') . '-' . $now->format('s');
         }
         $file = $prefix . '_' . $filename . '.' . $type . '.sql';
 

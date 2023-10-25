@@ -36,7 +36,7 @@ class bs5_mobile_navigation
 
             $title = $category->getName();
             if ('Jobs' == $category->getName()) {
-                $title .= ' <span class="badge rounded-pill bg-danger border border-light">'.count(stellenangebote::findOnline(0)).'<span class="visually-hidden"> Jobangebote</span><span>';
+                $title .= ' <span class="badge rounded-pill bg-danger border border-light">' . count(stellenangebote::findOnline(0)) . '<span class="visually-hidden"> Jobangebote</span><span>';
             }
 
             if (rex_category::getCurrent()->getId() == $category->getId()) {
