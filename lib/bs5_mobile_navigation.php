@@ -26,7 +26,7 @@ class bs5_mobile_navigation
                 continue;
             }
 
-            if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
+            if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
                 continue;
             }
 
