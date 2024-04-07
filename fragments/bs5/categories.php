@@ -6,8 +6,8 @@
 
 				<?php $categories = rex_category::getCurrent()->getChildren();
 
-        foreach ($categories as $category) {
-            ?>
+		foreach ($categories as $category) {
+		    ?>
 				<div class="col">
 					<div class="card h-100">
 						<img src="..." class="card-img-top" alt="...">
@@ -24,8 +24,8 @@
 					</div>
 				</div>
 				<?php
-        }
-        ?>
+		}
+		?>
 			</div>
 		</div>
 	</div>

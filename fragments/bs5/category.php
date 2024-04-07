@@ -7,23 +7,23 @@ $layout = $this->getVar('options')['layout'] ?? 'no-image';
 
 				<?php
         $parent = rex_category::get($this->getVar('category'));
-        if (!$parent) {
-            $parent = rex_category::getCurrent();
-        }
-        $categories = $parent->getChildren();
+if (!$parent) {
+    $parent = rex_category::getCurrent();
+}
+$categories = $parent->getChildren();
 
-        foreach ($categories as $category) {
-            if (1 != $category->getValue('status')) {
-                continue;
-            }
+foreach ($categories as $category) {
+    if (1 != $category->getValue('status')) {
+        continue;
+    }
 
-            $this->setVar('parent', $parent);
-            $this->setVar('structure', $category);
+    $this->setVar('parent', $parent);
+    $this->setVar('structure', $category);
 
-            echo $this->subfragment('bs5/structure/' . $layout . '.php');
+    echo $this->subfragment('bs5/structure/' . $layout . '.php');
 
-        }
-        ?>
+}
+?>
 			</div>
 	</div>
 </section>

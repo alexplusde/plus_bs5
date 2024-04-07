@@ -77,12 +77,12 @@ if ('' != $googleapikey) {
             <?php
 
             $i = 0;
-            foreach ($FieldsAddress as $adr) {
-                echo "\n" . 'fields[' . $i . '] = jQuery("' . $adr . '").val();';
-                ++$i;
-            }
+foreach ($FieldsAddress as $adr) {
+    echo "\n" . 'fields[' . $i . '] = jQuery("' . $adr . '").val();';
+    ++$i;
+}
 
-            ?>
+?>
 
             var address = fields.join(",");
 
@@ -160,6 +160,6 @@ if ((string) (int) $mapHeight == (string) $mapHeight) {
     <div class="form_google_geocode_map" id="map_canvas<?= $this->getId() ?>" style="
     <?php
     echo 'width: ' . $mapWidth . ';';
-    echo 'height: ' . $mapHeight;
-    ?>">Google Map</div>
+echo 'height: ' . $mapHeight;
+?>">Google Map</div>
 </div>

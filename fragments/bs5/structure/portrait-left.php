@@ -11,7 +11,7 @@ $structure = $this->getVar('structure');
                 <?php
             $media = rex_media_plus::get($structure->getValue('yrewrite_image'));
 
-            if ($media) { ?>
+if ($media) { ?>
                 <img src="<?= $media->getUrl() ?>" class="card-img-top"
                     alt="<?= $structure->getName() ?>">
                 <?php } ?> </div>

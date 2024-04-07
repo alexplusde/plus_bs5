@@ -5,9 +5,9 @@
 <head>
 	<?php
     $fragment = new bs5_fragment();
-    $fragment->setVar('content', 'REX_ARTICLE[]', false);
-    echo $fragment->parse('bs5/template/meta.php');
-    ?>
+	$fragment->setVar('content', 'REX_ARTICLE[]', false);
+	echo $fragment->parse('bs5/template/meta.php');
+	?>
 </head>
 
 <body>
@@ -17,12 +17,12 @@
 	<div class="screen-darken"></div>
 	<?php
 
-    echo $fragment->parse('bs5/template/header-logo.php');
+	echo $fragment->parse('bs5/template/header-logo.php');
 
-    echo $fragment->parse('bs5/template/main.php');
+	echo $fragment->parse('bs5/template/main.php');
 
-    echo $fragment->parse('bs5/template/footer.php');
-    ?>
+	echo $fragment->parse('bs5/template/footer.php');
+	?>
 
 </body>
 
