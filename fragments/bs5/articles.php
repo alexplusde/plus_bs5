@@ -4,23 +4,22 @@
 
 			<?php
 $category = rex_category::get($this->getVar('category'));
-	if (!$category) {
-	    $category = rex_category::getCurrent();
-	}
-	$articles = $parent->getArticles();
+    if (!$category) {
+        $category = rex_category::getCurrent();
+    }
+    $articles = $parent->getArticles();
 
-	foreach ($articles as $article) {
-	    if (1 != $article->getValue('status')) {
-	        continue;
-	    }
+    foreach ($articles as $article) {
+        if (1 != $article->getValue('status')) {
+            continue;
+        }
 
-	    $this->setVar('parent', $parent);
-	    $this->setVar('structure', $article);
+        $this->setVar('parent', $parent);
+        $this->setVar('structure', $article);
 
-	    echo $this->subfragment('bs5/structure/' . $layout . '.php');
-
-	}
-	?>
+        echo $this->subfragment('bs5/structure/' . $layout . '.php');
+    }
+    ?>
 		</div>
 	</div>
 </section>

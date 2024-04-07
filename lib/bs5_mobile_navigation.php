@@ -20,7 +20,6 @@ class bs5_mobile_navigation
         $output[] = '<div ' . rex_string::buildAttributes($div) . '>';
 
         foreach ($root as $category) {
-
             $a = [];
             if (!$category->isOnline()) {
                 continue;
@@ -46,7 +45,6 @@ class bs5_mobile_navigation
             $a['href'] = $category->getUrl();
             $a['class'][] = 'list-group-item list-group-item-action';
             $output[] = '<a ' . rex_string::buildAttributes($a) . '>' . $title . '</a>';
-
         }
 
         $output[] = '</div>';

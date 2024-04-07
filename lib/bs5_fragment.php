@@ -17,7 +17,6 @@ class bs5_fragment extends rex_fragment
 
     public static function addSuffix($filename = '', $suffix = '.php')
     {
-
         if (substr($filename, -strlen($suffix)) !== $suffix) {
             return $filename . $suffix;
         }

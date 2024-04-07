@@ -21,7 +21,6 @@ foreach ($categories as $category) {
     $this->setVar('structure', $category);
 
     echo $this->subfragment('bs5/structure/' . $layout . '.php');
-
 }
 ?>
 			</div>
