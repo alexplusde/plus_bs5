@@ -55,7 +55,7 @@ class bs5_navigation extends rex_navigation
             $a['class'][] = 'nav-link';
 
             if ('Jobs' == $a_content) {
-                $a_content .= ' <span class="badge rounded-pill bg-danger border border-light">' . count(stellenangebote::findOnline(0)) . '<span class="visually-hidden"> Jobangebote</span><span>';
+                $a_content .= ' <span class="badge rounded-pill bg-danger border border-light">' . count(Entry::findOnline(0)) . '<span class="visually-hidden"> Jobangebote</span><span>';
             }
 
             return true;
