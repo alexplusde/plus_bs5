@@ -8,7 +8,7 @@ requires:
         version: "^8.0"
     redaxo: ^5.15
     packages:
-        mform: "^7.3"
+        mform: "^8"
         mediapool: "^2"
         media_manager: "^2"
         yrewrite_metainfo: "^1"
