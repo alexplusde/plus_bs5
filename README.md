@@ -39,7 +39,12 @@ Ein Template, das wie `Standard [1]` funktioniert, jedoch kein Navigationsmenü 
 
 ### Grundsätzliches zum Aufbau der Module Values
 
-Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. Bsp.:
+Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. 
+
+Unter [https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder](https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder) findest du ein angepasstes ChatGPT-Modell für Modul-Eingabe und -Ausgabe.
+
+
+Bsp.:
 
 #### Ausgabe
 
