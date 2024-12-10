@@ -19,9 +19,9 @@ use rex_config;
   <div class="offcanvas-footer p-3">
     <?php
     $footer_nav = explode(',', rex_config::get('plus_bs5', 'footer_navigation'));
-    foreach ($footer_nav as $id) {
-      $article = rex_article::get($id);
-      if ($article) { ?>
+foreach ($footer_nav as $id) {
+    $article = rex_article::get($id);
+    if ($article) { ?>
         <a href="<?= $article->getUrl() ?>" class="text-muted me-3"><?= $article->getName() ?></a>
     <?php }
     } ?>

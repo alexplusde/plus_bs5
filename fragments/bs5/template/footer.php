@@ -25,9 +25,9 @@ use rex_config;
 				<ul class="nav flex-column">
 					<?php
                                     $footer_nav = explode(',', rex_config::get('plus_bs5', 'footer_navigation'));
-                foreach ($footer_nav as $id) {
-                    $article = rex_article::get($id);
-                    if ($article) {?>
+foreach ($footer_nav as $id) {
+    $article = rex_article::get($id);
+    if ($article) {?>
 
 					<li class="nav-item mb-2">
 						<a href="<?= $article->getUrl() ?>"
@@ -35,7 +35,7 @@ use rex_config;
 						</a>
 					</li>
 					<?php }
-                    } ?>
+    } ?>
 				</ul>
 			</div>
 

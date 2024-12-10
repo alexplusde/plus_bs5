@@ -27,15 +27,15 @@ use rex_config;
 				<?php
 
                 $footer_nav = explode(',', rex_config::get('plus_bs5', 'footer_navigation'));
-                foreach ($footer_nav as $id) {
-                    $article = rex_article::get($id);
-                    if ($article) {?>
+foreach ($footer_nav as $id) {
+    $article = rex_article::get($id);
+    if ($article) {?>
 				<a href="<?= $article->getUrl() ?>"
 					class="text-muted"><?= $article->getName() ?>
 				</a>
 
 				<?php }
-                    } ?>
+    } ?>
 			</div>
 		</div>
 	</div>

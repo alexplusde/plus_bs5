@@ -57,7 +57,7 @@ if (isset($elementAttributes['class']) && is_array($elementAttributes['class']))
 } ?>
 
 <?php $choiceGroupOutput = static function (rex_yform_choice_group_view $view) use ($choiceOutput) {
-        ?>
+    ?>
     <div class="form-check-group my-1">
         <label><?= rex_escape($view->getLabel()) ?></label>
         <?php foreach ($view->getChoices() as $choiceView): ?>
@@ -65,13 +65,13 @@ if (isset($elementAttributes['class']) && is_array($elementAttributes['class']))
         <?php endforeach ?>
     </div>
 <?php
-    } ?>
+} ?>
 
 <?php
-    if (!isset($groupAttributes['id'])) {
-        $groupAttributes['id'] = $this->getHTMLId();
-    }
- ?>
+if (!isset($groupAttributes['id'])) {
+    $groupAttributes['id'] = $this->getHTMLId();
+}
+?>
 <div<?= rex_string::buildAttributes($groupAttributes) ?>>
     <?php if ($this->getLabel()): ?>
         <label class="form-label d-block">

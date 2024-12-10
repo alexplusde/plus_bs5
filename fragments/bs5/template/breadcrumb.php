@@ -22,22 +22,22 @@ $startArticle = rex_article::get($currentDomain->getStartId());
         <?php
         $tree = $article->getParentTree();
 
-        foreach ($tree as $category) {
-            /** Wenn Startartikel und Mounpoint unterschiedlich, dann Startartikel ausgeben */
-            if (rex_yrewrite::isDomainMountpoint($category->getId())) {
-                ?>
+foreach ($tree as $category) {
+    /** Wenn Startartikel und Mounpoint unterschiedlich, dann Startartikel ausgeben */
+    if (rex_yrewrite::isDomainMountpoint($category->getId())) {
+        ?>
                 <li class="breadcrumb-item"><a href="<?= $startArticle->getUrl() ?>"><?= $startArticle->getCategory()->getName() ?></a></li>
 <?php
-                continue;
-            }
+        continue;
+    }
 
-            if ($category->getId() === $article->getId()) {
-                echo '<li class="breadcrumb-item active" aria-current="page">' . $article->getName() . Helper::getBackendEditLink($article->getId()) . '</li>';
-                continue;
-            }
-            echo '<li class="breadcrumb-item"><a href="' . rex_getUrl($category->getId()) . '">' . $category->getName() . '</a></li>';
-        }
-        ?>
+    if ($category->getId() === $article->getId()) {
+        echo '<li class="breadcrumb-item active" aria-current="page">' . $article->getName() . Helper::getBackendEditLink($article->getId()) . '</li>';
+        continue;
+    }
+    echo '<li class="breadcrumb-item"><a href="' . rex_getUrl($category->getId()) . '">' . $category->getName() . '</a></li>';
+}
+?>
     </ol>
     <?= $this->subfragment('bs5/template/breadcrumb-search.php') ?>
 </nav>

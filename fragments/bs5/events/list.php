@@ -29,6 +29,6 @@ $headline = $this->getVar('headline', '{{events.list.headline}}');
             $this->setVar('date', $date);
             echo $this->subfragment('bs5/events/date.php');
         }
-        ?>
+?>
 	</div>
 </div>

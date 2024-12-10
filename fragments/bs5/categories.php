@@ -14,7 +14,7 @@ $categories = $this->getVar('categories', rex_category::getCurrent()->getChildre
 <?php
 
 foreach ($categories as $category) {
-?>
+    ?>
 	<div class="col mb-3">
 		<div class="card h-100">
 			<div class="card-body">

@@ -25,6 +25,6 @@ if ($category) {
             $this->setVar('entry', $entry);
             echo $this->subfragment('bs5/neues/entry.php');
         }
-        ?>
+?>
 	</div>
 </div>

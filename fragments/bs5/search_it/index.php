@@ -72,7 +72,7 @@ if ($request) { // Wenn ein Suchbegriff eingegeben wurde
                 }
             }
 
-                // other hit types
+            // other hit types
         }
         echo '</ul>';
     } elseif (!$result['count']) {
