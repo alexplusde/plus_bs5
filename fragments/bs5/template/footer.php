@@ -1,3 +1,14 @@
+<?php
+
+namespace Alexplusde\BS5;
+
+/** @var \rex_fragment $this */
+
+use FriendsOfRedaxo\YrewriteMetainfo\Domain;
+use rex_config;
+use rex_article;
+
+?>
 <div class="p-5"></div>
 <footer class="pt-5 bg-white shadow">
 	<div class="container">
@@ -33,7 +44,7 @@
 		</div>
 
 		<div class="d-flex justify-content-between py-4 border-top">
-			<p><?= domain::getCurrent()->getName() ?>
+			<p><?= Domain::getCurrent()->getName() ?>
 			</p>
 			<ul class="list-unstyled d-flex">
 				<li class="ms-3"><a class="link-dark" href="#"></a></li>

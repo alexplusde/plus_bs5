@@ -1,32 +1,39 @@
-<section class="modul modul-text bs5-categories">
-	<div
-		class="container <?= rex_config::get('plus_bs5', 'container_class') ?>">
-		<div class="container text-center">
-			<div class="row row-cols-1 row-cols-md-3 g-4">
+<?php
 
-				<?php $categories = rex_category::getCurrent()->getChildren();
+namespace Alexplusde\BS5;
 
-        foreach ($categories as $category) {
-            ?>
-				<div class="col">
-					<div class="card h-100">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h3 class="card-title">
-								<?= $category->getName() ?>
-							</h3>
-							<p class="card-text">
-								<?= $category->getValue('yrewrite_description') ?>
-							</p>
-							<a href="<?= $category->getUrl() ?>"
-								class="btn btn-primary">More...</a>
-						</div>
-					</div>
-				</div>
-				<?php
-        }
-        ?>
+/** @var rex_fragment $this */
+
+use rex_category;
+
+$categories = $this->getVar('categories', rex_category::getCurrent()->getChildren());
+
+?>
+<!-- BEGIN plus_bs5/fragments/bs5/categories.php -->
+<div class="row row-cols-1 row-cols-md-2 g-4">
+<?php
+
+foreach ($categories as $category) {
+?>
+	<div class="col mb-3">
+		<div class="card h-100">
+			<div class="card-body">
+				<h3 class="card-title">
+					<?= $category->getName() ?>
+				</h3>
+				<p class="card-text">
+					<?= $category->getValue('yrewrite_description') ?>
+				</p>
 			</div>
+			<div class="card-footer text-end">
+				<a href="<?= $category->getUrl() ?>"
+					class="btn btn-primary">Mehr...</a>
+			</div>
+
 		</div>
 	</div>
-</section>
+<?php
+}
+?>
+</div>
+<!-- END plus_bs5/fragments/bs5/categories.php -->

@@ -43,11 +43,11 @@ if ($size > 1) {
 $attributes = $this->getAttributeElements($attributes, ['autocomplete', 'pattern', 'required', 'disabled', 'readonly']);
 
 echo '
-<div class="' . $class_group . '" id="' . $this->getHTMLId() . '">
-    <label class="' . implode(' ', $class_label) . '" for="' . $this->getFieldId() . '">' . $this->getLabel() . '</label>
-    <select ' . implode(' ', $attributes) . '>';
+<div class="'.$class_group.'" id="'.$this->getHTMLId().'">
+    <label class="'.implode(' ', $class_label).'" for="'.$this->getFieldId().'">'.$this->getLabel().'</label>
+    <select '.implode(' ', $attributes).'>';
 foreach ($options as $key => $value):
-    echo '<option value="' . htmlspecialchars($key) . '" ';
+    echo '<option value="'.htmlspecialchars($key).'" ';
     if (in_array((string) $key, $this->getValue(), true)) {
         echo ' selected="selected"';
     }

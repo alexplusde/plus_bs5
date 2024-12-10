@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-12 col-md-6">
 				<h2>Impressum</h2>
-				<?= bs5::getConfig('legal_imprint') ?>
+				<?= Helper::getConfig('legal_imprint') ?>
 				<h2>Anfahrt</h2>
 				<div class="position-relative" style="min-height: 300px">
 

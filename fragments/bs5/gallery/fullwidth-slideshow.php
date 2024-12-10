@@ -69,13 +69,13 @@ foreach ($images as $image) {
 			data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span
-				class="visually-hidden"><?= bs5::getConfig('text_slideshow_prev') ?></span>
+				class="visually-hidden"><?= Helper::getConfig('text_slideshow_prev') ?></span>
 		</button>
 		<button class="carousel-control-next" type="button"
 			data-bs-target="#carousel-<?= $this->getVar('slice_id') ?>"
 			data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span
-				class="visually-hidden"><?= bs5::getConfig('text_slideshow_next') ?></span>
+				class="visually-hidden"><?= Helper::getConfig('text_slideshow_next') ?></span>
 		</button>
 </section>

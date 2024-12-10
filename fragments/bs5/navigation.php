@@ -5,5 +5,5 @@
 			< {{bs5.navigation.back}}</span>
 	</a>
 	<hr>
-	<?= bs5_subnavigation::getNav() ?>
+	<?= Navigation::getNav() ?>
 </div>

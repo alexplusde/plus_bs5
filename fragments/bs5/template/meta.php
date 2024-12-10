@@ -1,7 +1,13 @@
 <?php
-echo domain::getHead();
 
-if (rex::isFrontend() && null === domain::getCurrent()) {
+use FriendsOfRedaxo\YrewriteMetainfo\Domain;
+
+
+/** @var \rex_fragment $this */
+
+echo Domain::getHead();
+
+if (rex::isFrontend() && null === Domain::getCurrent()) {
     echo '</head><body>';
     dd('Bitte lege zunächst die Domain in den Domain-Metainfos von YRewrite an. (Addon: yrewrite_meta_infos)');
 }

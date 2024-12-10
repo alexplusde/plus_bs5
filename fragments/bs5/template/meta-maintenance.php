@@ -1,6 +1,15 @@
+<?php
+namespace Alexplusde\BS5;
+
+use FriendsOfRedaxo\YrewriteMetainfo\Domain;
+use rex_config;
+
+
+/** @var \rex_fragment $this */
+?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<?= domain::getHead() ?>
+<?= Domain::getHead() ?>
 
 <?php if ('cdn' == rex_config::get('plus_bs5', 'vendor')) {
     ?>
@@ -25,12 +34,12 @@
 <?php } else {
     ?>
 <link rel="stylesheet"
-	href="<?= bs5_template::getAssetUrl('styles/styles.min.css') ?>">
+	href="<?= Template::getAssetUrl('styles/styles.min.css') ?>">
 <script type="text/javascript"
-	src="<?= bs5_template::getAssetUrl('scripts/bootstrap.bundle.min.js') ?>"
+	src="<?= Template::getAssetUrl('scripts/bootstrap.bundle.min.js') ?>"
 	async></script>
 <script type="text/javascript"
-	src="<?= bs5_template::getAssetUrl('scripts/project.js') ?>"
+	src="<?= Template::getAssetUrl('scripts/project.js') ?>"
 	async></script>
 
 <?php

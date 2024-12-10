@@ -70,11 +70,11 @@ foreach ($images as $image) {
 		<button class="carousel-control-prev" type="button" data-bs-target="#carousel-<?= $this->getVar('slice_id') ?>"
 			data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden"><?= bs5::getConfig('text_slideshow_prev') ?></span>
+			<span class="visually-hidden"><?= Helper::getConfig('text_slideshow_prev') ?></span>
 		</button>
 		<button class="carousel-control-next" type="button" data-bs-target="#carousel-<?= $this->getVar('slice_id') ?>"
 			data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden"><?= bs5::getConfig('text_slideshow_next') ?></span>
+			<span class="visually-hidden"><?= Helper::getConfig('text_slideshow_next') ?></span>
 		</button>
 </section>
