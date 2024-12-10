@@ -4,9 +4,10 @@ namespace Alexplusde\BS5;
 
 use rex_article;
 use rex_category;
-use rex_yrewrite;
 use rex_clang;
+use rex_plugin;
 use rex_string;
+use rex_yrewrite;
 
 class MobileModalNavigation
 {
@@ -28,13 +29,12 @@ class MobileModalNavigation
         $output[] = '<div ' . rex_string::buildAttributes($div) . '>';
 
         foreach ($root as $category) {
-
             $a = [];
             if (!$category->isOnline()) {
                 continue;
             }
 
-            if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
+            if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
                 continue;
             }
 
@@ -51,7 +51,6 @@ class MobileModalNavigation
             $a['href'] = $category->getUrl();
             $a['class'][] = 'list-group-item list-group-item-action';
             $output[] = '<a ' . rex_string::buildAttributes($a) . '>' . $title . '</a>';
-
         }
 
         $output[] = '</div>';

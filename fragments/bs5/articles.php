@@ -1,15 +1,15 @@
 <div class="row row-cols-1 row-cols-md-2 g-4">
 	<?php
-	$articles = $this->getVar('articles');
+    $articles = $this->getVar('articles');
 
-	foreach ($articles as $article) {
-		if (1 != $article->getValue('status')) {
-			continue;
-		}
-		if($article->isStartArticle()) {
-			continue;
-		}
-	?>
+    foreach ($articles as $article) {
+        if (1 != $article->getValue('status')) {
+            continue;
+        }
+        if ($article->isStartArticle()) {
+            continue;
+        }
+    ?>
 		<div class="col mb-3">
 			<div class="card h-100">
 				<div class="card-body">
@@ -28,6 +28,6 @@
 			</div>
 		</div>
 	<?php
-	}
-	?>
+    }
+    ?>
 </div>

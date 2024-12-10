@@ -4,9 +4,12 @@ namespace Alexplusde\BS5;
 
 use rex_article;
 use rex_category;
-use rex_navigation;
-use rex_yrewrite;
 use rex_clang;
+use rex_navigation;
+use rex_plugin;
+use rex_yrewrite;
+
+use function in_array;
 
 class Navigation extends rex_navigation
 {
@@ -64,22 +67,22 @@ class Navigation extends rex_navigation
                 return true;
             });
         }
-            $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
-                if($depth > 1) {
-                    $li['class'][] = 'nav-item';
-                    $a['class'][] = 'btn';
-                    $a['class'][] = 'nav-link';
-                }
+        $navi->addCallback(static function (rex_category $category, $depth, &$li, &$a, &$a_content) {
+            if ($depth > 1) {
+                $li['class'][] = 'nav-item';
+                $a['class'][] = 'btn';
+                $a['class'][] = 'nav-link';
+            }
 
-                // active-Klasse, wenn aktuell ausgewählte Kategorie
-                if ($category->getId() == rex_article::getCurrent()->getCategoryId()) {
-                    $li['class'][] = 'active';
-                }
+            // active-Klasse, wenn aktuell ausgewählte Kategorie
+            if ($category->getId() == rex_article::getCurrent()->getCategoryId()) {
+                $li['class'][] = 'active';
+            }
 
-                return true;
-            });
+            return true;
+        });
 
-        if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
+        if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
             $navi->addCallback('rex_ycom_auth::articleIsPermitted');
         }
 

@@ -15,15 +15,15 @@ if ($manager) {
 ?>
 <!-- BEGIN plus_bs5/fragments/neues/index.php -->
 <?php
-if($dataset instanceof Category) {
+if ($dataset instanceof Category) {
     echo $this->subFragment('bs5/neues/list.php', ['category' => $dataset]);
 }
 
-if($dataset instanceof Entry) {
+if ($dataset instanceof Entry) {
     echo $this->subFragment('bs5/neues/entry-details.php', ['neues' => $dataset]);
 }
 
-if($dataset === null) {
+if (null === $dataset) {
     echo $this->subFragment('bs5/neues/list.php');
 }
 ?>

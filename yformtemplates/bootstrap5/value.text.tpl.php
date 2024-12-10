@@ -45,21 +45,21 @@ $input_group_end = '';
 
 $prepend_view = '';
 if (!empty($prepend)) {
-    $prepend_view = '<span class="input-group-text">'.$prepend.'</span>';
+    $prepend_view = '<span class="input-group-text">' . $prepend . '</span>';
     $input_group_start = '<div class="input-group">';
     $input_group_end = '</div>';
 }
 
 $append_view = '';
 if (!empty($append)) {
-    $append_view = '<span class="input-group-text">'.$append.'</span>';
+    $append_view = '<span class="input-group-text">' . $append . '</span>';
     $input_group_start = '<div class="input-group">';
     $input_group_end = '</div>';
 }
 
 $attributes = $this->getAttributeElements($attributes, ['placeholder', 'autocomplete', 'pattern', 'required', 'disabled', 'readonly']);
 
-echo '<div class="'.implode(' ', $class_group).'" id="'.$this->getHTMLId().'">
-        <label class="'.implode(' ', $class_label).'" for="'.$this->getFieldId().'">'.$this->getLabel().'</label>
-        ' . $input_group_start . $prepend_view . '<input '.implode(' ', $attributes).' />' . $append_view . $input_group_end . $notice .'
+echo '<div class="' . implode(' ', $class_group) . '" id="' . $this->getHTMLId() . '">
+        <label class="' . implode(' ', $class_label) . '" for="' . $this->getFieldId() . '">' . $this->getLabel() . '</label>
+        ' . $input_group_start . $prepend_view . '<input ' . implode(' ', $attributes) . ' />' . $append_view . $input_group_end . $notice . '
         </div>';

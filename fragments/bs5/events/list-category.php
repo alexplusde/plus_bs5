@@ -1,9 +1,10 @@
 <?php
+
 namespace Alexplusde\Events;
 
 /** @var rex_fragment $this */
 
-$categories = Category::query()->where('status', 1, "=")->orderBy('name')->find();
+$categories = Category::query()->where('status', 1, '=')->orderBy('name')->find();
 $current_id = $this->getVar('category_id');
 
 ?>
@@ -17,9 +18,9 @@ $current_id = $this->getVar('category_id');
 		<?php
 
 foreach ($categories as $category) {
-	/** @var event_category $category */
-	$isActive = $category->getId() == $current_id ? 'active' : ''; // Überprüfen, ob die aktuelle Kategorie die gleiche ist wie die Kategorie in der Schleife
-	?>
+    /** @var event_category $category */
+    $isActive = $category->getId() == $current_id ? 'active' : ''; // Überprüfen, ob die aktuelle Kategorie die gleiche ist wie die Kategorie in der Schleife
+    ?>
 	<a class="list-group-item <?= $isActive ?>"
 		href="<?= $category->getUrl() ?>"><?= $category->getName() ?></a>
 

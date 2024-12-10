@@ -3,18 +3,20 @@
 namespace Alexplusde\BS5;
 
 use DateTimeImmutable;
+use rex;
 use rex_addon;
+use rex_article;
+use rex_backend_login;
 use rex_backup;
 use rex_clang;
 use rex_config;
+use rex_file;
+use rex_i18n;
+use rex_path;
 use rex_sql;
 use rex_string;
 use rex_view;
-use rex_i18n;
-use rex_path;
-use rex_file;
-use rex_backend_login;
-use rex;
+use rex_yform_manager;
 
 class Helper
 {
@@ -33,10 +35,10 @@ class Helper
 
     public static function updateModule($addon = 'plus_bs5')
     {
-        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon).'module'));
+        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'module'));
 
         foreach ($modules as $module) {
-            $module_array = json_decode(rex_file::get(rex_path::addon($addon).'module/'.$module), 1);
+            $module_array = json_decode(rex_file::get(rex_path::addon($addon) . 'module/' . $module), 1);
 
             rex_sql::factory()->setDebug(0)->setTable('rex_module')
     ->setValue('name', $module_array['name'])
@@ -56,18 +58,18 @@ class Helper
         $modules = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_module WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($modules as $module) {
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.json'), json_encode($module));
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.input.php'), $module['input']);
-            rex_file::put(rex_path::addon($addon, 'module/'.rex_string::normalize($module['key']).'.output.php'), $module['output']);
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.json'), json_encode($module));
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.input.php'), $module['input']);
+            rex_file::put(rex_path::addon($addon, 'module/' . rex_string::normalize($module['key']) . '.output.php'), $module['output']);
         }
     }
 
     public static function updateTemplate($addon = 'plus_bs5')
     {
-        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon).'template'));
+        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'template'));
 
         foreach ($templates as $template) {
-            $template_array = json_decode(rex_file::get(rex_path::addon($addon).'template/'.$template), 1);
+            $template_array = json_decode(rex_file::get(rex_path::addon($addon) . 'template/' . $template), 1);
 
             rex_sql::factory()->setDebug(0)->setTable('rex_template')
     ->setValue('name', $template_array['name'])
@@ -86,8 +88,8 @@ class Helper
         $templates = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_template WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($templates as $template) {
-            rex_file::put(rex_path::addon($addon, 'template/'.rex_string::normalize($template['key']).'.json'), json_encode($template));
-            rex_file::put(rex_path::addon($addon, 'template/'.rex_string::normalize($template['key']).'.php'), $template['content']);
+            rex_file::put(rex_path::addon($addon, 'template/' . rex_string::normalize($template['key']) . '.json'), json_encode($template));
+            rex_file::put(rex_path::addon($addon, 'template/' . rex_string::normalize($template['key']) . '.php'), $template['content']);
         }
     }
 
@@ -105,7 +107,7 @@ class Helper
             }
         }
         if (null === $text) {
-            return 'missing text for key <code>'. $key . '</code>';
+            return 'missing text for key <code>' . $key . '</code>';
         }
 
         return $text;
@@ -117,7 +119,7 @@ class Helper
 
         if (!$filename) {
             $now = new DateTimeImmutable();
-            $filename = $now->format('Y') .'-'. $now->format('m') .'-'. $now->format('d') .'_'. $now->format('H') .'-'. $now->format('i') .'-'. $now->format('s');
+            $filename = $now->format('Y') . '-' . $now->format('m') . '-' . $now->format('d') . '_' . $now->format('H') . '-' . $now->format('i') . '-' . $now->format('s');
         }
         $file = $prefix . '_' . $filename . '.' . $type . '.sql';
 
@@ -134,29 +136,29 @@ class Helper
         rex_config::set('plus_bs5', $key, $value);
     }
 
-    public static function getBackendEditLink(int $article_id = null, int $clang_id = null, int $slice_id = null) :string
+    public static function getBackendEditLink(?int $article_id = null, ?int $clang_id = null, ?int $slice_id = null): string
     {
-        if($article_id === null) {
-            $article_id = \rex_article::getCurrentId();
+        if (null === $article_id) {
+            $article_id = rex_article::getCurrentId();
         }
-        if($clang_id === null) {
+        if (null === $clang_id) {
             $clang_id = rex_clang::getCurrentId();
         }
 
         if (rex_backend_login::hasSession()) {
-            if(!($slice_id > 0)) {
-                return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id='.$article_id.'&clang='.$clang_id.'">bearbeiten</a>';
+            if (!($slice_id > 0)) {
+                return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '">bearbeiten</a>';
             }
-            return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id='.$article_id.'&slice_id='.$slice_id.'&clang='.$clang_id.'&function=edit#slice'.$slice_id.'">bearbeiten</a>';
+            return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">bearbeiten</a>';
         }
         return '';
     }
 
-    public static function getBackendTableManagerEditLink(string $tablename, int $id, string $addon_page = 'yform/tablemanager') :string
+    public static function getBackendTableManagerEditLink(string $tablename, int $id, string $addon_page = 'yform/tablemanager'): string
     {
         if (rex_backend_login::hasSession()) {
-            $url = \rex_yform_manager::url($tablename, $id, ['page' => $addon_page]);
-            return '<a class="badge badge-primary" href="'.$url.'">bearbeiten</a>';
+            $url = rex_yform_manager::url($tablename, $id, ['page' => $addon_page]);
+            return '<a class="badge badge-primary" href="' . $url . '">bearbeiten</a>';
         }
         return '';
     }

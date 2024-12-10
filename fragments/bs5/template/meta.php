@@ -2,8 +2,7 @@
 
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 
-
-/** @var \rex_fragment $this */
+/** @var rex_fragment $this */
 
 echo Domain::getHead();
 

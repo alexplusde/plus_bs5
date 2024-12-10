@@ -32,7 +32,7 @@ if ($this->objparams['warning_messages'] || $this->objparams['unique_error']):
     }
 
     if ('' != $this->objparams['unique_error']) {
-        echo '<li>'.rex_i18n::translate(preg_replace('~\\*|:|\\(.*\\)~Usim', '', $this->objparams['unique_error'])).'</li>';
+        echo '<li>' . rex_i18n::translate(preg_replace('~\\*|:|\\(.*\\)~Usim', '', $this->objparams['unique_error'])) . '</li>';
     }
 
     ?>
