@@ -34,7 +34,7 @@ $attributes = [
     'class' => 'form-control signature',
     'name' => $this->getFieldName(),
     'type' => 'hidden',
-    'id' => 'canvas-target-' . $this->getName(),
+    'id' => 'canvas-target-'. $this->getName(),
     'value' => $value,
 ];
 

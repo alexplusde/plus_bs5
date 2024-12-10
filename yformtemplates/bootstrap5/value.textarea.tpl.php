@@ -40,7 +40,7 @@ $attributes = [
 
 $attributes = $this->getAttributeElements($attributes, ['placeholder', 'pattern', 'required', 'disabled', 'readonly']);
 
-echo '<div class="' . implode(' ', $class_group) . '" id="' . $this->getHTMLId() . '">
-        <label class="' . implode(' ', $class_label) . '" for="' . $this->getFieldId() . '">' . $this->getLabel() . '</label>
-        <textarea ' . implode(' ', $attributes) . '>' . rex_escape($this->getValue()) . '</textarea>' . $notice .
+echo '<div class="'.implode(' ', $class_group).'" id="'.$this->getHTMLId().'">
+        <label class="'.implode(' ', $class_label).'" for="'.$this->getFieldId().'">'.$this->getLabel().'</label>
+        <textarea '.implode(' ', $attributes).'>'.rex_escape($this->getValue()).'</textarea>' . $notice .
         '</div>';

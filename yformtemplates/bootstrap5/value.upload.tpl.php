@@ -50,7 +50,7 @@ $class_control = trim('form-control');
         echo '
             <div class="checkbox" id="' . $this->getHTMLId('checkbox') . '">
                 <label>
-                    <input type="checkbox" id="' . $this->getFieldId('delete') . '" name="' . $this->getFieldName('delete') . '" value="1" />
+                    <input type="checkbox" id="' .  $this->getFieldId('delete') . '" name="' . $this->getFieldName('delete') . '" value="1" />
                     ' . $error_messages['delete_file'] . ' "' . $label . '"
                 </label>
             </div>';
