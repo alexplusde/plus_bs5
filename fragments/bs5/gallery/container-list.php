@@ -16,7 +16,6 @@ foreach ($images as $image) {
     </div>
 			<?php
     } // if $media
-
 } // foreach
 ?>    </div>
 </section>

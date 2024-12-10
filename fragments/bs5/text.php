@@ -2,8 +2,8 @@
 
 namespace Alexplusde\BS5;
 
-use rex_config;
 use rex_article;
+use rex_config;
 
 /** @var \rex_fragment $this */
 

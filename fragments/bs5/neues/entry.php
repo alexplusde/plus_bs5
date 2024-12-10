@@ -12,7 +12,7 @@ $entry = $this->getVar('entry');
 		<p>
 			<?php
                     $categories = $entry->getCategories();
-foreach($categories as $category) {
+foreach ($categories as $category) {
     /** @var Category $category */
 
     ?>

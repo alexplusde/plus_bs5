@@ -1,10 +1,13 @@
 <?php
+
 namespace Alexplusde\Events;
+
+use Url\Url;
 
 /** @var rex_fragment $this */
 
-$manager = \Url\Url::resolveCurrent();
-if($manager) {
+$manager = Url::resolveCurrent();
+if ($manager) {
     /** @var Date $date */
     $date = $manager->getDataset();
     ?>
@@ -20,8 +23,8 @@ if($manager) {
 				<p class="category-badges">
 					<?php
                     $categories = $date->getCategories();
-    foreach($categories as $category) {
-		/** @var Category $category */
+    foreach ($categories as $category) {
+        /** @var Category $category */
         ?>
 					<span
 						class="badge bg-primary"><?= $category->getName() ?></span>
@@ -52,7 +55,7 @@ if($manager) {
 			</div>
 		</div>
 
-		<?= $this->getSubfragment('bs5/events/list-back.php'); ?>
+		<?= $this->getSubfragment('bs5/events/list-back.php') ?>
 
 	</div>
 </section>

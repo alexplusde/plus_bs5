@@ -3,7 +3,7 @@
 
 use Alexplusde\BS5\Fragment;
 
-/** @var \rex_fragment $this */
+/** @var rex_fragment $this */
 ?>
 <main id="content" class="content min-vh-100">
     <article class="container">
@@ -22,7 +22,6 @@ use Alexplusde\BS5\Fragment;
 }
 ?>
 <h1><?= rex_article::getCurrent()->getName() ?></h1>
-<?php
-echo $this->getVar('content') ?>
+<?= $this->getVar('content') ?>
     </article>
 </main>

@@ -5,8 +5,8 @@ namespace Alexplusde\BS5;
 /** @var \rex_fragment $this */
 
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
-use rex_config;
 use rex_article;
+use rex_config;
 
 ?>
 <div class="p-5"></div>

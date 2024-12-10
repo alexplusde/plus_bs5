@@ -1,4 +1,5 @@
 <?php
+
 namespace Alexplusde\BS5;
 
 use rex_article;

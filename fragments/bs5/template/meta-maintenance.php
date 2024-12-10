@@ -1,9 +1,9 @@
 <?php
+
 namespace Alexplusde\BS5;
 
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use rex_config;
-
 
 /** @var \rex_fragment $this */
 ?>

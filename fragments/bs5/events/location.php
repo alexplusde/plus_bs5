@@ -1,10 +1,11 @@
 <?php
+
 namespace Alexplusde\Events;
 
 /** @var rex_fragment $this */
 
 $location = $this->getVar('location');
-if(!$location) {
+if (!$location) {
     return;
 }
 

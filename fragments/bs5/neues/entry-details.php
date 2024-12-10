@@ -5,31 +5,32 @@
 namespace FriendsOfRedaxo\Neues;
 
 use rex_media_plus;
+use Url\Url;
 
 // versuche die Url aufzulösen
-$manager = \Url\Url::resolveCurrent();
+$manager = Url::resolveCurrent();
 if ($manager) {
-	/** @var Entry $entry */
-	$entry = $manager->getDataset();
+    /** @var Entry $entry */
+    $entry = $manager->getDataset();
 ?>
 	<div class="row">
 		<div class="col-xl-8">
 			<div class="mb-3">
-				<?= $this->getSubfragment('bs5/neues/list-back.php'); ?>
+				<?= $this->getSubfragment('bs5/neues/list-back.php') ?>
 			</div>
 			<p><?= $entry->getFormattedPublishDateTime() ?>
 			</p>
 			<h1><?= $entry->getName() ?></h1>
 			<p class="category-badges">
 				<?php
-				$categories = $entry->getCategories();
-				foreach ($categories as $category) {
-				?>
+                $categories = $entry->getCategories();
+                foreach ($categories as $category) {
+                ?>
 					<span
 						class="badge bg-primary"><?= $category->getName() ?></span>
 				<?php
-				}
-				?>
+                }
+                ?>
 			</p>
 			<p class="teaser">
 				<?= $entry->getTeaser() ?>
@@ -39,12 +40,12 @@ if ($manager) {
 		<div class="col-12 col-xl-4">
 			<div class="image">
 				<?php
-				$image = $entry->getImage();
-				$media = rex_media_plus::get($image);
-				if ($media) {
-					echo $media->setClass('img-fluid')->getImg('');
-				}
-				?>
+                $image = $entry->getImage();
+                $media = rex_media_plus::get($image);
+                if ($media) {
+                    echo $media->setClass('img-fluid')->getImg('');
+                }
+                ?>
 			</div>
 		</div>
 	</div>
@@ -58,7 +59,7 @@ if ($manager) {
 			</div>
 		</div>
 
-		<?= $this->getSubfragment('bs5/neues/list-back.php'); ?>
+		<?= $this->getSubfragment('bs5/neues/list-back.php') ?>
 <?php
 
 }

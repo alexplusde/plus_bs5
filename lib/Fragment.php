@@ -2,8 +2,10 @@
 
 namespace Alexplusde\BS5;
 
-use rex_fragment;
 use rex;
+use rex_fragment;
+
+use function strlen;
 
 class Fragment extends rex_fragment
 {
@@ -22,9 +24,8 @@ class Fragment extends rex_fragment
 
     public static function addSuffix($filename = '', $suffix = '.php')
     {
-
         if (substr($filename, -strlen($suffix)) !== $suffix) {
-            return $filename.$suffix;
+            return $filename . $suffix;
         }
         return $filename;
     }
@@ -35,7 +36,7 @@ class Fragment extends rex_fragment
         $replace = ['<a class="btn btn-primary" $1>$2</a>', '<a class="btn btn-secondary" $1>$2</a>', '<a class="btn btn-white" $1>$2</a>'];
         return preg_replace($pattern, $replace, $text);
     }
-    
+
     public static function badgeFormatter($text)
     {
         $pattern = ['/<u>([^<>]*)<\/u>/'];

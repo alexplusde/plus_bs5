@@ -17,12 +17,12 @@ $LabelsAddress = explode(',', $address);
 
 foreach ($this->params['values'] as $address_value) {
     if (in_array($address_value->getName(), $LabelsAddress)) {
-        $FieldsAddress[] = '#'.$address_value->getFieldId();
+        $FieldsAddress[] = '#' . $address_value->getFieldId();
     }
 }
 
 if ('' != $googleapikey) {
-    echo '<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key='.$googleapikey.'&sensor=false"></script>';
+    echo '<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=' . $googleapikey . '&sensor=false"></script>';
 } else {
     echo '<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>';
 }
@@ -78,7 +78,7 @@ if ('' != $googleapikey) {
 
             $i = 0;
             foreach ($FieldsAddress as $adr) {
-                echo "\n".'fields['.$i.'] = jQuery("' . $adr . '").val();';
+                echo "\n" . 'fields[' . $i . '] = jQuery("' . $adr . '").val();';
                 ++$i;
             }
 
@@ -143,10 +143,10 @@ if ('' != $googleapikey) {
 <?php
 
 if ((string) (int) $mapWidth == (string) $mapWidth) {
-    $mapWidth = $mapWidth.'px';
+    $mapWidth .= 'px';
 }
 if ((string) (int) $mapHeight == (string) $mapHeight) {
-    $mapHeight = $mapHeight.'px';
+    $mapHeight .= 'px';
 }
 
 ?>
@@ -159,7 +159,7 @@ if ((string) (int) $mapHeight == (string) $mapHeight) {
     </p>
     <div class="form_google_geocode_map" id="map_canvas<?= $this->getId() ?>" style="
     <?php
-    echo 'width: '.$mapWidth.';';
-    echo 'height: '.$mapHeight;
+    echo 'width: ' . $mapWidth . ';';
+    echo 'height: ' . $mapHeight;
     ?>">Google Map</div>
 </div>

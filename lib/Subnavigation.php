@@ -2,9 +2,10 @@
 
 namespace Alexplusde\BS5;
 
-use rex_navigation;
 use rex_article;
 use rex_category;
+use rex_navigation;
+use rex_plugin;
 
 class subNavigation extends rex_navigation
 {
@@ -33,7 +34,7 @@ class subNavigation extends rex_navigation
             return true;
         });
 
-        if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
+        if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
             $navi->addCallback('rex_ycom_auth::articleIsPermitted');
         }
 

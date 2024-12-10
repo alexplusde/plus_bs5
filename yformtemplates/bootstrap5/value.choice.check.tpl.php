@@ -12,18 +12,18 @@ if ($this->getElement('notice')) {
     $notices[] = rex_i18n::translate($this->getElement('notice'), false);
 }
 if (isset($this->params['warning_messages'][$this->getId()]) && !$this->params['hide_field_warning_messages']) {
-    $notices[] = '<span class="text-warning">'.rex_i18n::translate($this->params['warning_messages'][$this->getId()], false).'</span>';
+    $notices[] = '<span class="text-warning">' . rex_i18n::translate($this->params['warning_messages'][$this->getId()], false) . '</span>';
 }
 
 if (!isset($groupAttributes)) {
     $groupAttributes = [];
 }
 
-$groupClass = ($choiceList->isMultiple() ? 'form-check-group' : 'form-radio-group').' my-1';
+$groupClass = ($choiceList->isMultiple() ? 'form-check-group' : 'form-radio-group') . ' my-1';
 if (isset($groupAttributes['class']) && is_array($groupAttributes['class'])) {
     $groupAttributes['class'][] = $groupClass;
 } elseif (isset($groupAttributes['class'])) {
-    $groupAttributes['class'] .= ' '.$groupClass;
+    $groupAttributes['class'] .= ' ' . $groupClass;
 } else {
     $groupAttributes['class'] = $groupClass;
 }
@@ -31,11 +31,11 @@ if (isset($groupAttributes['class']) && is_array($groupAttributes['class'])) {
 if (!isset($elementAttributes)) {
     $elementAttributes = [];
 }
-$elementClass = trim('form-check form-check-inline '.$this->getWarningClass());
+$elementClass = trim('form-check form-check-inline ' . $this->getWarningClass());
 if (isset($elementAttributes['class']) && is_array($elementAttributes['class'])) {
     $elementAttributes['class'][] = $elementClass;
 } elseif (isset($elementAttributes['class'])) {
-    $elementAttributes['class'] .= ' '.$elementClass;
+    $elementAttributes['class'] .= ' ' . $elementClass;
 } else {
     $elementAttributes['class'] = $elementClass;
 }

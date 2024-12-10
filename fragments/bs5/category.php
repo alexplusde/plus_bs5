@@ -20,8 +20,7 @@ $layout = $this->getVar('options')['layout'] ?? 'no-image';
             $this->setVar('parent', $parent);
             $this->setVar('structure', $category);
 
-            echo $this->subfragment('bs5/structure/'.$layout.'.php');
-
+            echo $this->subfragment('bs5/structure/' . $layout . '.php');
         }
         ?>
 			</div>

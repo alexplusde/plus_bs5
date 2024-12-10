@@ -4,8 +4,8 @@ namespace Alexplusde\BS5;
 
 /** @var \rex_fragment $this */
 
-use rex_config;
 use rex_article;
+use rex_config;
 
 ?>
 <div class="modal fade h-100" id="mobileNavigation">

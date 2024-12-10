@@ -2,9 +2,10 @@
 
 namespace Alexplusde\BS5;
 
+use FriendsOfRedaxo\Maintenance\Maintenance;
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
-use rex_media_plus;
 use rex_config;
+use rex_media_plus;
 
 /** @var \rex_fragment $this */
 ?>
@@ -15,7 +16,7 @@ use rex_config;
 	<div class="header-top bg-primary text-white link-light py-2">
 		<div class="container">
 			<div class="row">
-				<?= \FriendsOfRedaxo\Maintenance\Maintenance::showAnnouncement() ?>
+				<?= Maintenance::showAnnouncement() ?>
 				<?= Helper::getConfig('header_text')  ?>
 			</div>
 		</div>
@@ -35,12 +36,11 @@ use rex_config;
 			<div class="col-3 d-block d-lg-none text-end">
 <?php
 
-if(rex_config::get('plus_bs5', 'mobile_nav_layout') == 'offcanvas') {
-	echo $this->parse('bs5/template/header/mobile-nav-button-offcanvas.php');
+if ('offcanvas' == rex_config::get('plus_bs5', 'mobile_nav_layout')) {
+    echo $this->parse('bs5/template/header/mobile-nav-button-offcanvas.php');
 } else {
-	echo $this->parse('bs5/template/header/mobile-nav-button-modal.php');
+    echo $this->parse('bs5/template/header/mobile-nav-button-modal.php');
 }
-
 
 ?>
 
