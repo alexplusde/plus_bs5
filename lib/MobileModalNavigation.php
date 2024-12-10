@@ -1,13 +1,21 @@
 <?php
 
-class bs5_mobile_navigation
+namespace Alexplusde\BS5;
+
+use rex_article;
+use rex_category;
+use rex_yrewrite;
+use rex_clang;
+use rex_string;
+
+class MobileModalNavigation
 {
     public static function getNav($level = 1)
     {
         $mount_id = rex_yrewrite::getDomainByArticleId(rex_article::getCurrentId(), rex_clang::getCurrentId())->getMountId();
 
         if ($mount_id && rex_category::get($mount_id)) {
-            $root = rex_category::get($mount_id)->getChildren();
+            $root = rex_category::get($mount_id)->getChildren(true);
         } else {
             $root = rex_category::getRootCategories();
         }
@@ -20,12 +28,13 @@ class bs5_mobile_navigation
         $output[] = '<div ' . rex_string::buildAttributes($div) . '>';
 
         foreach ($root as $category) {
+
             $a = [];
             if (!$category->isOnline()) {
                 continue;
             }
 
-            if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
+            if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
                 continue;
             }
 
@@ -34,9 +43,6 @@ class bs5_mobile_navigation
             }
 
             $title = $category->getName();
-            if ('Jobs' == $category->getName()) {
-                $title .= ' <span class="badge rounded-pill bg-danger border border-light">' . count(Entry::findOnline(0)) . '<span class="visually-hidden"> Jobangebote</span><span>';
-            }
 
             if (rex_category::getCurrent()->getId() == $category->getId()) {
                 $a['class'][] = 'active';
@@ -45,6 +51,7 @@ class bs5_mobile_navigation
             $a['href'] = $category->getUrl();
             $a['class'][] = 'list-group-item list-group-item-action';
             $output[] = '<a ' . rex_string::buildAttributes($a) . '>' . $title . '</a>';
+
         }
 
         $output[] = '</div>';

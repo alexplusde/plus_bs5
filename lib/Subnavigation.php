@@ -1,6 +1,12 @@
 <?php
 
-class bs5_subnavigation extends rex_navigation
+namespace Alexplusde\BS5;
+
+use rex_navigation;
+use rex_article;
+use rex_category;
+
+class subNavigation extends rex_navigation
 {
     protected function getListTag(array $items, array $ul, int $depth): string
     {
@@ -12,7 +18,7 @@ class bs5_subnavigation extends rex_navigation
 
     public static function getNav($level = 1, $category = null)
     {
-        $navi = bs5_navigation::factory();
+        $navi = Navigation::factory();
 
         if ($parent = rex_article::getCurrent()->getCategory()->getParent()) {
             $parent_id = $parent->getId();
@@ -27,7 +33,7 @@ class bs5_subnavigation extends rex_navigation
             return true;
         });
 
-        if (rex_plugin::get('ycom', 'auth') && rex_plugin::get('ycom', 'auth')->isAvailable()) {
+        if (\rex_plugin::get('ycom', 'auth') && \rex_plugin::get('ycom', 'auth')->isAvailable()) {
             $navi->addCallback('rex_ycom_auth::articleIsPermitted');
         }
 

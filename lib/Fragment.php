@@ -1,6 +1,11 @@
 <?php
 
-class bs5_fragment extends rex_fragment
+namespace Alexplusde\BS5;
+
+use rex_fragment;
+use rex;
+
+class Fragment extends rex_fragment
 {
     public function parse($fragment_frontend, $fragment_backend = '')
     {
@@ -17,8 +22,9 @@ class bs5_fragment extends rex_fragment
 
     public static function addSuffix($filename = '', $suffix = '.php')
     {
+
         if (substr($filename, -strlen($suffix)) !== $suffix) {
-            return $filename . $suffix;
+            return $filename.$suffix;
         }
         return $filename;
     }
@@ -27,13 +33,6 @@ class bs5_fragment extends rex_fragment
     {
         $pattern = ['/<a([^>]*)><strong>([^<>]*)<\/strong><\/a>/', '/<a([^>]*)><em>([^<>]*)<\/em><\/a>/', '/<a (?!class)([^>]*)>([^<>]*)<\/a>/'];
         $replace = ['<a class="btn btn-primary" $1>$2</a>', '<a class="btn btn-secondary" $1>$2</a>', '<a class="btn btn-white" $1>$2</a>'];
-        return preg_replace($pattern, $replace, $text);
-    }
-
-    public static function badgeFormatter($text)
-    {
-        $pattern = ['/<u>([^<>]*)<\/u>/'];
-        $replace = ['<span class="badge rounded-pill bg-primary">$1</span>'];
         return preg_replace($pattern, $replace, $text);
     }
 }
