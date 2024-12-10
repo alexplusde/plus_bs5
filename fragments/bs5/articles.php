@@ -1,25 +1,33 @@
-<section class="modul modul-text bs5-articles">
-	<div class="container <?= rex_config::get('plus_bs5', 'container_class') ?>">
-		<div class="row row-cols-1 row-cols-md-3 g-4 m-0">
+<div class="row row-cols-1 row-cols-md-2 g-4">
+	<?php
+	$articles = $this->getVar('articles');
 
-			<?php
-$category = rex_category::get($this->getVar('category'));
-    if (!$category) {
-        $category = rex_category::getCurrent();
-    }
-    $articles = $parent->getArticles();
+	foreach ($articles as $article) {
+		if (1 != $article->getValue('status')) {
+			continue;
+		}
+		if($article->isStartArticle()) {
+			continue;
+		}
+	?>
+		<div class="col mb-3">
+			<div class="card h-100">
+				<div class="card-body">
+					<h3 class="card-title h5">
+						<?= $article->getName() ?>
+					</h3>
+					<p class="card-text">
+						<?= $article->getValue('yrewrite_description') ?>
+					</p>
+				</div>
+				<div class="card-footer text-end">
+					<a href="<?= $article->getUrl() ?>"
+						class="btn btn-primary">Mehr...</a>
+				</div>
 
-    foreach ($articles as $article) {
-        if (1 != $article->getValue('status')) {
-            continue;
-        }
-
-        $this->setVar('parent', $parent);
-        $this->setVar('structure', $article);
-
-        echo $this->subfragment('bs5/structure/' . $layout . '.php');
-    }
-    ?>
+			</div>
 		</div>
-	</div>
-</section>
+	<?php
+	}
+	?>
+</div>

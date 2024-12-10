@@ -14,7 +14,7 @@ $text = $this->getVar('text');
         if ($media = rex_media_plus::get($image)) {
             echo media_manager_type_group::getPicture('default', $media);
         }
-?>
+        ?>
 		</div>
 
 		<div class="col">

@@ -11,7 +11,7 @@ $structure = $this->getVar('structure');
                 <?php
             $media = rex_media_plus::get($structure->getValue('yrewrite_image'));
 
-if ($media) { ?>
+            if ($media) { ?>
                 <img src="<?= $media->getUrl() ?>" class="card-img-top"
                     alt="<?= $structure->getName() ?>">
                 <?php } ?> </div>
@@ -24,7 +24,7 @@ if ($media) { ?>
                     <p class="card-text">
                         <?= $structure->getValue('yrewrite_description') ?>
                     </p>
-                    <a href="<?= $structure->getUrl() ?>" class="btn btn-primary"><?= bs5::getConfigText('text_more') ?></a>
+                    <a href="<?= $structure->getUrl() ?>" class="btn btn-primary"><?= Helper::getConfigText('text_more') ?></a>
                 </div>
             </div>
         </div>

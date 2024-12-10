@@ -1,5 +1,7 @@
 <?php
 
+use Alexplusde\BS5\Helper;
+
 $structure = $this->getVar('structure');
 ?>
 <div class="col">
@@ -12,7 +14,7 @@ $structure = $this->getVar('structure');
                 <?= $structure->getValue('yrewrite_description') ?>
             </p>
             <a href="<?= $structure->getUrl() ?>"
-                class="btn btn-primary"><?= bs5::getConfigText('text_more') ?></a>
+                class="btn btn-primary"><?= Helper::getConfigText('text_more') ?></a>
         </div>
     </div>
 </div>

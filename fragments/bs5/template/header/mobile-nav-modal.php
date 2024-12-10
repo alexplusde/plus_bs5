@@ -1,3 +1,13 @@
+<?php
+
+namespace Alexplusde\BS5;
+
+/** @var \rex_fragment $this */
+
+use rex_config;
+use rex_article;
+
+?>
 <div class="modal fade h-100" id="mobileNavigation">
 	<div class="modal-dialog modal-lg" tabindex="-1" aria-hidden="true"
 		aria-labelledby="{{template-header-mobile-navigation.menu}}">
@@ -9,7 +19,7 @@
 			</div>
 			<div class="modal-body">
 
-				<?= bs5_mobile_navigation::getNav(rex_config::get('plus_bs5', 'nav_depth', 1))?>
+				<?= MobileModalNavigation::getNav(rex_config::get('plus_bs5', 'nav_depth', 1))?>
 
 			</div>
 			<div class="modal-footer">
