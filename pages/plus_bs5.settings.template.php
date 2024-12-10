@@ -23,6 +23,11 @@ $field = $form->addInputField('text', 'border', null, ['class' => 'form-control'
 $field->setLabel(rex_i18n::msg('bs5_config_border_label'));
 $field->setNotice('bs5_config_border_notice');
 
+$field = $form->addLinkmapField('search_article_id');
+$field->setLabel($this->i18n('bs5_config_search_article_id'));
+$field->setNotice($this->i18n('bs5_config_search_article_id_notice'));
+
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $this->i18n('bs5_config_settings'), false);
@@ -37,7 +42,7 @@ $fragment->setVar('body', $form->get(), false);
 	<div class="col-lg-4">
 		<?php
 
-$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=plus_bs5"><img src="' . rex_url::addonAssets('plus_bs5', 'jetzt-spenden.svg') . '" style="width: 100% max-width: 400px;"></a>';
+$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=plus_bs5"><img src="'.rex_url::addonAssets('plus_bs5', 'jetzt-spenden.svg').'" style="width: 100% max-width: 400px;"></a>';
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'info', false);
