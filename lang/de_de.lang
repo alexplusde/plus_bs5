@@ -54,7 +54,6 @@ plus_bs5_settings_legal = Rechtliches
 # # Feldnamen und Erläuterungen
 
 bs5_config_editor = Editor
-bs5_config_container_class = CSS-Klassen (Container)
 bs5_config_header = Kopfzeile
 bs5_config_nav_depth = Navigationstiefe
 bs5_config_nav_depth_1 = 1. Ebene anzeigen, 2. Ebene verbergen (nur Hauptmenü)
@@ -65,6 +64,12 @@ bs5_config_map = Karte (iframe)
 bs5_config_footer_text = Text
 bs5_config_footer_navigation = Navigation
 bs5_config_email_footer = E-Mail-Signatur
+
+bs5.config.mobile_nav_layout.label = Layout (mobil)
+bs5.config.mobile_nav_layout.notice = Wähle zwischen Modal (Standard, 1 Ebene) und Offcanvas (1-2 Ebenen)
+bs5.config.mobile_nav_layout.option.offcanvas = Offcanvas (1-2 Ebenen)
+bs5.config.mobile_nav_layout.option.modal = Modal (1-Ebene, Standard)
+
 
 bs5_config_vendor_label = Assets-Quelle
 bs5_config_vendor_notice = Wie sollen CSS, JS und weitere Assets von Bootstrap 5 eingebunden werden?
@@ -91,5 +96,5 @@ bs5_config_text_slideshow_next = Nächstes Bild
 
 # # Sponsoring
 
-plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. mit einer einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
 plus_bs5_donate = Weiterentwicklung unterstützen 
