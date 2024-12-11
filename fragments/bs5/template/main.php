@@ -3,7 +3,7 @@
 
 use Alexplusde\BS5\Fragment;
 
-/** @var rex_fragment $this */
+/** @var Fragment $this */
 ?>
 <main id="content" class="content min-vh-100">
     <article class="container">

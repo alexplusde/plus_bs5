@@ -58,3 +58,4 @@ config:
     text_header_mobile_nav_close: Schließen
     dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben
     mobile_nav_layout: modal
+    search_it_article_id: 0 # Artikel-ID für die Suchergebnisse

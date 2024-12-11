@@ -5,7 +5,7 @@ namespace Alexplusde\BS5;
 use rex_article;
 use rex_config;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 
 $article_id = rex_article::getCurrentId();
 $slice_id = $this->getVar('slice_id');

@@ -123,3 +123,6 @@ module.bs5.structure.child_category = 5️⃣ Kategorie-Übersicht
 module.bs5.text = 5️⃣ Text
 module.bs5.video.mediapool = 5️⃣ Video (Medienpool)
 module.bs5.video.youtube = 5️⃣ Video (YouTube)
+
+bs5.config.search_it_article_id.label = Suchergebnis-Seite
+bs5.config.search_it_article_id.notice = Wähle den Artikel, der die Suchergebnisse anzeigen soll.

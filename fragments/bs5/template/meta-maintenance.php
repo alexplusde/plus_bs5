@@ -5,7 +5,7 @@ namespace Alexplusde\BS5;
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use rex_config;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />

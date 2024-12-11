@@ -4,7 +4,7 @@ namespace Alexplusde\BS5;
 
 use rex_article;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 ?>
 <main id="content" class="content min-vh-100">
 <?php if ('|1|' == rex_article::getCurrent()->getValue('art_intro')) {

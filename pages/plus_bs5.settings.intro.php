@@ -17,6 +17,10 @@ $field = $form->addInputField('text', 'editor', null, ['class' => 'form-control'
 $field->setLabel(rex_i18n::msg('bs5_config_editor'));
 $field->setNotice('z.B. <code>class="form-control redactor-editor--text"</code>');
 
+$field = $form->addLinkmapField('search_it_article_id');
+$field->setLabel($this->i18n('bs5.config.search_it_article_id.label'));
+$field->setNotice($this->i18n('bs5.config.search_it_article_id.notice'));
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $this->i18n('bs5_config_settings'), false);

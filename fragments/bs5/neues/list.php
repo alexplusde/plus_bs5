@@ -1,6 +1,6 @@
 <?php
 
-/** @var rex_fragment $this */
+/** @var Fragment $this */
 
 namespace FriendsOfRedaxo\Neues;
 

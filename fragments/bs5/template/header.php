@@ -7,7 +7,7 @@ use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use rex_config;
 use rex_media_plus;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 ?>
 <!--    <a class="visually-hidden visually-hidden-focusable" href="#content">Zum Inhalt springen</a>-->
 <?= $this->getSubfragment('bs5/template/header/mobile-nav.php') ?>

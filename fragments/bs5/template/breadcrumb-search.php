@@ -2,12 +2,12 @@
 
 namespace Alexplusde\BS5;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 
 use rex_clang;
 use rex_config;
 
-if (!Helper::packageExists('search_it')) {
+if (!Helper::packageExists(['search_it'])) {
     echo \rex_view::error('Das Addon "search_it" ist nicht installiert oder aktiviert!');
     return;
 }

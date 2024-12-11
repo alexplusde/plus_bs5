@@ -2,14 +2,14 @@
 
 namespace Alexplusde\BS5;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 
 use rex_article;
 use rex_yrewrite;
 
 $article = rex_article::getCurrent();
 
-if (!Helper::packageExists('yrewrite')) {
+if (!Helper::packageExists(['yrewrite'])) {
     return;
 }
 

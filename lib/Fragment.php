@@ -9,10 +9,16 @@ use function strlen;
 
 class Fragment extends rex_fragment
 {
-    public function parse($fragment_frontend, $fragment_backend = '')
+    const BACKEND_SUFFIX = '.backend.php';
+
+    public function parse($fragment_frontend)
     {
-        if ('' !== $fragment_backend && rex::isBackend()) {
-            return parent::parse(self::addSuffix($fragment_backend));
+        if (rex::isBackend()) {
+            try {
+                return parent::parse(self::addBackendSuffix($fragment_frontend));
+            } catch (\rex_exception $e) {
+                return parent::parse(self::addSuffix($fragment_frontend));
+            }
         }
         return parent::parse(self::addSuffix($fragment_frontend));
     }
@@ -28,6 +34,30 @@ class Fragment extends rex_fragment
             return $filename . $suffix;
         }
         return $filename;
+    }
+
+    public function parseSubfragment($fragment_frontend)
+    {
+        if (rex::isBackend()) {
+            try {
+                return parent::getSubfragment(self::addBackendSuffix($fragment_frontend));
+            } catch (\rex_exception $e) {
+                return parent::getSubfragment(self::addSuffix($fragment_frontend));
+            }
+        }
+        return parent::parse(self::addSuffix($fragment_frontend));
+    }
+
+    public function showSubfragment($fragment_frontend)
+    {
+        echo $this->parseSubfragment($fragment_frontend);
+    }
+
+    public static function addBackendSuffix($filename = '')
+    {
+        // entferne `.php` Suffix
+        $filename = preg_replace('/\.php$/', '', $filename);
+        return self::addSuffix($filename, self::BACKEND_SUFFIX);
     }
 
     public static function ctaFormatter($text)

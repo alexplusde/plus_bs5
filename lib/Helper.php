@@ -20,17 +20,15 @@ use rex_yform_manager;
 
 class Helper
 {
-    public static function packageExists(...$packages): bool
+    public static function packageExists(array $packages): bool
     {
-        $continue = true;
         $packages = explode(', ', array_pop($packages));
         foreach ($packages as $package) {
-            if ('' !== $package && null !== rex_addon::get($package) && true !== rex_addon::get($package)->isAvailable()) {
-                $continue = false;
-                echo rex_view::error(rex_i18n::rawMsg('bs5_missing_addon', $package));
+            if (!rex_addon::get($package) || true !== rex_addon::get($package)->isAvailable()) {
+                return false;
             }
         }
-        return $continue;
+        return true;
     }
 
     public static function updateModule($addon = 'plus_bs5')
@@ -136,7 +134,15 @@ class Helper
         rex_config::set('plus_bs5', $key, $value);
     }
 
-    public static function getBackendEditLink(?int $article_id = null, ?int $clang_id = null, ?int $slice_id = null): string
+    public static function getBackendPageLink(string $page): string
+    {
+        if (rex_backend_login::hasSession()) {
+            return '<a class="badge badge-primary" href="/redaxo/index.php?page=' . $page . '">wechseln</a>';
+        }
+        return '';
+    }
+
+    public static function getBackendEditLink(?int $article_id = null, ?int $clang_id = null, ?int $slice_id = null, string $label = 'bearbeiten'): string
     {
         if (null === $article_id) {
             $article_id = rex_article::getCurrentId();
@@ -147,19 +153,28 @@ class Helper
 
         if (rex_backend_login::hasSession()) {
             if (!($slice_id > 0)) {
-                return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '">bearbeiten</a>';
+                return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '">'.$label.'</a>';
             }
-            return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">bearbeiten</a>';
+            return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">'.$label.'</a>';
         }
         return '';
     }
 
-    public static function getBackendTableManagerEditLink(string $tablename, int $id, string $addon_page = 'yform/tablemanager'): string
+    public static function getBackendTableManagerEditLink(string $tablename, int $id, string $addon_page = 'yform/tablemanager', $label = 'bearbeiten'): string
     {
         if (rex_backend_login::hasSession()) {
             $url = rex_yform_manager::url($tablename, $id, ['page' => $addon_page]);
-            return '<a class="badge badge-primary" href="' . $url . '">bearbeiten</a>';
+            return '<a class="badge badge-primary" href="' . $url . '">'.$label.'</a>';
         }
         return '';
+    }
+
+    public static function showBackendUserInstruction(string $instruction, string $link = ''): void
+    {
+        echo '<p><i class="fa fa-info-circle"></i> ' . $instruction . ' ' . $link . '</p>';
+    }
+    public static function showBackendUserA18yInstruction(string $instruction, string $link = ''): void
+    {
+        echo '<p><i class="fa fa-universal-access text-primary"></i> ' . $instruction . ' ' . $link . '</p>';
     }
 }

@@ -4,7 +4,7 @@ namespace Alexplusde\BS5;
 
 use rex_article;
 
-/** @var \rex_fragment $this */
+/** @var \Fragment $this */
 ?>
 <div class="d-flex">
 	<aside id="nav">
