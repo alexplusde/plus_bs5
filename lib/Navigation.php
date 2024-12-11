@@ -57,7 +57,7 @@ class Navigation extends rex_navigation
                     }
                     $a['aria-expanded'][] = 'false';
                     $a_content .= ' </a><a role="button" class="btn dropdown-toggle dropdown-toggle-split ms-0" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="visually-hidden" style="display: none;">Mehr anzeigen</span></a>';
+    <span class="visually-hidden">Mehr anzeigen</span></a>';
                 }
 
                 if (2 == $depth) {

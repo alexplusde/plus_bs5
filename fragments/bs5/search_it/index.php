@@ -17,7 +17,7 @@ use Url\Profile;
 <!-- BEGIN plus_bs5/fragments/bs5/search_it/index.php -->
 <?php
 
-if (!BS5Helper::packageExists('search_it')) {
+if (!BS5Helper::packageExists(['search_it'])) {
     echo \rex_view::error('Das Addon "search_it" ist nicht installiert oder aktiviert!');
     return;
 }

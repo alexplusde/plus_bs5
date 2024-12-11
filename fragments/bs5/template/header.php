@@ -23,7 +23,7 @@ use rex_media_plus;
 	</div>
 	<div class="container">
 		<div class="row py-3 align-items-center">
-			<div class="col-9 col-lg-2 pr-0"><a class="d-block logo" style="max-height: 55px;" href="/"
+			<div class="col-9 col-lg-2 pr-0"><a class="d-block logo" href="/"
 					title=""><?= rex_media_plus::get(Domain::getCurrent()->getLogo())->setClass('img-fluid')->getImg() ?></a>
 			</div>
 			<div class="d-none d-lg-block col-3 col-lg-10 px-0">

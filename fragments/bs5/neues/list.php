@@ -4,6 +4,11 @@
 
 namespace FriendsOfRedaxo\Neues;
 
+use Alexplusde\BS5\Helper;
+
+$slice_id = $this->getVar('slice_id');
+$article_id = $this->getVar('article_id');
+
 /** @var Category|null $category */
 $category = $this->getVar('category');
 
@@ -14,6 +19,7 @@ if ($category) {
 }
 
 ?>
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 <div class="row g-4">
 	<div class="col-12 col-md-3">
 		<?php $this->subfragment('bs5/neues/list-nav.php') ?>

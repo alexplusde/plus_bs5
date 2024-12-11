@@ -26,7 +26,7 @@ if (!Helper::packageExists(['search_it'])) {
             <option value="Kontakt">
             <option value="Termine">
         </datalist>
-        <input class="btn btm-primary" type="submit" value="{{ template.breadcrumb_search.submit }}" />
+        <input class="btn btn-primary" type="submit" value="{{ template.breadcrumb_search.submit }}" />
     </div>
 </form>
 <!-- END bs5/template/breadcrumb-search.php  -->

@@ -17,7 +17,9 @@ $currentDomain = rex_yrewrite::getCurrentDomain();
 $startArticle = rex_article::get($currentDomain->getStartId());
 ?>
 <!-- bs5/template/breadcrumbs.php  -->
-<nav class="navbar" style="background-color: #e9ecef;">
+ <div class="bg-light">
+<div class="container">
+<nav class="navbar">
     <ol class="breadcrumb m-0">
         <?php
         $tree = $article->getParentTree();
@@ -41,4 +43,6 @@ foreach ($tree as $category) {
     </ol>
     <?= $this->subfragment('bs5/template/breadcrumb-search.php') ?>
 </nav>
+</div>
+</div>
 <!-- / project/fragmetfile.ext -->

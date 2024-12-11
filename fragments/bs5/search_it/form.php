@@ -7,7 +7,7 @@ namespace Alexplusde\BS5;
 use rex_clang;
 use rex_config;
 
-if (!Helper::packageExists('search_it')) {
+if (!Helper::packageExists(['search_it'])) {
     echo \rex_view::error('Das Addon "search_it" ist nicht installiert oder aktiviert!');
     return;
 }
@@ -26,7 +26,7 @@ if (!Helper::packageExists('search_it')) {
             <option value="Kontakt">
             <option value="Termine">
         </datalist>
-        <input class="btn btm-primary" type="submit" value="{{ template.breadcrumb_search.submit }}" />
+        <input class="btn btn-primary" type="submit" value="{{ template.breadcrumb_search.submit }}" />
     </div>
 </form>
 <!-- END bs5/template/breadcrumb-search.php  -->

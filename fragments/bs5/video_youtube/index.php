@@ -3,9 +3,11 @@
 namespace Alexplusde\School;
 
 use Alexplusde\BS5\Fragment;
+use Alexplusde\BS5\Helper;
 
 /** @var rex_fragment $this */
 $slice_id = $this->getVar('slice_id');
+$article_id = $this->getVar('article_id');
 
 $data_id = $this->getVar('data_id');
 $data_thumbnail = $this->getVar('data_thumbnail');
@@ -17,6 +19,7 @@ if($media) {
 } 
 
 ?>
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 <section class="ratio ratio-16x9" id="modul-<?= $slice_id ?>">
         <div class="video"
              data-service="youtube"
