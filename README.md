@@ -39,41 +39,49 @@ Ein Template, das wie `Standard [1]` funktioniert, jedoch kein Navigationsmenü 
 
 ### Grundsätzliches zum Aufbau der Module Values
 
-Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. 
+Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID.
 
 Unter [https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder](https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder) findest du ein angepasstes ChatGPT-Modell für Modul-Eingabe und -Ausgabe.
-
 
 Bsp.:
 
 #### Ausgabe
 
 ```php
-
 <?php
-#######################################################################
-# Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
-# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
-# Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
-#######################################################################
 
-if (!bs5::packageExists('ride', 'url', 'yform')) {
+use Alexplusde\BS5\Fragment;
+use Alexplusde\BS5\Helper;
+
+/* Benötigte Addons */
+$requiredAddons = ['school', 'mform'];
+if (!Helper::packageExists($requiredAddons)) {
+    echo rex_view::error(rex_i18n::rawMsg('bs5_missing_addon', implode(', ', $requiredAddons)));
     return;
 };
 
-$output = new bs5_fragment();
-$output->setVar("slice_id", "REX_SLICE_ID");
-$output->setVar("article_id", "REX_ARTICLE_ID");
-$output->setVar("modul_name", "REX_MODULE_KEY");
+/** Variablen */
+$modul = rex_var::toArray("REX_VALUE[1]");
+$modul_yform = rex_var::toArray("REX_VALUE[2]");
 
-$output->setVar("image", "REX_MEDIA[1]");
+/* Fragment */
+$fragment = new Fragment();
+$fragment->setVar('slice_id', "REX_SLICE_ID");
 
-echo $output->parse('REX_MODULE_KEY');
+/* Modulspezifische Variablen */
+$fragment->setVar('headline' , "REX_VALUE[1]");
+$fragment->setVar('headline_level' , "REX_VALUE[2]");
+$fragment->setVar('text' , "REX_VALUE[4 output=html]", false);
+$fragment->setVar('cta' , "REX_VALUE[8 output=html]", false);
+$fragment->setVar('image' , "REX_MEDIA[1]");
 
-unset($output);
+/* Ausgabe */
+echo $fragment->parse('bs5/text/index.php');
+
+?>
 ```
 
-Die Labels sollten, wenn möglich, mehrspachig sein, da die Module auch mehrsprachig eingesetzt werden:
+Eigene Labels sollten, wenn möglich, mehrspachig sein, da die Module auch mehrsprachig eingesetzt werden:
 
 ```php
 $field->setLabel('translate:test');
@@ -83,17 +91,30 @@ $field->setLabel('translate:test');
 
 bei der Eingabe wird zunächst auf verfügbare verwendete Pakete geprüft, um ein Whoops im Backend zu verhindern, sollten diese Pakete nicht mehr installiert sein.
 
-```
+```php
 <?php
-#######################################################################
-# Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
-# Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
-# Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
-#######################################################################
 
-if (!bs5::packageExists('mform, qanda')) {
+/**
+ * Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
+ * Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
+ * Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
+ */
+
+use Alexplusde\BS5\Helper;
+use Alexplusde\BS5\MForm as BS5MForm;
+use FriendsOfRedaxo\MForm;
+
+/* Addon-Prüfung */
+$requiredAddons = ['mform', 'redactor'];
+if (!Helper::packageExists($requiredAddons)) {
+    echo rex_view::error(rex_i18n::rawMsg('bs5_missing_addon', implode(', ', $requiredAddons)));
     return;
 };
+
+/* MForm-Formular */
+$mform = BS5MForm::defaultFactory();
+
+echo $mform->show();
 ```
 
 Durch die  Methode `packageExists() wird eine passende Fehlermeldung ausgegeben.
@@ -170,4 +191,3 @@ Shortcut zum Aufrufen von `rex_config::get('plus_bs5', $key)` und `rex_config::s
 ## Credits
 
 * Alexander Walther für Fragmente, Module und Templates
-* Norbert Micheel für das passende YForm Bootstrap Template
