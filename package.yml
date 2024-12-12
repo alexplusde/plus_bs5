@@ -6,12 +6,12 @@ supportpage: https://www.alexplus.de
 requires:
     php:
         version: "^8.0"
-    redaxo: ^5.15
+    redaxo: ^5.17
     packages:
         mform: "^8"
         mediapool: "^2"
         media_manager: "^2"
-        yrewrite_metainfo: "^1"
+        yrewrite_metainfo: "^2"
         wenns_sein_muss: "^5"
 
 page:
