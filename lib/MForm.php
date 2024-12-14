@@ -47,12 +47,12 @@ class MForm extends OriginalMForm
         // Wenn 4 in $value_ids enthalten ist, dann Text-Textfeld ausgegeben
         if (in_array(4, $value_ids)) {
             // WYSIWYG-Textarea
-            $mform->addTextAreaField(4, ['label' => \rex_i18n::msg('bs5.module.mform.text'), 'class' => 'form-control redactor-editor--text']);
+            $mform->addTextAreaField(4, ['label' => \rex_i18n::msg('bs5.module.mform.text'), 'class' => 'form-control redactor-editor--text', 'id' => 'redactor-editor-' . rand(1, 999999)]);
         }
 
         if (in_array(8, $value_ids)) {
             // CTA-Textfeld
-            $mform->addTextField(8, ['label' => \rex_i18n::msg('bs5.module.mform.cta_text'), 'class' => 'form-control redactor-editor--mini']);
+            $mform->addTextAreaField(8, ['label' => \rex_i18n::msg('bs5.module.mform.cta_text'), 'class' => 'form-control redactor-editor--mini', 'id' => 'redactor-editor-' . rand(1, 999999)]);
         }
 
         // Bild-Auswahlfeld
