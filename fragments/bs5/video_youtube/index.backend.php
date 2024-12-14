@@ -25,7 +25,7 @@ $data_thumbnail = $this->getVar('data_thumbnail');
 
 $media = \rex_media_plus::get($data_thumbnail);
 if ($media) {
-?>
+    ?>
     <p>Vorschaubild für das Video:</p>
     <?= $media->getImg(); ?>
 <?php

@@ -15,9 +15,9 @@ $data_thumbnail = $this->getVar('data_thumbnail');
 
 $media = \rex_media_plus::get($data_thumbnail);
 $thumbnail = '';
-if($media) {
+if ($media) {
     $thumbnail = $media::getFrontendUrl($media, '');
-} 
+}
 
 ?>
 <?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
@@ -26,10 +26,10 @@ if($media) {
              data-service="youtube"
              data-id="REX_VALUE[1]"
              <?php
-                if($thumbnail) {
+                if ($thumbnail) {
                     echo 'data-thumbnail="'.$thumbnail.'"';
                 }
-                ?>
+?>
              data-params="loop=1&autoplay=0&mute=1"
              data-autoscale data-ratio="16:9">
         </div>

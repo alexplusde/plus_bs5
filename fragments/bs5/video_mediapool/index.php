@@ -15,7 +15,7 @@ $video = $this->getVar('video');
 $options = $this->getVar('options');
 
 $thumbnail = \rex_media_plus::get($this->getVar('thumbnail'));
-if($thumbnail) {
+if ($thumbnail) {
     $thumbnail = $thumbnail->getUrl();
 }
 ?>

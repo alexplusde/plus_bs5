@@ -9,7 +9,7 @@ use Alexplusde\BS5\Helper;
 $image = $this->getVar('image');
 $media = \rex_media_plus::get($image);
 
-if(!$media) {
+if (!$media) {
     echo \rex_view::warning('Media not found: ' . $image);
     return;
 }

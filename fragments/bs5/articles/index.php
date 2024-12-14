@@ -10,14 +10,14 @@ namespace Alexplusde\BS5;
 	<?php
     $articles = $this->getVar('articles');
 
-	foreach ($articles as $article) {
-	    if (1 != $article->getValue('status')) {
-	        continue;
-	    }
-	    if ($article->isStartArticle()) {
-	        continue;
-	    }
-	    ?>
+foreach ($articles as $article) {
+    if (1 != $article->getValue('status')) {
+        continue;
+    }
+    if ($article->isStartArticle()) {
+        continue;
+    }
+    ?>
 		<div class="col mb-3">
 			<div class="card h-100">
 				<div class="card-body">
@@ -36,7 +36,7 @@ namespace Alexplusde\BS5;
 			</div>
 		</div>
 	<?php
-	}
-	?>
+}
+?>
 </div>
 <!-- END plus_bs5/fragments/bs5/articles/index.php -->
