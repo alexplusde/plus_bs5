@@ -188,6 +188,28 @@ Diese Methode kann auch für darauf aufbauende Addons verwendet werden. Beispiel
 
 Shortcut zum Aufrufen von `rex_config::get('plus_bs5', $key)` und `rex_config::set('plus_bs5', $key, $value)`
 
+## Weitere Empfehlungen
+
+### CSP-Header setzen (Content Security Policy)
+
+Aus Sicherheitsgründen sollte ein CSP-Header gesetzt werden, um XSS-Angriffe zu verhindern. Hier ein Beispiel für einen CSP-Header, der für die gesamte Website (Frontend) gilt. Der Header wird in der `.htaccess`-Datei des Servers gesetzt.
+
+```htaccess
+<IfModule mod_headers.c>
+    # Set CSP header for the entire site
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: *.youtube.com *.google.com *.githubusercontent.com; font-src 'self' data:; connect-src 'self'; media-src 'self'; object-src 'none'; child-src 'none'; frame-src 'self' *.youtube-nocookie.com *.youtube.com *.google.com; worker-src 'self'; frame-ancestors 'none'; form-action 'self'; block-all-mixed-content; base-uri 'none'; manifest-src 'self'"
+
+    # Unset CSP header for specific files in the subdirectory
+    <FilesMatch "^/redaxo/.*$">
+        Header unset Content-Security-Policy
+    </FilesMatch>
+</IfModule>
+```
+
+Youtube und Google (für Maps) sind hier als Beispiel für erlaubte Quellen für Bilder und Videos eingetragen. Die `*.google.com`-Quelle ist für Google Fonts. Die `*.githubusercontent.com`-Quelle ist für Bilder, die auf GitHub gehostet werden (Addon-Dokus).
+
+unsafe-inline ist für die Verwendung von Inline-Styles und Inline-Scripts notwendig, da Add-ons wie Redactor oder Watson darauf zurückgreifen. Es sollte jedoch vermieden werden, Inline-Styles und Inline-Scripts zu verwenden, da dies die Sicherheit des Systems beeinträchtigen kann.
+
 ## Credits
 
 * Alexander Walther für Fragmente, Module und Templates
