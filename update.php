@@ -1,3 +1,3 @@
 <?php
 
-include(__DIR__ . 'update.php');
+include(__DIR__ . '/update.php');
