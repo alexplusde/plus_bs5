@@ -19,6 +19,7 @@ bs5_module_audio = Audio
 bs5_module_video = Video
 bs5_module_downloads = Downloads
 
+
 bs5_module_contact = Kontakt & Anfahrt
 
 bs5_module_category = Kategorie-Übersicht
@@ -105,19 +106,6 @@ bs5_config_dev_notice = Schreibt bei aktiviertem Debug-Modus kontinuierlich Modu
 plus_bs5.settings.info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
 plus_bs5.settings.donate = Weiterentwicklung unterstützen 
 
-3	bs5.downloads	[translate:module.bs5.downloads]	 ja	 editieren	 löschen
-12	bs5.events	[translate:module.bs5.events]	 ja	 editieren	 löschen
-2	bs5.gallery	[translate:module.bs5.gallery]	 ja	 editieren	 löschen
-18	bs5.neues	[translate:module.bs5.neues]	 ja	 editieren	 löschen
-16	bs5.search_it	[translate:module.bs5.search_it]	 ja	 editieren	 löschen
-11	bs5.search_it.result	[translate:module.bs5.search_it.result]	 ja	 editieren	 löschen
-24	bs5.structure.child_article	[translate:module.bs5.structure.child_article]	 ja	 editieren	 löschen
-22	bs5.structure.child_category	[translate:module.bs5.structure.child_category]	 ja	 editieren	 löschen
-1	bs5.text	[translate:module.bs5.text]	 ja	 editieren	 löschen
-85	bs5.video.mediapool	[translate:module.bs5.video.mediapool]	 ja	 editieren	 löschen
-5	bs5.video.youtube	[translate:module.bs5.video.youtube]	 ja	 editieren	 löschen
-
-
 module.bs5.downloads = 5️⃣ Downloads
 module.bs5.events = 5️⃣ Termine und Veranstaltungen
 module.bs5.gallery = 5️⃣ Bildergalerie
@@ -129,6 +117,8 @@ module.bs5.structure.child_category = 5️⃣ Kategorie-Übersicht
 module.bs5.text = 5️⃣ Text
 module.bs5.video.mediapool = 5️⃣ Video (Medienpool)
 module.bs5.video.youtube = 5️⃣ Video (YouTube)
+module.bs5.google_maps = 5️⃣ Google Maps
+module.bs5.qanda = 5️⃣ Fragen & Antworten
 
 bs5.config.search_it_article_id.label = Suchergebnis-Seite
 bs5.config.search_it_article_id.notice = Wähle den Artikel, der die Suchergebnisse anzeigen soll.
