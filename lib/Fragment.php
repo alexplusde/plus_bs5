@@ -15,12 +15,14 @@ class Fragment extends rex_fragment
     {
         if (rex::isBackend()) {
             try {
-                return parent::parse(self::addBackendSuffix($fragment_frontend));
-            } catch (\rex_exception $e) {
-                return parent::parse(self::addSuffix($fragment_frontend));
+                $output = parent::parse(self::addBackendSuffix($fragment_frontend));
+            } catch (\InvalidArgumentException $e) {
+                $output = parent::parse(self::addSuffix($fragment_frontend));
             }
+        } else {
+            $output = parent::parse(self::addSuffix($fragment_frontend));
         }
-        return parent::parse(self::addSuffix($fragment_frontend));
+        return $output;
     }
 
     public function show($fragment_frontend, $fragment_backend = null)
@@ -41,7 +43,7 @@ class Fragment extends rex_fragment
         if (rex::isBackend()) {
             try {
                 return parent::getSubfragment(self::addBackendSuffix($fragment_frontend));
-            } catch (\rex_exception $e) {
+            } catch (\InvalidArgumentException $e) {
                 return parent::getSubfragment(self::addSuffix($fragment_frontend));
             }
         }
