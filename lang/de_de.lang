@@ -1,4 +1,4 @@
-plus_bs5 = Bootstrap 5 Theme by alex+
+plus_bs5 = Across 5
 
 # Modul-Meldungen
 
@@ -50,6 +50,7 @@ plus_bs5_settings_module = Blöcke
 plus_bs5_settings_footer = Fußzeile
 plus_bs5_settings_emails = E-Mail-Signatur
 plus_bs5_settings_legal = Rechtliches
+plus_bs5_settings_dev = Entwickler
 
 # # Feldnamen und Erläuterungen
 
@@ -94,10 +95,15 @@ bs5_config_border_notice = z.B. <code>border-none</code> oder <code>rounded</cod
 bs5_config_text_slideshow_prev = Vorheriges Bild
 bs5_config_text_slideshow_next = Nächstes Bild
 
-# # Sponsoring
+# Entwickler-Optionen
 
-plus_bs5_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
-plus_bs5_donate = Weiterentwicklung unterstützen 
+bs5_config_dev_label = Entwickler-Optionen
+bs5_config_dev_notice = Schreibt bei aktiviertem Debug-Modus kontinuierlich Module und Templates ins Dateisystem. Gedacht für Addon-Entwickler, die sich an <code>plus_bs5</code> beteiligen.
+
+# Förderung
+
+plus_bs5.settings.info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+plus_bs5.settings.donate = Weiterentwicklung unterstützen 
 
 3	bs5.downloads	[translate:module.bs5.downloads]	 ja	 editieren	 löschen
 12	bs5.events	[translate:module.bs5.events]	 ja	 editieren	 löschen
