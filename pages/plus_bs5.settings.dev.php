@@ -4,14 +4,16 @@ $addon = rex_addon::get('plus_bs5');
 
 $form = rex_config_form::factory($addon->name);
 
-$field = $form->addTextareaField('footer_text', null, ['class' => 'form-control ' . rex_config::get('plus_bs5', 'editor')]);
-$field->setLabel(rex_i18n::msg('bs5_config_footer_text'));
-
-$field = $form->addLinklistField('footer_navigation');
-$field->setLabel(rex_i18n::msg('bs5_config_footer_navigation'));
+$field = $form->addSelectField('dev');
+$field->setLabel($this->i18n('bs5_config_dev_label'));
+$field->setNotice($this->i18n('bs5_config_dev_notice'));
+$select = $field->getSelect();
+$select->setSize(1);
+$select->addOption($this->i18n('bs5_config_dev_active'), '1');
+$select->addOption($this->i18n('bs5_config_dev_inactive'), '0');
 
 $fragment = new rex_fragment();
-$fragment->setVar('class', 'edit', false);
+$fragment->setVar('class', 'danger', false);
 $fragment->setVar('title', $this->i18n('bs5_config_settings'), false);
 $fragment->setVar('body', $form->get(), false);
 
@@ -28,8 +30,8 @@ $anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=plus_bs5">
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'info', false);
-$fragment->setVar('title', $this->i18n('plus_plus_bs5.settings.donate'), false);
-$fragment->setVar('body', '<p>' . $this->i18n('plus_bs5_info_donate') . '</p>' . $anchor, false);
+$fragment->setVar('title', $this->i18n('plus_bs5.settings.donate'), false);
+$fragment->setVar('body', '<p>' . $this->i18n('plus_bs5.settings.info_donate') . '</p>' . $anchor, false);
 echo $fragment->parse('core/page/section.php');
 ?>
 	</div>
