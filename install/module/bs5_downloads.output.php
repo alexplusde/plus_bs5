@@ -60,7 +60,7 @@ if (count($files)) {
                     $download_fragment->setVar('description', $media->getValue('description'));
                     $download_fragment->setVar('filesize', $media->getFormattedSize());
 
-                    echo $download_fragment->parse('school/downloads/index.php'); ?>
+                    echo $download_fragment->parse('bs5/downloads/index.php'); ?>
                     </li>
             <?php
                 } // is_object()
