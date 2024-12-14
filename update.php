@@ -1,5 +1,3 @@
 <?php
-/*
-bs5::updateModule();
-bs5::updateTemplate();
-*/
+
+include(__DIR__ . 'update.php');
