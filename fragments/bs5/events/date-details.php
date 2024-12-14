@@ -4,13 +4,15 @@ namespace Alexplusde\Events;
 
 use Url\Url;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $manager = Url::resolveCurrent();
 if ($manager) {
     /** @var Date $date */
     $date = $manager->getDataset();
     ?>
+<!-- BEGIN plus_bs5/fragments/bs5/events/date-details.php -->
 <div class="banner_title">
 	<div class="container">
 		<div class="row">
@@ -63,3 +65,4 @@ if ($manager) {
 
 }
 ?>
+<!-- BEGIN plus_bs5/fragments/bs5/events/date-details.php -->

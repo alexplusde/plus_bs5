@@ -2,12 +2,14 @@
 
 namespace Alexplusde\Events;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $categories = Category::query()->where('status', 1, '=')->orderBy('name')->find();
 $current_id = $this->getVar('category_id');
 
 ?>
+<!-- BEGIN plus_bs5/fragments/bs5/events/list-category.php -->
 <div class="card">
 	<div class="card-header">
 		Rubriken
@@ -28,3 +30,4 @@ foreach ($categories as $category) {
 }
 ?>	</div>
 </div>
+<!-- END plus_bs5/fragments/bs5/events/list-category.php -->

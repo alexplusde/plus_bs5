@@ -4,7 +4,8 @@ namespace Alexplusde\School;
 
 use Alexplusde\BS5\Fragment;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $headline = $this->getVar('headline');
 $headline_level = $this->getVar('headline_level') ?? "h2";

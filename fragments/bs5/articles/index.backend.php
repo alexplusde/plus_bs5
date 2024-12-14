@@ -1,4 +1,12 @@
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<?php
+
+namespace Alexplusde\BS5;
+
+/** @var rex_fragment|Fragment $this */
+
+?>
+<!-- BEGIN plus_bs5/fragments/bs5/articles/index.backend.php -->
+ <div class="row row-cols-1 row-cols-md-2 g-4">
 	<?php
     $articles = $this->getVar('articles');
 
@@ -31,3 +39,4 @@
 	}
 	?>
 </div>
+<!-- END plus_bs5/fragments/bs5/articles/index.backend.php -->

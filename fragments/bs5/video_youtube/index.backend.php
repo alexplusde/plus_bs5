@@ -4,7 +4,8 @@ namespace Alexplusde\School;
 
 use Alexplusde\BS5\Fragment;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 $slice_id = $this->getVar('slice_id');
 
 $data_id = $this->getVar('data_id');

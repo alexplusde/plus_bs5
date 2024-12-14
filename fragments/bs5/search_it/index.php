@@ -2,7 +2,8 @@
 
 namespace Alexplusde\BS5;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 use Alexplusde\BS5\Helper as BS5Helper;
 use rex;

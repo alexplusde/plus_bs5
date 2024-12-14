@@ -1,9 +1,17 @@
 <?php
 
+namespace Alexplusde\BS5;
+
+/** @var rex_fragment|Fragment $this */
+
+
+use rex_media_plus;
+use media_manager_type_group;
+
 $images = explode(',', $this->getVar('images'));
 
 ?>
-
+<!-- BEGIN plus_bs5/fragments/bs5/gallery/slideshow.php -->
 <section class="bs5_gallery">
 	<div id="carousel-REX_SLICE_ID" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
@@ -14,7 +22,7 @@ $index = 0;
 $active = 'active';
 
 foreach ($images as $image) {
-    if ($media = rex_media::get($image)) {
+    if ($media = rex_media_plus::get($image)) {
         ?>
 			<button type="button" data-bs-target="#carousel-REX_SLICE_ID"
 				data-bs-slide-to="<?= $index++ ?>"
@@ -78,3 +86,4 @@ foreach ($images as $image) {
 			<span class="visually-hidden">Next</span>
 		</button>
 </section>
+<!-- BEGIN plus_bs5/fragments/bs5/gallery/slideshow.php -->

@@ -2,7 +2,8 @@
 
 namespace FriendsOfRedaxo\Neues;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 $entry = $this->getVar('entry');
 /** @var Entry $entry */
 ?>

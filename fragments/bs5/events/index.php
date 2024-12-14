@@ -2,7 +2,8 @@
 
 namespace Alexplusde\Events;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 use Url\Url;
 

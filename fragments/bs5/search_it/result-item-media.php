@@ -2,7 +2,8 @@
 
 namespace Alexplusde\BS5;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $hit = $this->getVar('hit');
 $hit_link = $this->getVar('hit_link');

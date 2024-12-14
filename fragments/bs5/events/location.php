@@ -2,7 +2,8 @@
 
 namespace Alexplusde\Events;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $location = $this->getVar('location');
 if (!$location) {
@@ -10,6 +11,7 @@ if (!$location) {
 }
 
 ?>
+<!-- BEGIN plus_bs5/fragments/bs5/events/location.php -->
 <div class="card my-2">
 	<div class="card-header">
 		{{ events.location.title}}
@@ -23,3 +25,4 @@ if (!$location) {
 		</address>
 	</div>
 </div>
+<!-- END plus_bs5/fragments/bs5/events/location.php -->

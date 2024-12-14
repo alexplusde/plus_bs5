@@ -2,7 +2,8 @@
 
 namespace Alexplusde\Events;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 
 $category_id = $this->getVar('category_id');
 if ($category_id > 0) {
@@ -14,6 +15,7 @@ if ($category_id > 0) {
 $headline = $this->getVar('headline', '{{events.list.headline}}');
 
 ?>
+<!-- BEGIN plus_bs5/fragments/bs5/events/list.php -->
 <div class="row">
 	<div class="col-xl-8">
 		<h2><?= $headline ?></h2>
@@ -32,3 +34,4 @@ $headline = $this->getVar('headline', '{{events.list.headline}}');
 ?>
 	</div>
 </div>
+<!-- END plus_bs5/fragments/bs5/events/list.php -->

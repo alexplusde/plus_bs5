@@ -1,9 +1,17 @@
 <?php
 
+namespace Alexplusde\BS5;
+
+/** @var rex_fragment|Fragment $this */
+
+
+use rex_media_plus;
+use media_manager_type_group;
+
 $images = explode(',', $this->getVar('images'));
 
 ?>
-
+<!-- BEGIN plus_bs5/fragments/bs5/gallery/fullwidth-slideshow.php -->
 <section class="bs5_gallery">
 	<div id="carousel-<?= $this->getVar('slice_id') ?>"
 		class="carousel slide" data-bs-ride="carousel">
@@ -79,3 +87,4 @@ foreach ($images as $image) {
 				class="visually-hidden"><?= Helper::getConfig('text_slideshow_next') ?></span>
 		</button>
 </section>
+<!-- END plus_bs5/fragments/bs5/gallery/fullwidth-slideshow.php -->

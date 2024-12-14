@@ -13,7 +13,7 @@ if (!Helper::packageExists(['search_it'])) {
 }
 
 ?>
-<!-- BEGIN bs5/template/breadcrumb-search.php  -->
+<!-- BEGIN bs5/search_it/form.php  -->
 <?php $article_id = rex_config::get('plus_bs5', 'search_article_id');
 ?>
 <form class="d-flex" role="search" id="breadcrumb_search_it" action="<?= rex_getUrl($article_id, rex_clang::getCurrentId()) ?>" method="get">
@@ -29,4 +29,4 @@ if (!Helper::packageExists(['search_it'])) {
         <input class="btn btn-primary" type="submit" value="{{ template.breadcrumb_search.submit }}" />
     </div>
 </form>
-<!-- END bs5/template/breadcrumb-search.php  -->
+<!-- END bs5/search_it/form.php  -->

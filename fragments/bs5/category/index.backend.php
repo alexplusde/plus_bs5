@@ -1,6 +1,15 @@
 <?php
-$layout = $this->getVar('options')['layout'] ?? 'no-image';
+
+namespace Alexplusde\BS5;
+
+/** @var rex_fragment|Fragment $this */
+
+
+use rex_config;
+use rex_category;
+
 ?>
+<!-- BEGIN plus_bs5/fragments/bs5/category/index.backend.php -->
 <section class="modul modul-text bs5-category">
 	<div class="container <?= rex_config::get('plus_bs5', 'container_class') ?>">
 			<div class="row row-cols-1 row-cols-md-3 g-4 m-0">
@@ -26,3 +35,4 @@ foreach ($categories as $category) {
 			</div>
 	</div>
 </section>
+<!-- END plus_bs5/fragments/bs5/category/index.backend.php -->

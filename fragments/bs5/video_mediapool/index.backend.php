@@ -5,7 +5,8 @@ namespace Alexplusde\School;
 use Alexplusde\BS5\Fragment;
 use rex_plyr;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 $slice_id = $this->getVar('slice_id');
 
 $video = $this->getVar('video');

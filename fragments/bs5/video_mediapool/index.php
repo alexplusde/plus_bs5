@@ -6,7 +6,8 @@ use Alexplusde\BS5\Fragment;
 use Alexplusde\BS5\Helper;
 use rex_plyr;
 
-/** @var rex_fragment $this */
+/** @var rex_fragment|Fragment $this */
+
 $slice_id = $this->getVar('slice_id');
 $article_id = $this->getVar('article_id');
 
