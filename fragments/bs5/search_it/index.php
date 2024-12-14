@@ -31,7 +31,7 @@ $request = rex_request('q', 'string', false);
 if ($request) { // Wenn ein Suchbegriff eingegeben wurde
     $server = rtrim(rex::getServer(), '/');
 
-    echo '<section class="search_it-hits">';
+    echo '<section class="search_it-hits" data-search_it="noindex">';
 
     // Init search and execute
     $search_it = new search_it();

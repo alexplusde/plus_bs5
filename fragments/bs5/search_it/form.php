@@ -16,7 +16,7 @@ if (!Helper::packageExists(['search_it'])) {
 <!-- BEGIN bs5/search_it/form.php  -->
 <?php $article_id = rex_config::get('plus_bs5', 'search_article_id');
 ?>
-<form class="d-flex" role="search" id="breadcrumb_search_it" action="<?= rex_getUrl($article_id, rex_clang::getCurrentId()) ?>" method="get">
+<form class="d-flex" role="search" id="breadcrumb_search_it" data-search_it="noindex" action="<?= rex_getUrl($article_id, rex_clang::getCurrentId()) ?>" method="get">
     <div class="input-group">
         <!-- <label for="breadcrumb_search_it_input" class="form-label">{{ template.breadcrumb_search.label }}</label>-->
         <input name="q" type="search" aria-label="Search" value="<?= rex_escape(rex_request('q', 'string', '')) ?>" class="form-control" list="breadcrumb_search_it_datalist" id="exampleDataList" placeholder="{{ template.breadcrumb_search.placeholder }}">
