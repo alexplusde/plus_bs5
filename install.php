@@ -8,9 +8,9 @@ use Alexplusde\BS5\Helper;
 use rex_addon;
 use rex_config;
 
+Helper::forceBackup();
 Helper::updateModule();
 Helper::updateTemplate();
-Helper::forceBackup();
 
 if (rex_addon::get('metainfo') && rex_addon::get('metainfo')->isAvailable()) {
     rex_metainfo_add_field('translate:plus_bs5.metainfo.cat_nav', 'cat_nav', '100', '', 5, '||', 'desktop_hidden:translate:plus_bs5_nav_desktop_hidden');
@@ -24,4 +24,8 @@ $redactor = rex_addon::get('redactor');
 
 if($redactor && $redactor->isAvailable()) {
     include(__DIR__ . '/install/redactor-profile.php');
+}
+
+if (rex_addon::get('yrewrite') && rex_addon::get('yrewrite')->isAvailable()) {
+    include(__DIR__ . '/install/yrewrite_meta_info.domain.php');
 }
