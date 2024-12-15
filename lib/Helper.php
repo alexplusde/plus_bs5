@@ -33,13 +33,13 @@ class Helper
 
     public static function updateModule($addon = 'plus_bs5')
     {
-        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'install/module'));
+        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon(".new.".$addon) . 'install/module'));
 
         foreach ($modules as $module) {
             // Anstelle von .json ist die Endung .php für die Template-Datei
-            $module_array = json_decode(rex_file::get(rex_path::addon($addon) . 'install/module/' . $module), 1);
-            $module_array['input'] = rex_file::get(rex_path::addon($addon) . 'install/module/' . str_replace('.json', '.input.php', $module));
-            $module_array['output'] = rex_file::get(rex_path::addon($addon) . 'install/module/' . str_replace('.json', '.output.php', $module));
+            $module_array = json_decode(rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . $module), 1);
+            $module_array['input'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . str_replace('.json', '.input.php', $module));
+            $module_array['output'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . str_replace('.json', '.output.php', $module));
 
             rex_sql::factory()->setDebug(0)->setTable('rex_module')
                 ->setValue('name', $module_array['name'])
@@ -69,12 +69,12 @@ class Helper
 
     public static function updateTemplate($addon = 'plus_bs5')
     {
-        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($addon) . 'install/template'));
+        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon(".new.".$addon) . 'install/template'));
 
         foreach ($templates as $template) {
-            $template_array = json_decode(rex_file::get(rex_path::addon($addon) . 'install/template/' . $template), 1);
+            $template_array = json_decode(rex_file::get(rex_path::addon(".new.".$addon) . 'install/template/' . $template), 1);
             // Anstelle von .json ist die Endung .php für die Template-Datei
-            $template_array['content'] = rex_file::get(rex_path::addon($addon) . 'install/template/' . str_replace('.json', '.php', $template));
+            $template_array['content'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/template/' . str_replace('.json', '.php', $template));
             rex_sql::factory()->setDebug(0)->setTable('rex_template')
                 ->setValue('name', $template_array['name'])
                 ->setValue('key', $template_array['key'])
