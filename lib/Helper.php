@@ -31,15 +31,20 @@ class Helper
         return true;
     }
 
-    public static function updateModule($addon = 'plus_bs5')
+    public static function updateModule($addonName = 'plus_bs5')
     {
-        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon(".new.".$addon) . 'install/module'));
+        $addon = rex_addon::get($addonName);
+        $prefix = ".new.";
+        if ($addon->getProperty('is_update')) {
+            $prefix = "";
+        }
+        $modules = preg_grep('~\.(json)$~', scandir(rex_path::addon($prefix.$addonName) . 'install/module'));
 
         foreach ($modules as $module) {
             // Anstelle von .json ist die Endung .php für die Template-Datei
-            $module_array = json_decode(rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . $module), 1);
-            $module_array['input'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . str_replace('.json', '.input.php', $module));
-            $module_array['output'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/module/' . str_replace('.json', '.output.php', $module));
+            $module_array = json_decode(rex_file::get(rex_path::addon($prefix.$addonName) . 'install/module/' . $module), 1);
+            $module_array['input'] = rex_file::get(rex_path::addon($prefix.$addonName) . 'install/module/' . str_replace('.json', '.input.php', $module));
+            $module_array['output'] = rex_file::get(rex_path::addon($prefix.$addonName) . 'install/module/' . str_replace('.json', '.output.php', $module));
 
             rex_sql::factory()->setDebug(0)->setTable('rex_module')
                 ->setValue('name', $module_array['name'])
@@ -54,27 +59,32 @@ class Helper
         }
     }
 
-    public static function writeModule($addon = 'plus_bs5', $query = 'bs5.%')
+    public static function writeModule($addonName = 'plus_bs5', $query = 'bs5.%')
     {
         $modules = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_module WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($modules as $module) {
-            rex_file::put(rex_path::addon($addon, 'install/module/' . rex_string::normalize($module['key']) . '.input.php'), $module['input']);
-            rex_file::put(rex_path::addon($addon, 'install/module/' . rex_string::normalize($module['key']) . '.output.php'), $module['output']);
+            rex_file::put(rex_path::addon($addonName, 'install/module/' . rex_string::normalize($module['key']) . '.input.php'), $module['input']);
+            rex_file::put(rex_path::addon($addonName, 'install/module/' . rex_string::normalize($module['key']) . '.output.php'), $module['output']);
             unset($module['input']);
             unset($module['output']);
-            rex_file::put(rex_path::addon($addon, 'install/module/' . rex_string::normalize($module['key']) . '.json'), json_encode($module));
+            rex_file::put(rex_path::addon($addonName, 'install/module/' . rex_string::normalize($module['key']) . '.json'), json_encode($module));
         }
     }
 
-    public static function updateTemplate($addon = 'plus_bs5')
+    public static function updateTemplate($addonName = 'plus_bs5')
     {
-        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon(".new.".$addon) . 'install/template'));
+        $addon = rex_addon::get($addonName);
+        $prefix = ".new.";
+        if ($addon->getProperty('is_update')) {
+            $prefix = "";
+        }
+        $templates = preg_grep('~\.(json)$~', scandir(rex_path::addon($prefix.$addonName) . 'install/template'));
 
         foreach ($templates as $template) {
-            $template_array = json_decode(rex_file::get(rex_path::addon(".new.".$addon) . 'install/template/' . $template), 1);
+            $template_array = json_decode(rex_file::get(rex_path::addon($prefix.$addonName) . 'install/template/' . $template), 1);
             // Anstelle von .json ist die Endung .php für die Template-Datei
-            $template_array['content'] = rex_file::get(rex_path::addon(".new.".$addon) . 'install/template/' . str_replace('.json', '.php', $template));
+            $template_array['content'] = rex_file::get(rex_path::addon($prefix.$addonName) . 'install/template/' . str_replace('.json', '.php', $template));
             rex_sql::factory()->setDebug(0)->setTable('rex_template')
                 ->setValue('name', $template_array['name'])
                 ->setValue('key', $template_array['key'])
@@ -87,14 +97,14 @@ class Helper
         }
     }
 
-    public static function writeTemplate($addon = 'plus_bs5', $query = 'bs5.%')
+    public static function writeTemplate($addonName = 'plus_bs5', $query = 'bs5.%')
     {
         $templates = rex_sql::factory()->setDebug(0)->getArray('SELECT * FROM rex_template WHERE `key` LIKE :query', ['query' => $query]);
 
         foreach ($templates as $template) {
-            rex_file::put(rex_path::addon($addon, 'install/template/' . rex_string::normalize($template['key']) . '.php'), $template['content']);
+            rex_file::put(rex_path::addon($addonName, 'install/template/' . rex_string::normalize($template['key']) . '.php'), $template['content']);
             unset($template['content']);
-            rex_file::put(rex_path::addon($addon, 'install/template/' . rex_string::normalize($template['key']) . '.json'), json_encode($template));
+            rex_file::put(rex_path::addon($addonName, 'install/template/' . rex_string::normalize($template['key']) . '.json'), json_encode($template));
         }
     }
 
