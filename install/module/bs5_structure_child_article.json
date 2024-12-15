@@ -1,1 +1,11 @@
-{"id":24,"key":"bs5.structure.child_article","name":"translate:module.bs5.structure.child_article","createdate":"2017-11-08 21:03:24","createuser":"aw@alexplus.de","updatedate":"2024-12-11 01:19:43","updateuser":"mail@alexplus.de","attributes":null,"revision":0}
+{
+    "id": 24,
+    "key": "bs5.structure.child_article",
+    "name": "translate:module.bs5.structure.child_article",
+    "createdate": "2017-11-08 21:03:24",
+    "createuser": "aw@alexplus.de",
+    "updatedate": "2024-12-11 01:19:43",
+    "updateuser": "mail@alexplus.de",
+    "attributes": null,
+    "revision": 0
+}

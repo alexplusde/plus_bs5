@@ -1,1 +1,11 @@
-{"id":1,"key":"bs5.text","name":"translate:module.bs5.text","createdate":"2016-10-27 11:35:22","createuser":"aw@alexplus.de","updatedate":"2024-12-11 02:47:52","updateuser":"console","attributes":"","revision":0}
+{
+    "id": 1,
+    "key": "bs5.text",
+    "name": "translate:module.bs5.text",
+    "createdate": "2016-10-27 11:35:22",
+    "createuser": "aw@alexplus.de",
+    "updatedate": "2024-12-11 02:47:52",
+    "updateuser": "console",
+    "attributes": "",
+    "revision": 0
+}

@@ -1,1 +1,11 @@
-{"id":85,"key":"bs5.video.mediapool","name":"translate:module.bs5.video.mediapool","createdate":"2022-10-16 14:20:15","createuser":"aw@alexplus.de","updatedate":"2024-12-11 02:47:48","updateuser":"console","attributes":null,"revision":0}
+{
+    "id": 85,
+    "key": "bs5.video.mediapool",
+    "name": "translate:module.bs5.video.mediapool",
+    "createdate": "2022-10-16 14:20:15",
+    "createuser": "aw@alexplus.de",
+    "updatedate": "2024-12-11 02:47:48",
+    "updateuser": "console",
+    "attributes": null,
+    "revision": 0
+}

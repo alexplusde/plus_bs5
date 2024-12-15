@@ -1,1 +1,11 @@
-{"id":5,"key":"bs5.video.youtube","name":"translate:module.bs5.video.youtube","createdate":"2016-10-27 11:35:57","createuser":"aw@alexplus.de","updatedate":"2024-12-11 02:47:43","updateuser":"console","attributes":"","revision":0}
+{
+    "id": 5,
+    "key": "bs5.video.youtube",
+    "name": "translate:module.bs5.video.youtube",
+    "createdate": "2016-10-27 11:35:57",
+    "createuser": "aw@alexplus.de",
+    "updatedate": "2024-12-11 02:47:43",
+    "updateuser": "console",
+    "attributes": "",
+    "revision": 0
+}
