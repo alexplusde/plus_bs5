@@ -13,7 +13,6 @@ bs5_module_hero = 🛫 Intro (Freitext)
 
 bs5_module_text = Text
 bs5_module_cta = Call-to-Action Button
-bs5_module_image = Bild
 bs5_module_gallery = Bildergalerie
 bs5_module_audio = Audio
 bs5_module_video = Video
@@ -123,6 +122,7 @@ module.bs5.divider = 5️⃣ Trenner
 module.bs5.staff = 5️⃣ Mitarbeiter:innen
 module.bs5.accordion = 5️⃣ Akkordeon
 module.bs5.tabs = 5️⃣ Tabs
+module.bs5.alert = 5️⃣ Hinweis
 
 bs5.config.search_it_article_id.label = Suchergebnis-Seite
 bs5.config.search_it_article_id.notice = Wähle den Artikel, der die Suchergebnisse anzeigen soll.
@@ -132,3 +132,5 @@ bs5.module.mform.headline = Überschrift
 bs5.module.mform.headline_level = Ebene
 bs5.module.mform.text = Text
 bs5.module.mform.cta_text = Call-To-Action-Links
+bs5.module.mform.image = Bild
+bs5.module.mform.background_image = Hintergrundbild
