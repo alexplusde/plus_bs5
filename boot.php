@@ -7,8 +7,11 @@ use rex_config;
 use rex_extension;
 use rex_yform;
 use rex;
+use rex_be_page;
+use rex_category;
 use rex_extension_point;
 use rex_path;
+use rex_response;
 
 if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
     rex_yform::addTemplatePath(rex_path::addon('plus_bs5', 'yformtemplates'));
@@ -30,4 +33,11 @@ if (rex::isFrontend()) {
         $subject = str_replace($search, $replace, $subject);
         $ep->setSubject($subject);
     });
+}
+
+if(rex::isBackend() && count(\rex_category::getRootCategories()) === 1 && \rex_be_controller::getCurrentPagePart(1) === 'structure') {
+    if(rex_get('category_id', 'int', 0) === 0 && rex_get('clang', 'int', 0) === 0) {
+        rex_response::sendRedirect(\rex_url::backendPage('structure', ['category_id' => \rex_category::getRootCategories()[0]->getId()], false));
+    }
+
 }
