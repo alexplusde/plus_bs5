@@ -119,6 +119,10 @@ module.bs5.video.mediapool = 5️⃣ Video (Medienpool)
 module.bs5.video.youtube = 5️⃣ Video (YouTube)
 module.bs5.google_maps = 5️⃣ Google Maps
 module.bs5.qanda = 5️⃣ Fragen & Antworten
+module.bs5.divider = 5️⃣ Trenner
+module.bs5.staff = 5️⃣ Mitarbeiter:innen
+module.bs5.accordion = 5️⃣ Akkordeon
+module.bs5.tabs = 5️⃣ Tabs
 
 bs5.config.search_it_article_id.label = Suchergebnis-Seite
 bs5.config.search_it_article_id.notice = Wähle den Artikel, der die Suchergebnisse anzeigen soll.
