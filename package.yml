@@ -1,5 +1,5 @@
 package: plus_bs5
-version: '0.3.0-dev-2024-12-15'
+version: '0.4.0-dev-2024-12-15'
 author: Alexander Walther
 supportpage: https://www.alexplus.de
 
@@ -51,8 +51,8 @@ pages:
 config:
     vendor: "cdn"
     editor: "redactor-editor--text"
-    container_class: "p-3 shadow bg-white"
     nav_depth: 1
+    mobile_nav_layout: modal
     text_more: "Mehr..."
     text_a18y_content: "Zum Inhalt springen..."
     text_slideshow_prev: Zurück
@@ -61,5 +61,4 @@ config:
     text_header_mobile_nav_title: Menü
     text_header_mobile_nav_close: Schließen
     dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben
-    mobile_nav_layout: modal
     search_it_article_id: 0 # Artikel-ID für die Suchergebnisse
