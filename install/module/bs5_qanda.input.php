@@ -1,4 +1,6 @@
 <?php
+
+use Alexplusde\BS5\MForm as BS5MForm;
 use FriendsOfRedaxo\MForm;
 
 if (!rex_addon::get('qanda') && !rex_addon::get('qanda')->isAvailable()) {
@@ -14,13 +16,11 @@ foreach ($categories as $category) {
     $categories_array[$category->getId()] = $category->getName();
 }
 
-$mform = new MForm();
+$mform = new BS5MForm();
 
-$mform->addTextField(1)
-    ->setLabel('Überschrift')
-    ->setAttribute('required', 'required');
+$mform->defaultFactory(1,2,4);
 
-$mform->addSelectField(2)
+$mform->addSelectField(8)
     ->setAttribute('multiple', 'multiple')
     ->setLabel('Kategorie')
     ->setOptions($categories_array);
