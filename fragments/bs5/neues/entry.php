@@ -18,7 +18,7 @@ foreach ($categories as $category) {
 
     ?>
 			<span
-				class="badge badge-primary text-white p-1"><?= $category->getName() ?></span>
+				class="badge bg-primary p-1"><?= $category->getName() ?></span>
 			<?php
 }
 ?>
@@ -29,7 +29,7 @@ foreach ($categories as $category) {
 			<?= $entry->getTeaser() ?>
 		</p>
 		<a href="<?= $entry->getUrl() ?>"
-			class="btn btn-medium btn-primary">{{neues.entry.more}}</a>
+			class="btn btn-medium btn-primary text-white">{{neues.entry.more}}</a>
 	</div>
 
 </div>

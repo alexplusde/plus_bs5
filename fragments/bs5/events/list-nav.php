@@ -4,19 +4,23 @@ namespace Alexplusde\Events;
 
 /** @var rex_fragment|Fragment $this */
 
-
-$categories = Category::query()->where('status', 1, '=')->orderBy('name')->find();
-$current_id = $this->getVar('category_id');
+$current_id = 0;
+$categories = Category::query()->where('status', 1, '>=')->orderBy('name')->find();
+if ($current_category = $this->getVar('category')) {
+    $current_id = $current_category->getId();
+    $all_active = '';
+} else {
+    $all_active = 'active';
+}
 
 ?>
-<!-- BEGIN plus_bs5/fragments/bs5/events/list-category.php -->
 <div class="card">
 	<div class="card-header">
-		Rubriken
+		Thema wählen
 	</div>
 	<div class="list-group list-group-flush">
-		<a class="list-group-item"
-			href="<?= rex_getUrl(\rex_config::get('events', 'article_id')) ?>">{{ events.category.all}}</a>
+		<a class="list-group-item <?= $all_active ?>"
+			href="<?= rex_getUrl(\rex_config::get('events', 'article_id')) ?>">{{events.category.all}}</a>
 		<?php
 
 foreach ($categories as $category) {
@@ -28,6 +32,6 @@ foreach ($categories as $category) {
 
 	<?php
 }
-?>	</div>
+?>
+	</div>
 </div>
-<!-- END plus_bs5/fragments/bs5/events/list-category.php -->

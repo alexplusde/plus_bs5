@@ -9,7 +9,7 @@ $date = $this->getVar('date');
 $category = $date->getCategory();
 ?>
 <!-- BEGIN plus_bs5/fragments/bs5/events/date.php -->
-<div class=" event card mb-4">
+<div class="event card mb-4">
 	<div class="card-body">
 		<?php
         $categories = $date->getCategories();

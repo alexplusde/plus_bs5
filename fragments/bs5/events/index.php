@@ -1,30 +1,29 @@
 <?php
 
+/** @var Fragment $this */
+
 namespace Alexplusde\Events;
-
-/** @var rex_fragment|Fragment $this */
-
 
 use Url\Url;
 
-$event = null;
+$dataset = null;
 $manager = Url::resolveCurrent();
 if ($manager) {
-    /** @var Date|Category $event */
-    $event = $manager->getDataset();
+    /** @var Category|Date $dataset */
+    $dataset = $manager->getDataset();
 }
 ?>
 <!-- BEGIN plus_bs5/fragments/events/index.php -->
 <?php
-if ($event instanceof Category) {
-    echo $this->subFragment('bs5/events/list-category.php');
+if ($dataset instanceof Category) {
+    echo $this->subFragment('bs5/events/list.php', ['category' => $dataset]);
 }
 
-if ($event instanceof Date) {
-    echo $this->subFragment('bs5/events/date-details.php', ['event' => $event]);
+if ($dataset instanceof Date) {
+    echo $this->subFragment('bs5/events/date-details.php', ['date' => $dataset]);
 }
 
-if (null === $event) {
+if (null === $dataset) {
     echo $this->subFragment('bs5/events/list.php');
 }
 ?>
