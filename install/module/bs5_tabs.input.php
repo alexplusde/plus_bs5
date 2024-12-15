@@ -22,7 +22,7 @@ $mform = new MForm();
 // Tab-Navigations-Elemente: Tab-Name, Tab-Inhalt
 $mform->addTextField('name', ['label' => 'Name']);
 $mform->addTextField('headline', ['label' => 'Überschrift']);
-$mform->addTextAreaField('content', ['label' => 'Inhalt']);
+$mform->addTextAreaField('content', ['label' => 'Inhalt', 'class' => 'form-control redactor-editor--text']);
 
 $repeater = MForm::factory();
 $repeater->addRepeaterElement(1, $mform);
