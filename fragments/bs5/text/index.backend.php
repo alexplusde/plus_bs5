@@ -16,7 +16,7 @@ $imagePosition = $this->getVar('imagePosition');
 $image = $this->getVar('image');
 $media = \rex_media_plus::get($image);
 ?>
-<section class="modul modul-text p-3" id="modul-REX_SLICE_ID">
+<section class="modul modul-text py-3" id="modul-REX_SLICE_ID">
 	<div class="row">
 		<?php if (null !== $media) { ?>
 			<div class="col-md-6 image">

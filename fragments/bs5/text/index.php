@@ -19,10 +19,10 @@ $imagePosition = $this->getVar('imagePosition');
 $image = $this->getVar('image');
 $media = \rex_media_plus::get($image);
 ?>
+<section class="modul modul-text py-3" id="modul-<?= $slice_id ?>">
 <?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
-<section class="modul modul-text p-3" id="modul-<?= $slice_id ?>">
-	<div class="row">
-		<?php if (null !== $media) { ?>
+<div class="row">
+	<?php if (null !== $media) { ?>
 			<div class="col-6 image">
 				<?= $media->setClass('img-fluid')->getImg() ?>
 			</div>
