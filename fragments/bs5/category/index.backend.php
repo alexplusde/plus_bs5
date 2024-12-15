@@ -8,6 +8,7 @@ namespace Alexplusde\BS5;
 use rex_config;
 use rex_category;
 
+$layout = $this->getVar('options')['layout'] ?? 'no-image';
 ?>
 <!-- BEGIN plus_bs5/fragments/bs5/category/index.backend.php -->
 <section class="modul modul-text bs5-category">
