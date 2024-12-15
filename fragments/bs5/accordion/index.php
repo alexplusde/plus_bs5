@@ -36,7 +36,7 @@ $accordionId = 'accordion-' . $slice_id;
                             data-bs-target="#<?= $itemId ?>" 
                             aria-expanded="<?= $expanded ?>" 
                             aria-controls="<?= $itemId ?>">
-                        <?= $item['name'] ?>
+                        <?= $item['name'] ?? "" ?>
                     </button>
                 </h2>
                 <div id="<?= $itemId ?>" 
@@ -44,7 +44,7 @@ $accordionId = 'accordion-' . $slice_id;
                      aria-labelledby="<?= $headerId ?>" 
                      data-bs-parent="#<?= $accordionId ?>">
                     <div class="accordion-body">
-                        <h3><?= $item['headline'] ?></h3>
+                        <h3><?= $item['headline'] ?? "" ?></h3>
                         <?= $item['content'] ?>
                     </div>
                 </div>
