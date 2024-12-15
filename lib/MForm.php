@@ -20,13 +20,14 @@ class MForm extends OriginalMForm
 
         $mform->addFieldsetArea('');
 
-        if (in_array([1, 2], $value_ids)) {
+        if (in_array(1, $value_ids) || in_array(2, $value_ids)) {
             // Row und Cols
             $mform->addHtml('<div class="row">');
             $mform->addHtml('<div class="col-md-3">');
 
             // Select-Feld h1,h2,h3,h4 und p
-            $mform->addSelectField(2, ['h1' => 'h1', 'h2' => 'h2', 'h3' => 'h3', 'h4' => 'h4', 'p' => 'p'], ['label' => \rex_i18n::msg('bs5.module.mform.headline_level')]);
+            $mform->addSelectField(2, ['h1' => 'h1', 'h2' => 'h2', 'h3' => 'h3', 'h4' => 'h4', 'p' => 'p'], ['label' => \rex_i18n::msg('bs5.module.mform.headline_level')], 1, "h2");
+        
 
             $mform->addHtml('</div>');
             $mform->addHtml('<div class="col-md-9">');
