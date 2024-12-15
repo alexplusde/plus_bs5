@@ -6,7 +6,7 @@ setlocale(LC_ALL, $clang->getValue('locale'), $clang->getCode());
 
 $fragment = new Fragment();
 $fragment->setVar('TEMPLATE_KEY', "REX_TEMPLATE_KEY");
-$fragment->setVar('CLANG'), $clang);
+$fragment->setVar('CLANG', $clang);
 $fragment->setVar('content1', "REX_ARTICLE[ctype=1]", false);
 $fragment->setVar('content2', "REX_ARTICLE[ctype=2]", false);
 $fragment->setVar('content', $fragment->getVar('content1') . $fragment->getVar('content2'), false);
