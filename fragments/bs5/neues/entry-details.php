@@ -17,6 +17,8 @@ if ($manager) {
 		<div class="col-xl-8">
 			<div class="mb-3">
 				<?= $this->getSubfragment('bs5/neues/list-back.php') ?>
+				<?= $this->subfragment('bs5/neues/atom.backend-edit.php', ['entry' => $entry]) ?>
+
 			</div>
 			<p><?= $entry->getFormattedPublishDateTime() ?>
 			</p>

@@ -30,6 +30,7 @@ foreach ($categories as $category) {
 		</p>
 		<a href="<?= $entry->getUrl() ?>"
 			class="btn btn-medium btn-primary text-white">{{neues.entry.more}}</a>
+			<?= $this->subfragment('bs5/neues/atom.backend-edit.php', ['entry' => $entry]) ?>
 	</div>
 
 </div>
