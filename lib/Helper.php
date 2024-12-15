@@ -6,12 +6,14 @@ use DateTimeImmutable;
 use rex;
 use rex_addon;
 use rex_article;
+use rex_article_slice;
 use rex_backend_login;
 use rex_backup;
 use rex_clang;
 use rex_config;
 use rex_file;
 use rex_i18n;
+use rex_module;
 use rex_path;
 use rex_sql;
 use rex_string;
@@ -35,9 +37,9 @@ class Helper
     {
 
         if (rex_addon::get($addon)->getProperty('is_update')) {
-            return rex_path::src('addons'.\DIRECTORY_SEPARATOR. '.new.' . $addon . \DIRECTORY_SEPARATOR .'install' . \DIRECTORY_SEPARATOR . $installFolder . \DIRECTORY_SEPARATOR);
+            return rex_path::src('addons' . \DIRECTORY_SEPARATOR . '.new.' . $addon . \DIRECTORY_SEPARATOR . 'install' . \DIRECTORY_SEPARATOR . $installFolder . \DIRECTORY_SEPARATOR);
         }
-        return rex_path::src('addons' .\DIRECTORY_SEPARATOR. $addon . \DIRECTORY_SEPARATOR .'install' . \DIRECTORY_SEPARATOR . $installFolder . \DIRECTORY_SEPARATOR);
+        return rex_path::src('addons' . \DIRECTORY_SEPARATOR . $addon . \DIRECTORY_SEPARATOR . 'install' . \DIRECTORY_SEPARATOR . $installFolder . \DIRECTORY_SEPARATOR);
     }
 
     public static function updateModule($addonName = 'plus_bs5')
@@ -156,7 +158,7 @@ class Helper
     public static function getBackendPageLink(string $page): string
     {
         if (rex_backend_login::hasSession()) {
-            return '<a class="badge badge-primary" href="/redaxo/index.php?page=' . $page . '">wechseln</a>';
+            return '<a class="badge bg-primary" href="/redaxo/index.php?page=' . $page . '">wechseln</a>';
         }
         return '';
     }
@@ -170,11 +172,40 @@ class Helper
             $clang_id = rex_clang::getCurrentId();
         }
 
+        $output = '';
         if (rex_backend_login::hasSession()) {
-            if (!($slice_id > 0)) {
-                return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '">' . $label . '</a>';
+
+            if ($slice_id > 0) {
+                $output .= '<div class="position-relative w-100 border border-top border-secondary-subtle mb-3">';
+                $output .= '<div class="position-absolute top-0 end-0">';
+                $output .= '<a class="btn btn-secondary btn-sm" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $label . '</a>';
+
+                // Slice hinzufügen
+                // https://ehkg-hn.de.test/redaxo/index.php?page=content/edit&article_id=300&clang=1&ctype=1&slice_id=770&function=add&module_id=89#slice-add-pos-2
+                $module_sql = \rex_sql::factory()
+                    ->getArray('SELECT id, `name` FROM ' . \rex::getTablePrefix() . 'module');
+                $modulauswahl = [];
+                foreach ($module_sql as $module) {
+                    $modulauswahl[$module['id']] = $module['name'];
+                }
+                // btn mit dropdown 
+                $output .= '<div class="btn-group">';
+                $output .= '<button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-right" data-bs-toggle="dropdown" aria-expanded="false">';
+                $output .= 'Slice hinzufügen';
+                $output .= '</button>';
+                $output .= '<ul class="dropdown-menu dropdown-menu-end">';
+                foreach ($modulauswahl as $modul_id => $modul_name) {
+                    $output .= '<li><a class="dropdown-item" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '&module_id=' . $modul_id . '&slice_id=' . $slice_id . '&function=add">' . $modul_name . '</a></li>';
+                }
+                $output .= '</ul>';
+                $output .= '</div>';
+
+                $output .= '</div>';
+                $output .= '</div>';
+            } else {
+                $output .= '<a class="badge bg-secondary mx-2 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '">' . $label . '</a>';
             }
-            return '<a class="badge bg-secondary mx-3 p-1 badge-small" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $label . '</a>';
+            return $output;
         }
         return '';
     }
@@ -183,7 +214,7 @@ class Helper
     {
         if (rex_backend_login::hasSession()) {
             $url = rex_yform_manager::url($tablename, $id, ['page' => $addon_page]);
-            return '<a class="badge badge-primary" href="' . $url . '">' . $label . '</a>';
+            return '<a class="btn btn-secondary" href="' . $url . '">' . $label . '</a>';
         }
         return '';
     }
@@ -191,18 +222,22 @@ class Helper
     public static function getBackendMediapoolEditLink(string $filename, string $label = 'Medium bearbeiten'): string
     {
         if (rex_backend_login::hasSession()) {
-            return '<a class="badge badge-primary badge-sm" href="/redaxo/index.php?page=mediapool/detail&file=' . $filename . '">' . $label . '</a>';
+            return '<a class="badge bg-primary badge-sm" href="/redaxo/index.php?page=mediapool/detail&file=' . $filename . '">' . $label . '</a>';
         }
         return '';
     }
 
     public static function showBackendUserInstruction(string $instruction, string $link = ''): void
     {
-        echo '<p><i class="fa fa-info-circle"></i> ' . $instruction . ' ' . $link . '</p>';
+        if (rex_backend_login::hasSession()) {
+            echo '<p><i class="fa fa-info-circle"></i> ' . $instruction . ' ' . $link . '</p>';
+        }
     }
     public static function showBackendUserA18yInstruction(string $instruction, string $link = ''): void
     {
-        echo '<p><i class="fa fa-universal-access text-primary"></i> ' . $instruction . ' ' . $link . '</p>';
+        if (rex_backend_login::hasSession()) {
+            echo '<p><i class="fa fa-universal-access text-primary"></i> ' . $instruction . ' ' . $link . '</p>';
+        }
     }
 
 
