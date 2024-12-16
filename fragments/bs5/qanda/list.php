@@ -1,6 +1,10 @@
 <?php
 
+use Alexplusde\BS5\Helper;
 use qanda;
+
+$slice_id = $this->getVar('slice_id');
+$article_id = $this->getVar('article_id');
 
 $category_ids = $this->getVar('category_ids');
 $question_ids = $this->getVar('question_ids');
@@ -15,7 +19,10 @@ if (is_array($question_ids)) {
     $title = 'Standard';
     $questions = qanda::query()->where('status', 0, '>')->find();
 }
+?>
 
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
+<?php
 
 foreach ($questions as $question) {
 	/** @var qanda $question */

@@ -4,9 +4,13 @@ namespace Alexplusde\BS5;
 
 /** @var rex_fragment|Fragment $this */
 
+$slice_id = $this->getVar('slice_id');
+$article_id = $this->getVar('article_id');
+
 ?>
 <!-- BEGIN plus_bs5/fragments/bs5/articles/index.php -->
 <div class="row row-cols-1 row-cols-md-2 g-4">
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 	<?php
 	$articles = $this->getVar('articles');
 

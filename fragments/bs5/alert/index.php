@@ -18,6 +18,7 @@ $type = $this->getVar('type');
 ?>
 <?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 <section class="modul modul-alert p-3" id="modul-<?= $slice_id ?>">
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 	<div class="row">
 		<div class="col-12">
 			<div class="alert alert-<?= $type ?>" role="alert">

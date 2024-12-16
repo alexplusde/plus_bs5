@@ -8,9 +8,13 @@ namespace Alexplusde\BS5;
 use rex_config;
 use rex_category;
 
+$slice_id = $this->getVar('slice_id');
+$article_id = $this->getVar('article_id');
+
 $layout = $this->getVar('options')['layout'] ?? 'no-image';
 ?>
 <!-- BEGIN plus_bs5/fragments/bs5/category/index.php -->
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 <div class="row row-cols-1 row-cols-md-3 g-4 my-0">
 
     <?php

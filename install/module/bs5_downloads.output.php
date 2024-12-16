@@ -60,6 +60,10 @@ if (count($files)) {
                     $download_fragment->setVar('description', $media->getValue('description'));
                     $download_fragment->setVar('filesize', $media->getFormattedSize());
 
+                    $download_fragment->setVar('slice_id', "REX_SLICE_ID");
+                    $download_fragment->setVar('article_id', "REX_ARTICLE_ID");
+                    
+
                     echo $download_fragment->parse('bs5/downloads/index.php'); ?>
                     </li>
             <?php

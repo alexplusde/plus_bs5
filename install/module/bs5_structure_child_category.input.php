@@ -12,19 +12,20 @@ if (!Helper::packageExists($requiredAddons)) {
 
 /* MForm-Formular */
 $mform = new MForm();
-$mform->addFieldsetArea('Kategorie auswählen');
+$mform->addFieldsetArea('');
 
 /** Kategorien inkl. Unterkategorien als Array ausgeben */
 $root = rex_category::getRootCategories();
 $options =  [];
+$options = ['' => 'Aktuelle Kategorie'];
 foreach ($root as $cat) {
     $options[$cat->getId()] = $cat->getName();
     $subcats = $cat->getChildren(true);
-    foreach ($subcats as $subcat) {
-        $options[$cat->getId()][$subcat->getId()] = '   '.$subcat->getName();
+    foreach ($subcats as $subcatId => $subcat) {
+        $options[$subcatId] = "↳ ". $subcat->getName();
     }
 }
 
-$mform->addSelectField(1, $options, array('label'=>'(optional)'));
+$mform->addSelectField(1, $options, array('label'=>'Kategorie wählen (optional)'));
 
 echo $mform->show();

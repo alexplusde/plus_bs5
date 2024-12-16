@@ -20,6 +20,7 @@ if (!is_array($content)) {
 $accordionId = 'accordion-' . $slice_id;
 ?>
 <section class="position-relative py-3" id="slice-<?= $slice_id ?>">
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
     <div class="accordion" id="<?= $accordionId ?>">
         <?php
         foreach ($content as $index => $item) {

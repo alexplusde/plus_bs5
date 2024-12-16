@@ -17,6 +17,10 @@ $category = rex_category::get("REX_VALUE[1]") ?? rex_category::getCurrent();
         $category_fragment = new Fragment();
         $category_fragment->setVar('articles', $articles);
 
+        
+$category_fragment->setVar('slice_id', "REX_SLICE_ID");
+$category_fragment->setVar('article_id', "REX_ARTICLE_ID");
+
         echo $category_fragment->parse('bs5/articles/index.php');
     } else {
 

@@ -73,7 +73,30 @@ if ($request) { // Wenn ein Suchbegriff eingegeben wurde
                 }
             }
 
-            // other hit types
+            if ('article' == $hit['type']) {
+                // article hits
+                $article = rex_article::get($hit['fid'], $hit['clang']);
+                if ($article) {
+                    // get yrewrite article domain
+                    $hit_server = $server;
+                    if (rex_addon::get('yrewrite')->isAvailable()) {
+                        $hit_domain = rex_yrewrite::getDomainByArticleId($article->getId(), $article->getClang());
+                        $hit_server = rtrim($hit_domain->getUrl(), '/');
+                    }
+
+                    $hit_link = $server . rex_getUrl($article->getId(), $article->getClang(), ['search_highlighter' => $request]);
+
+
+                    $this->setVar('hit', $hit, false);
+                    $this->setVar('hit_server', $hit_server);
+                    $this->setVar('title', $article->getName());
+                    $this->setVar('hit_link', $hit_link);
+
+                    
+                    echo $this->subfragment('bs5/search_it/result-item-article.php');
+                }
+            }
+
         }
         echo '</ul>';
     } elseif (!$result['count']) {

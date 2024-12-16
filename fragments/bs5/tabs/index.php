@@ -20,6 +20,7 @@ if (!is_array($content)) {
 $tabId = 'tab-' . $slice_id;
 ?>
 <section class="position-relative py-3" id="slice-<?= $slice_id ?>">
+<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
     <ul class="nav nav-underline" id="<?= $tabId ?>" role="tablist">
         <?php
         foreach ($content as $index => $item) {
