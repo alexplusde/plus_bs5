@@ -5,11 +5,14 @@
 # Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
 #######################################################################
 
-if (!bs5::packageExists('media_manager_responsive')) {
+use Alexplusde\BS5\Fragment;
+use Alexplusde\BS5\Helper;
+
+if (!Helper::packageExists(["media_manager_responsive"])) {
     return;
 };
 
-$output = new bs5_fragment();
+$output = new Fragment();
 $output->setVar("slice_id", "REX_SLICE_ID");
 $output->setVar("article_id", "REX_ARTICLE_ID");
 $output->setVar("modul_name", "REX_MODULE_KEY");

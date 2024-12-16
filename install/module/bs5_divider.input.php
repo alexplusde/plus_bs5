@@ -7,10 +7,12 @@ use FriendsOfRedaxo\MForm;
 # Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
 #######################################################################
 
-if (!bs5::packageExists('media_manager_responsive')) {
-  return;
-};
+use Alexplusde\BS5\Fragment;
+use Alexplusde\BS5\Helper;
 
+if (!Helper::packageExists(["mform", "media_manager_responsive"])) {
+    return;
+};
 $mform = MForm::factory();
 
 $mform->addFieldsetArea('');
@@ -20,7 +22,7 @@ $mform->addMediaField(3, array('label'=>'Bild (mobile)'));
 
 $mform->addFieldsetArea('Darstellung');
 
-$mform->addSelectField("9.layout", ['full-width' => 'Volle Breite', 
-'container' => 'Standard'], ['label' => 'Layout']);
+$mform->addSelectField(9, ['full-width' => 'Volle Breite', 
+'container' => 'Standard'], ['label' => 'Layout'], 0);
 
 echo $mform->show();
