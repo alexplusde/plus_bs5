@@ -9,6 +9,7 @@ use Alexplusde\BS5\Helper as BS5Helper;
 use rex;
 use rex_addon;
 use rex_article;
+use rex_media_plus;
 use rex_sql;
 use rex_yrewrite;
 use search_it;
@@ -94,6 +95,22 @@ if ($request) { // Wenn ein Suchbegriff eingegeben wurde
 
                     
                     echo $this->subfragment('bs5/search_it/result-item-article.php');
+                }
+            }
+
+            if ('file' == $hit['type']) {
+                // remove prefix '/media/' from filename
+                $filename = substr($hit['filename'], 6);
+                $media = rex_media_plus::get($filename);
+
+                if ($media) {
+                    $hit_link = $server . rex_media_plus::getFrontendUrl($media, 'download');
+
+                    $this->setVar('hit', $hit, false);
+                    $this->setVar('hit_link', $hit_link);
+                    $this->setVar('title', $media->getTitle());
+
+                    echo $this->subfragment('bs5/search_it/result-item-media.php');
                 }
             }
 

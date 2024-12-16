@@ -257,4 +257,17 @@ class Helper
 
         $addon->setProperty('page', $page);
     }
+
+    public static function getSearchitStatsKeywords(int $limit = 50) {
+        $sql = rex_sql::factory();
+        $sql->setQuery('SELECT CONCAT(UPPER(SUBSTRING(term, 1, 1)), SUBSTRING(term, 2)) AS term, SUM(resultcount) AS total_resultcount
+        FROM rex_search_it_stats_searchterms
+        GROUP BY term
+        ORDER BY total_resultcount DESC
+        LIMIT ' . $limit);
+        $result = $sql->getArray();
+
+        $options = array_column($result, 'term');
+        return $options;
+    }
 }
