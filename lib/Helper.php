@@ -192,10 +192,10 @@ class Helper
                         $modulauswahl[$module['id']] = $module['key'];
                     }
                 }
-                // btn mit dropdown 
+                // btn mit dropdown
                 $output .= '<div class="btn-group">';
                 $output .= '<button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-right" data-bs-toggle="dropdown" aria-expanded="false">';
-                $output .= 'Slice hinzufügen';
+                $output .= 'Abschnitt hinzufügen';
                 $output .= '</button>';
                 $output .= '<ul class="dropdown-menu dropdown-menu-end">';
                 foreach ($modulauswahl as $modul_id => $modul_name) {
@@ -258,7 +258,8 @@ class Helper
         $addon->setProperty('page', $page);
     }
 
-    public static function getSearchitStatsKeywords(int $limit = 50) {
+    public static function getSearchitStatsKeywords(int $limit = 50)
+    {
         $sql = rex_sql::factory();
         $sql->setQuery('SELECT CONCAT(UPPER(SUBSTRING(term, 1, 1)), SUBSTRING(term, 2)) AS term, SUM(resultcount) AS total_resultcount
         FROM rex_search_it_stats_searchterms
