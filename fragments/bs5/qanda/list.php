@@ -1,5 +1,7 @@
 <?php
 
+use qanda;
+
 $category_ids = $this->getVar('category_ids');
 $question_ids = $this->getVar('question_ids');
 
@@ -14,11 +16,9 @@ if (is_array($question_ids)) {
     $questions = qanda::query()->where('status', 0, '>')->find();
 }
 
-?>
-<div class="container">
 
-	<?php
 foreach ($questions as $question) {
+	/** @var qanda $question */
     ?>
 
 	<details class="card">
@@ -33,5 +33,3 @@ foreach ($questions as $question) {
     echo $question->showJsonLd($question);
 }
 ?>
-
-</div>

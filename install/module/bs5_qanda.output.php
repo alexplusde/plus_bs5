@@ -9,7 +9,7 @@ $category_ids = rex_var::toArray("REX_VALUE[2]");
 
 $qanda_category = qanda_category::query()->whereListContains('id', $category_ids)->find();
 ?>
-<section class="container">
+<section>
   <div class="row g-3">
     <div class="col-12">
       <h2 class="my-5"><?= $headline ?><?= \Alexplusde\BS5\Helper::getBackendEditLink(); ?></h2>
@@ -28,10 +28,11 @@ $qanda_category = qanda_category::query()->whereListContains('id', $category_ids
           <details class="card mb-3 p-3">
             <summary class="card-title h5">
               <?= $question->getQuestion() ?>
+              <?= \Alexplusde\BS5\Helper::getBackendTableManagerEditLink($question->getTableName(), $question->getId(), 'qanda/qanda'); ?>
             </summary>
             <div class="card-body">
               <?= $question->getAnswer() ?>
-              <?= \Alexplusde\BS5\Helper::getBackendTableManagerEditLink($question->getTableName(), $question->getId(), 'qanda/qanda'); ?>
+
             </div>
           </details>
       <?php
