@@ -1,14 +1,18 @@
 <?php
-if (!bs5::packageExists('staff', 'yform', 'url')) {
+
+use Alexplusde\BS5\Helper;
+
+if (!Helper::packageExists(['staff'], ['yform'], ['url'])) {
     return;
 };
 
+use Alexplusde\School\Team;
 use Url\Url;
 
 $manager = Url::resolveCurrent();
 
 if ($manager) {
-    $person = team::get($manager->getDatasetId()); ?>
+    $person = Team::get($manager->getDatasetId()); ?>
 
 <div class="container bg-white p-3">
 	<div class="row row-cols-1 row-cols-md-2 g-4">

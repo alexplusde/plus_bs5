@@ -14,8 +14,10 @@ if (!Helper::packageExists($requiredAddons)) {
 $modul = rex_var::toArray("REX_VALUE[1]");
 $files = array_filter(explode(",", "REX_MEDIALIST[1]"));
 
+
 ?>
 <section class="modul modul-downloads" id="modul-REX_SLICE_ID">
+    <?= Helper::getBackendEditLink("REX_ARTICLE_ID", null, "REX_SLICE_ID") ?>
     <?php
 
     #### Title ####

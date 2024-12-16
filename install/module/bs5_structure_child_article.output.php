@@ -8,6 +8,7 @@ use Alexplusde\BS5\Helper;
 $category = rex_category::get("REX_VALUE[1]") ?? rex_category::getCurrent();
 ?>
 <section class="modul-article" id="modul-REX_SLICE_ID">
+<?= Helper::getBackendEditLink("REX_ARTICLE_ID", null, "REX_SLICE_ID") ?>
     <?php
 
     $articles = $category->getArticles(true);

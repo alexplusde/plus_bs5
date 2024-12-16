@@ -1,6 +1,8 @@
 <?php
 
+use Alexplusde\BS5\Helper;
 use FriendsOfRedaxo\MForm;
-if (!bs5::packageExists('staff', 'yform')) {
+
+if (!Helper::packageExists(['staff'], ['yform'], ['mform'])) {
     return;
 };

@@ -1,10 +1,14 @@
 <?php
+
+use Alexplusde\BS5\Helper;
+
 $modul = rex_var::toArray("REX_VALUE[1]");
 $images = array_filter(explode(",", "REX_MEDIALIST[id=1]"));
 ?>
 <section class="modul modul-gallery" id="modul-REX_SLICE_ID"
 	data-gallery-items="<?php echo count($images); ?>"
 	data-layout="<?php echo $modul['gallery_mode']; ?>">
+    <?= Helper::getBackendEditLink("REX_ARTICLE_ID", null, "REX_SLICE_ID") ?>
 	<div class="gallery-wrapper wrapper">
 		<?php
 if (isset($modul['show_title']) || isset($modul['teaser'])) {
