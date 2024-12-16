@@ -1,7 +1,7 @@
 <?php
 
 use Alexplusde\BS5\Helper;
-use FriendsOfRedaxo\MForm;
+use Alexplusde\BS5\MForm;
 
 /* Addon-Prüfung */
 $requiredAddons = ['mform', 'mediapool', 'media_manager', 'redactor'];
@@ -18,14 +18,7 @@ Helper::showBackendUserA18yInstruction("Für Barrierefreiheit beachten, im Medie
 Helper::showBackendUserA18yInstruction("Für Barrierefreiheit den Inhalt der Downloads, wenn möglich, direkt auf die Website stellen, statt als PDF/DOCX/PPTX.");
 
 /* MForm-Formular */
-$mform = new MForm();
-
-$mform->addFieldsetArea('Teaser');
-
-$mform->addTextField("1.title", array('label'=>'Eigene Überschrift'));
-$mform->addCheckboxField("1.show_title", array(1=>'ja'), array('label'=>'anzeigen?'))->setDefaultValue(1);
-
-$mform->addTextAreaField("1.teaser", array('label'=>'Teaser','class'=>'redactor-editor--mini'));
+$mform = Mform::defaultFactory(1,2,3);
 
 $mform->addMedialistField(1, array('label'=>'Downloads'));
 
