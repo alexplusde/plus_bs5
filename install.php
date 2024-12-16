@@ -29,3 +29,5 @@ if($redactor && $redactor->isAvailable()) {
 if (rex_addon::get('yrewrite') && rex_addon::get('yrewrite')->isAvailable()) {
     include(__DIR__ . '/install/yrewrite_meta_info.domain.php');
 }
+
+rex_delete_cache();
