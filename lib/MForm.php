@@ -42,7 +42,7 @@ class MForm extends OriginalMForm
         // Wenn 3 in $value_ids enthalten ist, dann Teaser-Eingabefeld ausgegeben
         if (in_array(3, $value_ids)) {
             // Textfeld
-            $mform->addTextField(3, ['label' => \rex_i18n::msg('bs5.module.mform.teaser')]);
+            $mform->addTextAreaField(3, ['label' => \rex_i18n::msg('bs5.module.mform.teaser')]);
         }
 
         // Wenn 4 in $value_ids enthalten ist, dann Text-Textfeld ausgegeben
@@ -57,10 +57,14 @@ class MForm extends OriginalMForm
         }
 
         // Bild-Auswahlfeld
-        $mform->addMediaField(1, ['label' => \rex_i18n::msg('bs5.module.mform.image')]);
+        if(in_array("media1", $value_ids)) {
+            $mform->addMediaField(1, ['label' => \rex_i18n::msg('bs5.module.mform.image')]);
+        }
 
         // Hintergrundbild-Auswahlfeld
-        $mform->addMediaField(2, ['label' => \rex_i18n::msg('bs5.module.mform.background_image')]);
+        if(in_array("media2", $value_ids)) {
+            $mform->addMediaField(2, ['label' => \rex_i18n::msg('bs5.module.mform.background_image')]);
+        }
 
         // Layout-Optionen
         // $mform->addSelectField(6, ['label' => \rex_i18n::msg('bs5.module.mform.layout'), 'options' => ['' => \rex_i18n::msg('bs5.module.mform.layout_default'), 'container' => \rex_i18n::msg('bs5.module.mform.layout_container'), 'container-fluid' => \rex_i18n::msg('bs5.module.mform.layout_container_fluid')]]);
