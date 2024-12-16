@@ -78,12 +78,12 @@ foreach ($images as $image) {
 		<button class="carousel-control-prev" type="button" data-bs-target="#carousel-REX_SLICE_ID"
 			data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
+			<span class="visually-hidden">&lt;&lt;</span>
 		</button>
 		<button class="carousel-control-next" type="button" data-bs-target="#carousel-REX_SLICE_ID"
 			data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
+			<span class="visually-hidden">%gt;%gt;</span>
 		</button>
 </section>
 <!-- BEGIN plus_bs5/fragments/bs5/gallery/slideshow.php -->

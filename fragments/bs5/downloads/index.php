@@ -1,6 +1,9 @@
 <?php
 
 /** @var Fragment $this */
+
+use Alexplusde\BS5\Helper;
+
 $filename = $this->getVar('file');
 $media = rex_media::get($filename);
 
@@ -29,9 +32,12 @@ $is_pdf = $media->getExtension() == 'pdf';
 			<?php endif; ?>
 		</div>
 		<div class="col-md-9 p-3">
-			<div class="h5"><?= $media->getTitle() ?></div>
+			<div class="h5">
+				<?= $media->getTitle() ?>
+		</div>
 			<p class="text-muted"><?= $media->getValue('med_description') ?> <span class="file-filesize badge badge-small">(<?= $media->getFormattedSize() ?>)</span></p>
 			<a class="file-download btn btn-primary" href="/download/<?= $this->file ?>" title="<?= $this->title ?>" data-extension="<?= $this->extension ?>" data-layout="<?= $this->layout ?>">Download</a>
+			<?= Helper::getBackendMediapoolEditLink($media->getFileName()) ?>
 		</div>
 	</div>
 </div>

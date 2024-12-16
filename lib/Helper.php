@@ -6,6 +6,7 @@ use DateTimeImmutable;
 use rex;
 use rex_addon;
 use rex_article;
+use rex_article_slice;
 use rex_backend_login;
 use rex_backup;
 use rex_clang;
@@ -169,39 +170,49 @@ class Helper
             $clang_id = rex_clang::getCurrentId();
         }
 
+        /* Modul-Namen aus config.yml */
+            $module_sql = \rex_sql::factory()
+            ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
+        $modulauswahl = [];
+        foreach ($module_sql as $module) {
+            // config.yml Property module laden
+            $addon = rex_addon::get('plus_bs5');
+            $module_config = $addon->getProperty('module');
+            if (isset($module_config[$module['key']])) {
+                $modulauswahl[$module['id']] = $module_config[$module['key']];
+            } else {
+                $modulauswahl[$module['id']] = $module['key'];
+            }
+        }
+
+
         $output = '';
         if (rex_backend_login::hasSession()) {
 
             if ($slice_id > 0) {
-                $output .= '<div class="position-relative w-100 border border-top border-secondary-subtle mb-5">';
-                $output .= '<div class="z-1 position-absolute top-0 end-0">';
-                $output .= '<a class="btn btn-secondary btn-sm" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $label . '</a>';
+
+
+                $output .= '<div class="position-relative w-100 border-top border-secondary-subtle mb-3">';
+                $output .= '<div class="z-1 w-100 text-end">';
+
+                $slice = rex_article_slice::fromSql(rex_sql::factory()->setQuery('SELECT * FROM ' . rex::getTablePrefix() . 'article_slice WHERE id = :id', ['id' => $slice_id]));
+                $module_id = $slice->getModuleId();
+                $module_name = $modulauswahl[$module_id];
+
+                $output .= '<a class="btn btn-secondary btn-sm" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $module_name . " " . $label . '</a>';
 
                 // Slice hinzufügen
                 // https://ehkg-hn.de.test/redaxo/index.php?page=content/edit&article_id=300&clang=1&ctype=1&slice_id=770&function=add&module_id=89#slice-add-pos-2
-                $module_sql = \rex_sql::factory()
-                    ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
-                $modulauswahl = [];
-                foreach ($module_sql as $module) {
-                    // config.yml Property module laden
-                    $addon = rex_addon::get('plus_bs5');
-                    $module_config = $addon->getProperty('module');
-                    if (isset($module_config[$module['key']])) {
-                        $modulauswahl[$module['id']] = $module_config[$module['key']];
-                    } else {
-                        $modulauswahl[$module['id']] = $module['key'];
-                    }
-                }
                 // btn mit dropdown
-                $output .= '<div class="btn-group">';
+                $output .= '<div class="d-inline-block">';
                 $output .= '<button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-right" data-bs-toggle="dropdown" aria-expanded="false">';
                 $output .= 'Abschnitt hinzufügen';
                 $output .= '</button>';
-                $output .= '<ul class="dropdown-menu dropdown-menu-end">';
+                $output .= '<div class="dropdown-menu dropdown-menu-end w-50"><div class="row">';
                 foreach ($modulauswahl as $modul_id => $modul_name) {
-                    $output .= '<li><a class="dropdown-item" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '&module_id=' . $modul_id . '&slice_id=' . $slice_id . '&function=add">' . $modul_name . '</a></li>';
+                    $output .= '<div class="col-4"><a class="dropdown-item" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&clang=' . $clang_id . '&module_id=' . $modul_id . '&slice_id=' . $slice_id . '&function=add">' . $modul_name . '</a></div>';
                 }
-                $output .= '</ul>';
+                $output .= '</div></div>';
                 $output .= '</div>';
 
                 $output .= '</div>';
@@ -226,7 +237,8 @@ class Helper
     public static function getBackendMediapoolEditLink(string $filename, string $label = 'Medium bearbeiten'): string
     {
         if (rex_backend_login::hasSession()) {
-            return '<a class="badge bg-primary badge-sm" href="/redaxo/index.php?page=mediapool/detail&file=' . $filename . '">' . $label . '</a>';
+            $file_id = \rex_media::get($filename)->getId();
+            return '<a class="btn btn-secondary" href="/redaxo/index.php?page=mediapool/media&file_id=' . $file_id . '">' . $label . '</a>';
         }
         return '';
     }
