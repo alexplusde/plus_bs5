@@ -62,3 +62,23 @@ config:
     text_header_mobile_nav_close: Schließen
     dev: 0 # Aktivieren, um Module und Templates ins Addon zu schreiben
     search_it_article_id: 0 # Artikel-ID für die Suchergebnisse
+
+# Verfügbare Module und Frontend-Übersetzung
+module:
+    bs5.accordion: "Accordion"
+    bs5.alert: "Alert"
+    bs5.divider: "Divider"
+    bs5.downloads: "Downloads"
+    bs5.events: "Events"
+    bs5.gallery: "Gallery"
+    bs5.google_maps: "Google Maps"
+    bs5.neues: "News"
+    bs5.qanda: "Q&A"
+    bs5.search_it: "Search"
+    bs5.staff: "Staff"
+    bs5.structure.child_article: "Child Article"
+    bs5.structure.child_category: "Child Category"
+    bs5.tabs: "Tabs"
+    bs5.text: "<i class=\"bi bi-text\"></i> Text"
+    bs5.video.mediapool: "Video (Mediapool)"
+    bs5.video.youtube: "Video (YouTube)"
