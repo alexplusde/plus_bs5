@@ -6,22 +6,19 @@ use DateTimeImmutable;
 use rex;
 use rex_addon;
 use rex_article;
-use rex_article_slice;
 use rex_backend_login;
 use rex_backup;
 use rex_clang;
 use rex_config;
 use rex_file;
-use rex_i18n;
-use rex_module;
 use rex_path;
 use rex_sql;
 use rex_string;
-use rex_view;
 use rex_yform_manager;
 
 class Helper
 {
+ 
     public static function packageExists(array $packages): bool
     {
         $packages = explode(', ', array_pop($packages));
@@ -176,17 +173,24 @@ class Helper
         if (rex_backend_login::hasSession()) {
 
             if ($slice_id > 0) {
-                $output .= '<div class="position-relative w-100 border border-top border-secondary-subtle mb-3">';
-                $output .= '<div class="position-absolute top-0 end-0">';
+                $output .= '<div class="position-relative w-100 border border-top border-secondary-subtle mb-5">';
+                $output .= '<div class="z-1 position-absolute top-0 end-0">';
                 $output .= '<a class="btn btn-secondary btn-sm" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $label . '</a>';
 
                 // Slice hinzufügen
                 // https://ehkg-hn.de.test/redaxo/index.php?page=content/edit&article_id=300&clang=1&ctype=1&slice_id=770&function=add&module_id=89#slice-add-pos-2
                 $module_sql = \rex_sql::factory()
-                    ->getArray('SELECT id, `name` FROM ' . \rex::getTablePrefix() . 'module');
+                    ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
                 $modulauswahl = [];
                 foreach ($module_sql as $module) {
-                    $modulauswahl[$module['id']] = $module['name'];
+                    // config.yml Property module laden
+                    $addon = rex_addon::get('plus_bs5');
+                    $module_config = $addon->getProperty('module');
+                    if (isset($module_config[$module['key']])) {
+                        $modulauswahl[$module['id']] = $module_config[$module['key']];
+                    } else {
+                        $modulauswahl[$module['id']] = $module['key'];
+                    }
                 }
                 // btn mit dropdown 
                 $output .= '<div class="btn-group">';
