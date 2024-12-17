@@ -20,25 +20,27 @@ $image = $this->getVar('image');
 $media = \rex_media_plus::get($image);
 ?>
 <section class="modul modul-text py-3" id="modul-<?= $slice_id ?>">
-<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
-<div class="row">
-	<?php if (null !== $media) { ?>
-			<div class="col-6 image">
-				<?= $media->setClass('img-fluid')->getImg() ?>
-			</div>
-			<div class="col-6 text">
-				<?php if ($headline) { ?>
-					<<?= $headline_level ?>><?= $headline ?></<?= $headline_level ?>>
-				<?php } ?>
-				<?= $text ?>
-			</div>
+	<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
+	<div class="row">
+		<?php if (null !== $media) { ?>
+		<div class="col-6 image">
+			<?= $media->setClass('img-fluid')->getImg() ?>
+		</div>
+		<div class="col-6 text">
+			<?php if ($headline) { ?>
+			<<?= $headline_level ?>><?= $headline ?>
+			</<?= $headline_level ?>>
+			<?php } ?>
+			<?= $text ?>
+		</div>
 		<?php } else { ?>
-			<div class="col-12 text">
-				<?php if ($headline) { ?>
-					<<?= $headline_level ?>><?= $headline ?></<?= $headline_level ?>>
-				<?php } ?>
-				<?= $text ?>
-			</div>
+		<div class="col-12 text">
+			<?php if ($headline) { ?>
+			<<?= $headline_level ?>><?= $headline ?>
+			</<?= $headline_level ?>>
+			<?php } ?>
+			<?= $text ?>
+		</div>
 		<?php } ?>
 		<div class="col-12 text text-cta">
 			<?= Fragment::ctaFormatter($cta) ?>
