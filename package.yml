@@ -11,7 +11,7 @@ requires:
         mform: "^8"
         mediapool: "^2"
         media_manager: "^2"
-        media_manager_responsive: "^1"
+        media_manager_responsive: ">=1,<3"
         yrewrite_metainfo: "^2"
         wenns_sein_muss: "^5"
 
