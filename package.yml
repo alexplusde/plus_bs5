@@ -1,5 +1,5 @@
 package: plus_bs5
-version: '0.8.0-dev-2024-12-17'
+version: '0.9.0-dev-2024-12-25'
 author: Alexander Walther
 supportpage: https://www.alexplus.de
 
@@ -65,20 +65,31 @@ config:
 
 # Verfügbare Module und Frontend-Übersetzung
 module:
-    bs5.accordion: "Accordion"
-    bs5.alert: "Alert"
-    bs5.divider: "Divider"
+    bs5.accordion: "Akkordeon"
+    bs5.alert: "Hinweis"
+    bs5.divider: "Trennelement"
     bs5.downloads: "Downloads"
-    bs5.events: "Events"
-    bs5.gallery: "Gallery"
+    bs5.events: "Termine"
+    bs5.gallery: "Galerie"
     bs5.google_maps: "Google Maps"
     bs5.neues: "News"
     bs5.qanda: "Q&A"
-    bs5.search_it: "Search"
-    bs5.staff: "Staff"
-    bs5.structure.child_article: "Child Article"
-    bs5.structure.child_category: "Child Category"
+    bs5.search_it: "Suche"
+    bs5.staff: "Ansprechpersonen"
+    bs5.structure.child_article: "Kategorien"
+    bs5.structure.child_category: "Artikel"
     bs5.tabs: "Tabs"
     bs5.text: "<i class=\"bi bi-text\"></i> Text"
     bs5.video.mediapool: "Video (Mediapool)"
     bs5.video.youtube: "Video (YouTube)"
+    bs5.search_it.result: "Suchergebnisse"
+    school.contact: "Kollegium"
+    school.contact.website_team: "Kategorien"
+    school.hierachy: "Artikel"
+    school.home.slides: "Startseite Slides"
+    school.room: "Räume"
+    school.teacher: "Kollegium"
+    school.team.contact: "Kontakt"
+    school.team.person: "Ansprechperson"
+    school.workgroup: "AGs"
+    school.workgroup.page: "AGs Detailseite"
