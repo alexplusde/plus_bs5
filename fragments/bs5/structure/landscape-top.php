@@ -1,5 +1,7 @@
 <?php
 
+use Alexplusde\BS5\Helper;
+
 $structure = $this->getVar('structure');
 ?>
 <div class="col">
