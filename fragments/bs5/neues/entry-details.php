@@ -45,7 +45,7 @@ if ($manager) {
     $image = $entry->getImage();
     $media = rex_media_plus::get($image);
     if ($media) {
-        echo $media->setClass('img-fluid')->getImg('');
+        echo $media->setClass('img-fluid')->getImg('wysiwyg');
     }
     ?>
 		</div>

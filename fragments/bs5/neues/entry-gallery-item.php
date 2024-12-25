@@ -12,6 +12,6 @@ $media = $this->getVar('media');
 ?>
 <!-- BEGIN plus_bs5/fragments/neues/entry-gallery-item.php -->
 <div class="col mb-3">
-	<?= $media->setClass('img-fluid')->getImg(); ?>
+	<?= $media->setClass('img-fluid')->getImg('bs5-thumbnail'); ?>
 </div>
 <!-- END plus_bs5/fragments/neues/entry-gallery-item.php -->
