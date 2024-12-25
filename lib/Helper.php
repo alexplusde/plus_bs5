@@ -171,8 +171,8 @@ class Helper
         }
 
         /* Modul-Namen aus config.yml */
-            $module_sql = \rex_sql::factory()
-            ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
+        $module_sql = \rex_sql::factory()
+        ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
         $modulauswahl = [];
         foreach ($module_sql as $module) {
             // config.yml Property module laden
@@ -199,11 +199,35 @@ class Helper
                 $module_id = $slice->getModuleId();
                 $module_name = $modulauswahl[$module_id];
 
+                // Wenn REDAXO-Adminbenutzer, dann Link zur Modulausgabe in vscode
+                // TODO: Warum funktioniert rex::getUser() hier nicht?
+                //                if (rex::getUser() && rex::getUser()->isAdmin()) {
+                $editor = rex::getProperty('editor');
+                $editor_basepath = rex::getProperty('editor_basepath');
+                $module_id =  $slice->getModuleId();
+
+                $path = rex_path::addonData('developer', 'modules');
+                // Alle Dateien im Verzeichnis inkl. Dateien in Unterverzeichnissen
+                $file_path = '';
+                $files = \rex_finder::factory($path)->recursive('true')->filesOnly();
+
+                foreach ($files as $file) {
+                    if (preg_match('/' . $module_id . '\.(.*)\.output\.php/', $file)) {
+                        $pathname = $file->getPathname();
+                        break;
+                    }
+                }
+
+                if ($pathname !== '') {
+                    $editor = rex::getProperty('editor');
+                    $editor_basepath = rex::getProperty('editor_basepath');
+                    $output .= '<a class="btn btn-link btn-sm" href="' . $editor . '://file/' . $pathname . '">vscode</a>';
+                }
+                //                }
+
                 $output .= '<a class="btn btn-secondary btn-sm" href="/redaxo/index.php?page=content/edit&article_id=' . $article_id . '&slice_id=' . $slice_id . '&clang=' . $clang_id . '&function=edit#slice' . $slice_id . '">' . $module_name . " " . $label . '</a>';
 
                 // Slice hinzufügen
-                // https://ehkg-hn.de.test/redaxo/index.php?page=content/edit&article_id=300&clang=1&ctype=1&slice_id=770&function=add&module_id=89#slice-add-pos-2
-                // btn mit dropdown
                 $output .= '<div class="d-inline-block">';
                 $output .= '<button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-right" data-bs-toggle="dropdown" aria-expanded="false">';
                 $output .= 'Abschnitt hinzufügen';
