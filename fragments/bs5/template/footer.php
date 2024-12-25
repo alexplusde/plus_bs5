@@ -47,9 +47,19 @@ foreach ($footer_nav as $id) {
 			<p><?= Domain::getCurrent()->getName() ?>
 			</p>
 			<ul class="list-unstyled d-flex">
-				<li class="ms-3"><a class="link-dark" href="#"></a></li>
-				<li class="ms-3"><a class="link-dark" href="#"></a></li>
-				<li class="ms-3"><a class="link-dark" href="#"></a></li>
+				<?php
+            $footer_nav = explode(',', rex_config::get('plus_bs5', 'footer_navigation2') ?? '');
+foreach ($footer_nav as $id) {
+    $article = rex_article::get($id);
+    if ($article) {?>
+
+				<li class="nav-item mb-2">
+					<a href="<?= $article->getUrl() ?>"
+						class="nav-link p-0 text-muted"><?= $article->getName() ?>
+					</a>
+				</li>
+				<?php }
+    } ?>
 			</ul>
 		</div>
 	</div>
