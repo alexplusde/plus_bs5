@@ -19,7 +19,7 @@ use rex_yform_manager;
 
 class Helper
 {
- 
+
     public static function packageExists(array $packages): bool
     {
         $packages = explode(', ', array_pop($packages));
@@ -172,7 +172,7 @@ class Helper
 
         /* Modul-Namen aus config.yml */
         $module_sql = \rex_sql::factory()
-        ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
+            ->getArray('SELECT id, `key` FROM ' . \rex::getTablePrefix() . 'module');
         $modulauswahl = [];
         foreach ($module_sql as $module) {
             // config.yml Property module laden
@@ -209,19 +209,21 @@ class Helper
                 $path = rex_path::addonData('developer', 'modules');
                 // Alle Dateien im Verzeichnis inkl. Dateien in Unterverzeichnissen
                 $file_path = '';
-                $files = \rex_finder::factory($path)->recursive('true')->filesOnly();
+                if (is_dir($path)) {
+                    $files = @\rex_finder::factory($path)->recursive('true')->filesOnly();
 
-                foreach ($files as $file) {
-                    if (preg_match('/' . $module_id . '\.(.*)\.output\.php/', $file)) {
-                        $pathname = $file->getPathname();
-                        break;
+                    foreach ($files as $file) {
+                        if (preg_match('/' . $module_id . '\.(.*)\.output\.php/', $file)) {
+                            $pathname = $file->getPathname();
+                            break;
+                        }
                     }
-                }
 
-                if ($pathname !== '') {
-                    $editor = rex::getProperty('editor');
-                    $editor_basepath = rex::getProperty('editor_basepath');
-                    $output .= '<a class="btn btn-link btn-sm" href="' . $editor . '://file/' . $pathname . '">vscode</a>';
+                    if ($pathname !== '') {
+                        $editor = rex::getProperty('editor');
+                        $editor_basepath = rex::getProperty('editor_basepath');
+                        $output .= '<a class="btn btn-link btn-sm" href="' . $editor . '://file/' . $pathname . '">vscode</a>';
+                    }
                 }
                 //                }
 
