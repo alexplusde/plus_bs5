@@ -20,7 +20,7 @@ $media = \rex_media_plus::get($image);
 	<div class="row">
 		<?php if (null !== $media) { ?>
 			<div class="col-md-6 image">
-				<?= $media->setClass('img-fluid')->getImg() ?>
+				<?= $media->setClass('img-fluid')->getImg('wysiwyg') ?>
 			</div>
 			<div class="col-md-6 text">
 				<?php if ($headline) { ?>

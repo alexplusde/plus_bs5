@@ -23,10 +23,10 @@ $media = \rex_media_plus::get($image);
 	<?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 	<div class="row">
 		<?php if (null !== $media) { ?>
-		<div class="col-6 image">
-			<?= $media->setClass('img-fluid')->getImg() ?>
+		<div class="col-12 col-md-6 image mb-3">
+			<?= $media->setClass('img-fluid')->getPicture('bs5-container') ?>
 		</div>
-		<div class="col-6 text">
+		<div class="col-12 col-md-6 text mb-3">
 			<?php if ($headline) { ?>
 			<<?= $headline_level ?>><?= $headline ?>
 			</<?= $headline_level ?>>
