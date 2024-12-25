@@ -4,6 +4,7 @@ namespace Alexplusde\School;
 
 use Alexplusde\BS5\Fragment;
 use Alexplusde\BS5\Helper;
+use Alexplusde\BS5\Template;
 use rex_plyr;
 
 /** @var rex_fragment|Fragment $this */
@@ -18,10 +19,19 @@ $thumbnail = \rex_media_plus::get($this->getVar('thumbnail'));
 if ($thumbnail) {
     $thumbnail = $thumbnail->getUrl();
 }
+
+Template::addCss([
+    'src' => '/assets/js/plyr.css',
+]);
+Template::addJs([
+    'src' => '/assets/js/plyr.min.js',
+    'defer' => 'defer',
+]);
+
 ?>
 <?= Helper::getBackendEditLink($article_id, null, $slice_id) ?>
 <section class="ratio ratio-16x9" id="modul-REX_SLICE_ID">
-    <div>
-            <?= rex_plyr::outputMedia($video, $options, $thumbnail); ?>
-</div>
+	<div>
+		<?= rex_plyr::outputMedia($video, $options, $thumbnail); ?>
+	</div>
 </section>
