@@ -17,7 +17,7 @@ if (!Helper::packageExists($requiredAddons)) {
 };
 
 /* MForm-Formular */
-$mform = MForm::defaultFactory([1,2]);
+$mform = MForm::defaultFactory(1,2);
 
 // MForm-Auswahl, ob Consent-Modal oder Consent-Settings beim Klick auf den Button angezeigt werden soll
 $mform->addSelectField('8', ['modal' => 'Modal', 'settings' => 'Einstellungen']);

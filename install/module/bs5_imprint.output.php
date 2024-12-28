@@ -31,4 +31,4 @@ $fragment->setVar('headline_level', "REX_VALUE[2]");
 // $fragment->setVar('text', "REX_VALUE[4 output=html]", false);
 
 /* Ausgabe */
-echo $fragment->parse('bs5/text/index.php');
+echo $fragment->parse('bs5/imprint/index.php');
