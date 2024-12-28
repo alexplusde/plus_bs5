@@ -17,6 +17,6 @@ if (!Helper::packageExists($requiredAddons)) {
 };
 
 /* MForm-Formular */
-$mform = MForm::defaultFactory(1,2);
+$mform = MForm::defaultFactory(1,2, 4);
 
 echo $mform->show();
