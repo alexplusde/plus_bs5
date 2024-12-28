@@ -6,9 +6,12 @@
  * Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
  */
 
-use Alexplusde\BS5\Helper;
+/** @var rex_article_content_editor $this */
 
-/* Benötigte Addons */
+use Alexplusde\BS5\Helper;
+use Alexplusde\BS5\MForm;
+
+/* Addon-Prüfung */
 $requiredAddons = ['search_it'];
 if (!Helper::packageExists($requiredAddons)) {
     echo rex_view::error(rex_i18n::rawMsg('bs5_missing_addon', implode(', ', $requiredAddons)));

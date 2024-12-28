@@ -6,8 +6,10 @@
  * Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
  */
 
+/** @var rex_article_content_editor $this */
+
 use Alexplusde\BS5\Helper;
-use FriendsOfRedaxo\MForm;
+use Alexplusde\BS5\MForm;
 
 /* Addon-Prüfung */
 $requiredAddons = ['mform', 'mediapool', 'media_manager', 'media_manager_responsive', 'redactor'];

@@ -6,6 +6,8 @@
  * Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
  */
 
+/** @var rex_article_content_editor $this */
+
 use Alexplusde\BS5\Helper;
 
 /* Addon-Prüfung */
