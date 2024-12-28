@@ -7,8 +7,6 @@ use rex_config;
 use rex_extension;
 use rex_yform;
 use rex;
-use rex_be_page;
-use rex_category;
 use rex_extension_point;
 use rex_path;
 use rex_response;
