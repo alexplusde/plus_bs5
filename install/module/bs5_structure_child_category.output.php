@@ -7,7 +7,6 @@ use Alexplusde\BS5\Helper;
 
 ?>
 <section class="modul-category-cards" id="modul-REX_SLICE_ID">
-<?= Helper::getBackendEditLink("REX_ARTICLE_ID", null, "REX_SLICE_ID") ?>
 
     <?php
     $articleId = $this->getValue("article_id");

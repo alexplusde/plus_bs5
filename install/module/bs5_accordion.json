@@ -1,12 +1,12 @@
 {
-    "id": 21,
+    "id": 90,
     "key": "bs5.accordion",
     "name": "translate:module.bs5.accordion",
-    "createdate": "2017-10-08 22:48:13",
-    "createuser": "aw@alexplus.de",
-    "updatedate": "2024-12-15 01:50:06",
-    "updateuser": "mail@alexplus.de",
-    "attributes": "",
+    "createdate": "2024-12-25 18:14:37",
+    "createuser": "plus_bs5",
+    "updatedate": "2024-12-25 18:14:37",
+    "updateuser": "plus_bs5",
+    "attributes": null,
     "revision": 0,
     "modulsuche_module_thumbnail": "",
     "modulsuche_module_description": ""
