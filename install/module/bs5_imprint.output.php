@@ -28,7 +28,7 @@ $fragment->setVar('article_id', "REX_ARTICLE_ID");
 /* Modulspezifische Variablen */
 $fragment->setVar('headline', "REX_VALUE[1]");
 $fragment->setVar('headline_level', "REX_VALUE[2]");
-// $fragment->setVar('text', "REX_VALUE[4 output=html]", false);
+$fragment->setVar('text', "REX_VALUE[4 output=html]", false);
 
 /* Ausgabe */
 echo $fragment->parse('bs5/imprint/index.php');
