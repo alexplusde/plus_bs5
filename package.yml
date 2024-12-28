@@ -18,6 +18,7 @@ requires:
 page:
     title: translate:plus_bs5
     perm: plus_bs5
+    prio: 1
 
 pages:
     plus_bs5/settings:
