@@ -8,9 +8,9 @@ use Alexplusde\BS5\Helper;
 use rex_addon;
 use rex_config;
 
-Helper::forceBackup();
-Helper::updateModule();
-Helper::updateTemplate();
+Helper::forceBackup('plus_bs5');
+Helper::updateModule('plus_bs5');
+Helper::updateTemplate('plus_bs5');
 
 if (rex_addon::get('metainfo') && rex_addon::get('metainfo')->isAvailable()) {
     rex_metainfo_add_field('translate:plus_bs5.metainfo.cat_nav', 'cat_nav', '100', '', 5, '||', 'desktop_hidden:translate:plus_bs5_nav_desktop_hidden');
