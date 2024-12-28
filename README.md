@@ -1,22 +1,20 @@
 # Bootstrap 5 Module und Templates für REDAXO 5
 
-> NOCH NICHT FÜR DEN PRODUKTIVEINSATZ GEDACHT!
-
 Projektübergreifende Bootstrap 5 Module und Templates für REDAXO
 
 In diesem Addon befinden sich Vorlagen für Bootstrap 5-Module und Templates in Form von Fragmenten und Hilfsklassen.
 
 Bootstrap 5 selbst wird mitinstalliert, kann jedoch auch von Entwicklern händisch oder über einen eigenen Build-Prozess ersetzt und angepasst werden.
 
-Templates und deren Fragmente können in eigenen Addons überschrieben werden.
+Templates und deren Fragmente können in eigenen Addons überschrieben werden. 
 
 ## Namensschema
 
-Alle Module und Templates erhalten das Namensschema `bs5/xxxxx`, z.B. `bs5/text`, `bs5/image` usw.
+Alle Module und Templates erhalten das Namensschema `bs5.xxxxx`, z.B. `bs5.text`, `bs5.image` usw.
 
 Die Ordner-Struktur der Fragmente ist immer `/bs5/` + passende Fragmente, passend zum Namespace der Modul-Keys und Tempalte-Keys.
 
-z.B. `/bs5/text` als Modul-Key sucht nach `/bs5/text.php` als Ausgabe-Fragment.
+z.B. `bs5.text` als Modul-Key sucht nach `bs5/text/index.php` als Ausgabe-Fragment.
 
 ## Template-Struktur
 
@@ -25,7 +23,7 @@ z.B. `/bs5/text` als Modul-Key sucht nach `/bs5/text.php` als Ausgabe-Fragment.
 Ein Tempalte, das die wichtigsten Elemente einbindet, die für den Betrieb notwendig sind:
 `template/head.php`, `template/header.php`, `template/main.php` und `template/footer.php`
 
-![standard](https://github.com/alexplusde/plus_bs5/assets/3855487/4f3cbafa-2dd5-4e70-a440-d01863ea62a1)
+![image](https://github.com/user-attachments/assets/ff975cd1-561c-4e2b-924f-b8ee7cc08c53)
 
 ### `Wartung [2]`
 
@@ -39,7 +37,9 @@ Ein Template, das wie `Standard [1]` funktioniert, jedoch kein Navigationsmenü 
 
 ### Grundsätzliches zum Aufbau der Module Values
 
-Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID.
+![image](https://github.com/user-attachments/assets/6b8ba2a1-2fba-4deb-9f69-3828ca3ae6fc)
+
+Die **Eingabe** wird i.d.R. über MForm gebaut. Die **Ausgabe** findet ausschließlich in Fragmenten statt und enthält grundsätzlich die REX_SLICE_ID und REX_ARTICLE_ID. Dadurch lassen sich Ausgaben auch nachträglich über den Prozess im Installer updaten. Mehr Infos dazu unter <https://github.com/alexplusde/tracks/>.
 
 Unter [https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder](https://chatgpt.com/g/g-cYIHRaDWy-steve-redaxo-mform-builder) findest du ein angepasstes ChatGPT-Modell für Modul-Eingabe und -Ausgabe.
 
