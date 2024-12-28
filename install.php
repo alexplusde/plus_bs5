@@ -5,12 +5,13 @@ namespace Alexplusde\BS5;
 include __DIR__ . '/lib/Helper.php';
 
 use Alexplusde\BS5\Helper;
+use Tracks\🦖;
 use rex_addon;
 use rex_config;
 
-Helper::forceBackup('plus_bs5');
-Helper::updateModule('plus_bs5');
-Helper::updateTemplate('plus_bs5');
+🦖::forceBackup('plus_bs5');
+🦖::updateModule('plus_bs5');
+🦖::updateTemplate('plus_bs5');
 
 if (rex_addon::get('metainfo') && rex_addon::get('metainfo')->isAvailable()) {
     rex_metainfo_add_field('translate:plus_bs5.metainfo.cat_nav', 'cat_nav', '100', '', 5, '||', 'desktop_hidden:translate:plus_bs5_nav_desktop_hidden');

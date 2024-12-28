@@ -12,15 +12,16 @@ use rex_category;
 use rex_extension_point;
 use rex_path;
 use rex_response;
+use Tracks\🦖;
 
 if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
     rex_yform::addTemplatePath(rex_path::addon('plus_bs5', 'yformtemplates'));
 }
 
 if (rex::isBackend() && rex::isDebugMode() && rex_config::get('plus_bs5', 'dev')) {
-    Helper::setIndicators();
-    Helper::writeModule();
-    Helper::writeTemplate();
+    Helper::setIndicators('plus_bs5');
+    🦖::writeModule('plus_bs5');
+    🦖::writeTemplate('plus_bs5');
 }
 
 /** OutputFilter Replace '<table>' with '<table class="table">' */
@@ -29,7 +30,7 @@ if (rex::isFrontend()) {
     rex_extension::register('OUTPUT_FILTER', static function (rex_extension_point $ep) {
         $subject = $ep->getSubject();
         $search = '<table>';
-        $replace = '<table class="table table-responsive">';
+        $replace = '<table class="table table-responsive">'; // Reicht nicht, wg. Boostrap 5 Syntax
         $subject = str_replace($search, $replace, $subject);
         $ep->setSubject($subject);
     });
