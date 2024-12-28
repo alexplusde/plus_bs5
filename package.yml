@@ -83,6 +83,8 @@ module:
     bs5.video.mediapool: "Video (Mediapool)"
     bs5.video.youtube: "Video (YouTube)"
     bs5.search_it.result: "Suchergebnisse"
+    bs5.imprint: "Impressum"
+    bs5.privacy_policy: "Datenschutzerklärung"
     school.contact: "Kollegium"
     school.contact.website_team: "Kategorien"
     school.hierachy: "Artikel"
