@@ -1,4 +1,13 @@
 <?php
+
+/**
+ * Dieses Modul wird über das Addon plus_bs5 verwaltet und geupdatet.
+ * Um das Modul zu entkoppeln, ändere den Modul-Key in REDAXO. Um die 
+ * Ausgabe zu verändern, genügt es, das passende Fragment zu überschreiben.
+ */
+
+/** @var rex_article_content $this */
+
 if (!rex_addon::get('qanda') && !rex_addon::get('qanda')->isAvailable()) {
     echo rex_view::error(rex_i18n::msg('bs5-install-qanda'));
     return;
