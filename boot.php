@@ -20,8 +20,8 @@ if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
 
 if (rex::isBackend() && rex::isDebugMode() && rex_config::get('plus_bs5', 'dev')) {
     Helper::setIndicators('plus_bs5');
-    🦖::writeModule('plus_bs5');
-    🦖::writeTemplate('plus_bs5');
+    🦖::writeModule('plus_bs5', 'bs5.%');
+    🦖::writeTemplate('plus_bs5', 'bs5.%');
 }
 
 /** OutputFilter Replace '<table>' with '<table class="table">' */
