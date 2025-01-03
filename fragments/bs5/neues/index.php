@@ -24,6 +24,7 @@ if ($dataset instanceof Entry) {
 }
 
 if (null === $dataset) {
+    echo $this->subFragment('bs5/text/index.php');
     echo $this->subFragment('bs5/neues/list.php');
 }
 ?>
