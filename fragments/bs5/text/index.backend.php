@@ -3,18 +3,20 @@
 namespace Alexplusde\School;
 
 use Alexplusde\BS5\Fragment;
+use Alexplusde\MediaManagerResponsive\Media;
 
 /** @var rex_fragment|Fragment $this */
 
 
 $headline = $this->getVar('headline');
 $headline_level = $this->getVar('headline_level') ?? "h2";
+$teaser = $this->getVar('teaser');
 $text = $this->getVar('text');
 $cta = $this->getVar('cta');
 $imagePosition = $this->getVar('imagePosition');
 
 $image = $this->getVar('image');
-$media = \rex_media_plus::get($image);
+$media = Media::get($image);
 ?>
 <section class="modul modul-text py-3" id="modul-REX_SLICE_ID">
 	<div class="row">
@@ -26,6 +28,7 @@ $media = \rex_media_plus::get($image);
 				<?php if ($headline) { ?>
 					<<?= $headline_level ?>><?= $headline ?></<?= $headline_level ?>>
 				<?php } ?>
+				<?= $teaser ?>
 				<?= $text ?>
 			</div>
 		<?php } else { ?>
@@ -33,6 +36,7 @@ $media = \rex_media_plus::get($image);
 				<?php if ($headline) { ?>
 					<<?= $headline_level ?>><?= $headline ?></<?= $headline_level ?>>
 				<?php } ?>
+				<?= $teaser ?>
 				<?= $text ?>
 			</div>
 		<?php } ?>
