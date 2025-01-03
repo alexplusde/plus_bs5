@@ -26,6 +26,9 @@ $fragment = new Fragment();
 $fragment->setVar('slice_id', "REX_SLICE_ID");
 
 /* Modulspezifische Variablen */
+$options = rex_var::toArray("REX_VALUE[9]");
+$fragment->setVar('category_ids', $options['category_ids'] ?? []);
+$fragment->setVar('limit', $options['limit'] ?? 12);
 
 /* Ausgabe */
 $fragment = new Fragment();
