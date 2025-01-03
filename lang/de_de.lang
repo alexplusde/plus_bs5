@@ -137,6 +137,7 @@ bs5.config.search_it_article_id.notice = Wähle den Artikel, der die Suchergebni
 
 bs5.module.mform.headline = Überschrift
 bs5.module.mform.headline_level = Ebene
+bs5.module.mform.teaser = Teaser
 bs5.module.mform.text = Text
 bs5.module.mform.cta_text = Call-To-Action-Links
 bs5.module.mform.image = Bild
@@ -153,3 +154,9 @@ bs5_config_dev_inactive = deaktiviert
 bs5.template.checkout = Checkout (Ein Template ohne Navigation)
 bs5.template.default = Standard
 bs5.template.maintenance = Wartungsmodus
+
+# Metainfos
+
+bs5.metainfo.hide_intro = Intro (Titel, Beschreibung, Bild)
+bs5.metainfo.hide_intro.hide = Intro verbergen
+bs5.metainfo.hide_intro.show = Intro anzeigen
