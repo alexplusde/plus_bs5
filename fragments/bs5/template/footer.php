@@ -61,6 +61,10 @@ foreach ($footer_nav as $id) {
 				<?php }
     } ?>
 			</ul>
+			<button id="theme-toggle" class="btn btn-outline-secondary">
+				<i class="bi bi-sun"></i>
+			<span class="ms-2">Light</span>
+		</button>
 		</div>
 	</div>
 </footer>
