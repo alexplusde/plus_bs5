@@ -26,7 +26,7 @@ $is_pdf = $media->getExtension() == 'pdf';
 					<img class="img-fluid" src="/media/download-thumbnail/<?= $media->getFileName() ?>" alt="<?= $this->title ?>">
 				</div>
 			<?php else: ?>
-				<div class="extension-wrapper position-relative bg-secondary text-white">
+				<div class="extension-wrapper position-relative bg-secondary text-body">
 					<div class="file-extension position-absolute top-50 start-50 translate-middle"><?= $this->extension ?></div>
 				</div>
 			<?php endif; ?>

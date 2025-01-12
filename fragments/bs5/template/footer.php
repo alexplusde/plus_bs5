@@ -10,7 +10,7 @@ use rex_config;
 
 ?>
 <div class="p-5"></div>
-<footer class="pt-5 bg-white shadow">
+<footer class="pt-5 bg-body shadow">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">

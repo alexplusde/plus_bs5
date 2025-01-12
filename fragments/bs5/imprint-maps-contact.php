@@ -4,7 +4,7 @@ use Alexplusde\BS5\Helper;
 
 ?>
 <section class="kontakt-form py-5" id="kontakt-REX_SLICE_ID">
-	<div class="container bg-white p-5 g-5">
+	<div class="container bg-body p-5 g-5">
 		<div class="row">
 			<div class="col-12 col-md-6">
 				<h2>Impressum</h2>

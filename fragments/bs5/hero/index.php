@@ -10,10 +10,10 @@ use Alexplusde\MediaManagerResponsive\TypeGroup;
 		<div class="container py-5 mx-auto">
 			<div class="bs5-hero--container bs5-text bg-primary p-3 col-12 col-md-6">
 				<<?= $this->getVar('level') ?>
-					class="bs5-hero--title d-inline-block text-white">
+					class="bs5-hero--title d-inline-block text-body">
 					<?= $this->getVar('title') ?>
 				</<?= $this->getVar('level') ?>>
-				<div class="bs5-hero--teaser text-white">
+				<div class="bs5-hero--teaser text-body">
 					<?= $this->getVar('teaser') ?>
 				</div>
 			</div>

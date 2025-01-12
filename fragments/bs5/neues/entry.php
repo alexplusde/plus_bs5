@@ -29,7 +29,7 @@ foreach ($categories as $category) {
 			<?= $entry->getTeaser() ?>
 		</p>
 		<a href="<?= $entry->getUrl() ?>"
-			class="btn btn-medium btn-primary text-white">{{neues.entry.more}}</a>
+			class="btn btn-medium btn-primary text-body">{{neues.entry.more}}</a>
 			<?= $this->subfragment('bs5/neues/atom.backend-edit.php', ['entry' => $entry]) ?>
 	</div>
 

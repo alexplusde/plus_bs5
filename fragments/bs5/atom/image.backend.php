@@ -19,7 +19,7 @@ if (!$media) {
     <img src="<?= $media->getUrl() ?>" class="img-fluid" alt="<?= $media->getTitle() ?>">
     <a href="<?= Helper::getBackendMediapoolEditLink($image) ?>" class="position-absolute top-0 start-0" style="width: 100%; height: 100%;"></a>
     <!-- BS3 - Tooltip mit Title -->
-    <div class="position-absolute bottom-0 start-0 bg-dark text-white p-1">
+    <div class="position-absolute bottom-0 start-0 bg-dark text-body p-1">
         <?= $media->getTitle() ?>
     </div>
 </div>

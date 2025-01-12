@@ -9,7 +9,7 @@ $field->setLabel($this->i18n('bs5_config_background_label'));
 $field->setNotice($this->i18n('bs5_config_background_notice'));
 $select = $field->getSelect();
 $select->setSize(1);
-$select->addOption($this->i18n('bs5_config_background_white'), 'bg-white');
+$select->addOption($this->i18n('bs5_config_background_white'), 'bg-body');
 $select->addOption($this->i18n('bs5_config_background_primary'), 'bg-primary');
 $select->addOption($this->i18n('bs5_config_background_light'), 'bg-light');
 $select->addOption($this->i18n('bs5_config_background_dark'), 'bg-dark');

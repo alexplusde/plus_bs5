@@ -17,7 +17,7 @@ $currentDomain = rex_yrewrite::getCurrentDomain();
 $startArticle = rex_article::get($currentDomain->getStartId());
 ?>
 <!-- bs5/template/breadcrumbs.php  -->
-<div class="bg-light">
+<div class="bg-body">
     <div class="container">
         <nav class="navbar">
             <ol class="breadcrumb m-0">

@@ -14,9 +14,9 @@ $website_name = $domain->getName();
 ?>
 <a class="visually-hidden visually-hidden-focusable" href="#content">{{ bs5.template.a18y.jump_to_content }}</a>
 <?= $this->getSubfragment('bs5/template/header/mobile-nav.php') ?>
-<header class="bg-white sticky-top border-bottom">
+<header class="bg-body sticky-top border-bottom">
 
-	<div class="header-top bg-primary text-white link-light py-2">
+	<div class="header-top bg-primary text-body link-light py-2">
 		<div class="container">
 			<div class="row">
 				<?= Maintenance::showAnnouncement() ?>

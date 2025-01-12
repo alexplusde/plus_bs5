@@ -8,9 +8,9 @@ use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use rex_media_plus;
 
 ?>
-<header class="bg-white sticky-top border-bottom">
+<header class="bg-body sticky-top border-bottom">
 
-	<div class="header-top bg-primary text-white link-light py-2">
+	<div class="header-top bg-primary text-body link-light py-2">
 		<div class="container">
 			<div class="row">
 				<?= Helper::getConfig('header_text')  ?>

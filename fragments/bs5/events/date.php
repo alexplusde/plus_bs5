@@ -17,7 +17,7 @@ foreach ($categories as $category) {
     ?>
 		<p>
 			<span
-				class="badge bg-secondary p-2 text-white"><?= $category->getName() ?></span>
+				class="badge bg-secondary p-2 text-body"><?= $category->getName() ?></span>
 		</p>
 		<?php
 }
