@@ -44,7 +44,12 @@ class Navigation extends rex_navigation
                     return false;
                 }
 
-                $a['class'][] = 'btn nav-link';
+                if ('' !== $category->getValue('cat_is_button')) {
+                    $a['class'][] = 'btn ' . $category->getValue('cat_is_button');
+                } else {
+                    $a['class'][] = 'btn nav-link';
+                }
+
 
                 if (1 == $depth && $category->getChildren(true)) {
                     $li['class'][] = 'dropdown btn-group nav-item';
