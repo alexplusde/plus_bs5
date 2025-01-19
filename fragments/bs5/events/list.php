@@ -22,8 +22,8 @@ if ($category) {
     $total = $category->getRelatedCollection('date_id')->count();
     $dates = $category->getRelatedCollection('date_id');
 } else {
-    $total = Date::query()->orderBy('startDate', 'ASC')->find()->count();
-    $dates = Date::query()->orderBy('startDate', 'ASC')->limit($offset, $limit)->find();
+    $total = Date::query()->where('startDate', date('Y-m-d H:i:s'), '>=')->orderBy('startDate', 'ASC')->find()->count();
+    $dates = Date::query()->orderBy('startDate',date('Y-m-d H:i:s'), 'ASC')->limit($offset, $limit)->find();
 }
 
 $this->setVar('dates', $dates);
